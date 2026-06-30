@@ -1,0 +1,390 @@
+"""Batch runner for ready incoming product folders.
+
+Usage:
+    python -m app.batch --limit 2
+    python -m app.batch --creative none --limit 1
+    python -m app.batch --mode leaf --creative both --limit 2
+    python -m app.batch --all
+
+By default the runner processes product family folders. Child leaf folders are
+treated as variants on one Shopify product. Use --mode leaf only when every leaf
+folder should intentionally become its own product. The default grouped mode
+uses white-background product images only. Creative images are opt-in.
+"""
+
+from __future__ import annotations
+
+import argparse
+import asyncio
+import json
+import mimetypes
+import uuid
+from datetime import datetime, timezone
+from pathlib import Path
+
+from app import pipeline
+from app.config import settings
+from app.product_types.prompts import get_prompt_pack
+from app.schemas import Listing
+from app.services import images, shopify
+
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
+DEFAULT_ROOTS = ("incoming/bags", "incoming/perfumes")
+
+
+def _ready_product_folders(roots: list[Path]) -> list[tuple[Path, list[Path]]]:
+    products: list[tuple[Path, list[Path]]] = []
+    for root in roots:
+        if not root.exists():
+            continue
+        for folder in sorted(path for path in root.rglob("*") if path.is_dir()):
+            files = sorted(
+                path
+                for path in folder.iterdir()
+                if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS
+            )
+            subdirs = [path for path in folder.iterdir() if path.is_dir()]
+            if files and not subdirs:
+                products.append((folder, files))
+    return products
+
+
+def _variant_groups(roots: list[Path]) -> list[tuple[Path, list[tuple[str, Path, list[Path]]]]]:
+    groups: list[tuple[Path, list[tuple[str, Path, list[Path]]]]] = []
+    for root in roots:
+        if not root.exists():
+            continue
+        for product_folder in sorted(path for path in root.iterdir() if path.is_dir()):
+            variants: list[tuple[str, Path, list[Path]]] = []
+            for folder in sorted(path for path in product_folder.rglob("*") if path.is_dir()):
+                files = sorted(
+                    path
+                    for path in folder.iterdir()
+                    if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS
+                )
+                subdirs = [path for path in folder.iterdir() if path.is_dir()]
+                if files and not subdirs:
+                    variant_name = str(folder.relative_to(product_folder)).replace("/", " - ")
+                    variants.append((variant_name, folder, files))
+
+            direct_files = sorted(
+                path
+                for path in product_folder.iterdir()
+                if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS
+            )
+            direct_subdirs = [path for path in product_folder.iterdir() if path.is_dir()]
+            if direct_files and not direct_subdirs:
+                variants.append(("Default", product_folder, direct_files))
+
+            if variants:
+                groups.append((product_folder, variants))
+    return groups
+
+
+def _media_type(path: Path) -> str:
+    return mimetypes.guess_type(str(path))[0] or "image/jpeg"
+
+
+def _result_summary(folder: Path, result) -> dict:
+    publishable = [
+        review.path
+        for review in result.candidate_reviews
+        if review.publishable and review.silhouette_ok and review.proportions_ok
+    ]
+    return {
+        "folder": str(folder),
+        "title": result.listing.title,
+        "product_type": result.prompt_route.product_type
+        if result.prompt_route
+        else None,
+        "product_kind": result.prompt_route.product_kind if result.prompt_route else None,
+        "white_bg_path": result.white_bg_path,
+        "lifestyle_candidate_paths": result.lifestyle_candidate_paths,
+        "on_model_candidate_paths": result.on_model_candidate_paths,
+        "publishable_candidate_paths": publishable,
+        "image_errors": result.image_errors,
+        "shopify_product_id": result.shopify_product_id,
+        "shopify_admin_url": result.shopify_admin_url,
+    }
+
+
+def _shopify_image_paths(result) -> list[str]:
+    paths: list[str] = []
+    if result.white_bg_path:
+        paths.append(result.white_bg_path)
+    generated = set(result.lifestyle_candidate_paths + result.on_model_candidate_paths)
+    publishable = [
+        review.path
+        for review in result.candidate_reviews
+        if (
+            review.publishable
+            and review.silhouette_ok
+            and review.proportions_ok
+            and review.path in generated
+        )
+    ]
+    if publishable:
+        paths.extend(publishable)
+    elif generated:
+        paths.extend(sorted(generated))
+    return paths
+
+
+def _variant_listing(base: Listing, product_folder: Path, variant_names: list[str]) -> Listing:
+    product_name = product_folder.name
+    variant_text = ", ".join(variant_names[:12])
+    if len(variant_names) > 12:
+        variant_text += f", and {len(variant_names) - 12} more"
+
+    description = (
+        f"<p>{product_name} is available in multiple colors and prints. "
+        "Choose your preferred variant before checkout.</p>"
+        f"{base.description_html}"
+    )
+
+
+def _basic_listing(product_folder: Path, variant_names: list[str]) -> Listing:
+    product_name = product_folder.name
+    variant_text = ", ".join(variant_names[:12])
+    if len(variant_names) > 12:
+        variant_text += f", and {len(variant_names) - 12} more"
+    product_type = _product_type_for_folder(product_folder)
+    category = {
+        "bag": "bag",
+        "perfume": "fragrance",
+        "glasses": "eyewear",
+    }.get(product_type, "product")
+    description = (
+        f"<p>{product_name} is available in multiple variants. Choose your "
+        "preferred option before checkout.</p>"
+        f"<ul><li>Product type: {category}</li>"
+        f"<li>Available variants: {variant_text}</li>"
+        "<li>Draft listing generated from organized product photos</li></ul>"
+    )
+    return Listing(
+        title=product_name,
+        description_html=description,
+        seo_title=f"{product_name} | OHH Bags",
+        seo_description=f"Shop {product_name} in multiple variants including {variant_text}.",
+        tags=[product_name.lower(), category, "variant product", *variant_names],
+    )
+
+
+def _product_type_for_folder(folder: Path) -> str:
+    parts = set(folder.parts)
+    if "perfumes" in parts:
+        return "perfume"
+    if "glasses" in parts:
+        return "glasses"
+    return "bag"
+
+
+def _save_output(image_bytes: bytes, run_dir: Path, name: str) -> str:
+    run_dir.mkdir(parents=True, exist_ok=True)
+    path = run_dir / name
+    path.write_bytes(image_bytes)
+    return str(path)
+    tags = list(dict.fromkeys([*base.tags, "variant product", product_name.lower()]))
+    return Listing(
+        title=product_name,
+        description_html=description,
+        seo_title=f"{product_name} | OHH Bags",
+        seo_description=f"Shop {product_name} in multiple variants including {variant_text}.",
+        tags=tags,
+    )
+
+
+async def _process_one(folder: Path, files: list[Path], args: argparse.Namespace) -> dict:
+    references = [(path.read_bytes(), _media_type(path)) for path in files]
+    result = await pipeline.run(
+        references[0][0],
+        references[0][1],
+        reference_images=references,
+        creative_mode=args.creative,
+        qc_enabled=args.qc,
+        lifestyle_count=args.lifestyle_candidates,
+        on_model_count=args.on_model_candidates,
+    )
+    return _result_summary(folder, result)
+
+
+async def _process_group(
+    product_folder: Path,
+    variants: list[tuple[str, Path, list[Path]]],
+    args: argparse.Namespace,
+) -> dict:
+    variant_names = [name for name, _, _ in variants]
+    variant_summaries: list[dict] = []
+    image_bytes: list[bytes] = []
+    product_type = _product_type_for_folder(product_folder)
+    prompt_pack = get_prompt_pack(product_type)
+    listing = _basic_listing(product_folder, variant_names)
+
+    for index, (variant_name, folder, files) in enumerate(variants):
+        creative_mode = (
+            args.creative
+            if args.creative != "none" and index < args.creative_variant_limit
+            else "none"
+        )
+        references = [(path.read_bytes(), _media_type(path)) for path in files]
+        run_dir = Path(settings.output_dir) / uuid.uuid4().hex[:8]
+        image_errors: list[str] = []
+        white_bg_path = None
+        lifestyle_paths: list[str] = []
+        on_model_paths: list[str] = []
+
+        try:
+            white_bg = await images.clean_white_bg(references[0][0], references[0][1])
+            white_bg_path = _save_output(white_bg, run_dir, "white_bg.png")
+            image_bytes.append(white_bg)
+            generation_references = [(white_bg, "image/png"), *references[1:]]
+        except Exception as exc:
+            image_errors.append(f"white_bg: {exc}")
+            generation_references = references
+
+        if white_bg_path and creative_mode in {"lifestyle", "both"}:
+            try:
+                for i, candidate in enumerate(
+                    await images.generate_lifestyle(
+                        generation_references,
+                        prompt_pack,
+                        count=args.lifestyle_candidates,
+                    )
+                ):
+                    lifestyle_paths.append(
+                        _save_output(candidate, run_dir, f"lifestyle_{i}.png")
+                    )
+                    image_bytes.append(candidate)
+            except Exception as exc:
+                image_errors.append(f"lifestyle: {exc}")
+
+        if white_bg_path and creative_mode in {"model", "both"}:
+            try:
+                product_kind = "purse" if product_type == "bag" else product_type
+                for i, candidate in enumerate(
+                    await images.generate_on_model(
+                        generation_references,
+                        product_kind=product_kind,
+                        prompt_pack=prompt_pack,
+                        count=args.on_model_candidates,
+                    )
+                ):
+                    on_model_paths.append(
+                        _save_output(candidate, run_dir, f"on_model_{i}.png")
+                    )
+                    image_bytes.append(candidate)
+            except Exception as exc:
+                image_errors.append(f"on_model: {exc}")
+
+        summary = {
+            "folder": str(folder),
+            "variant_name": variant_name,
+            "white_bg_path": white_bg_path,
+            "lifestyle_candidate_paths": lifestyle_paths,
+            "on_model_candidate_paths": on_model_paths,
+            "image_errors": image_errors,
+        }
+        if not white_bg_path:
+            summary["fatal_error"] = "No white-background image available"
+        variant_summaries.append(summary)
+
+    if not image_bytes:
+        raise RuntimeError(f"No generated images available for {product_folder}")
+
+    created = await shopify.create_draft_with_variants(
+        listing,
+        variant_names,
+        image_bytes,
+    )
+    return {
+        "folder": str(product_folder),
+        "variant_names": variant_names,
+        "variant_count": len(variant_names),
+        "variant_results": variant_summaries,
+        "shopify_product_id": created["product_id"],
+        "shopify_admin_url": created["admin_url"],
+        "image_errors": [f"shopify: {error}" for error in created["image_errors"]],
+    }
+
+
+async def _run(args: argparse.Namespace) -> int:
+    roots = [Path(root) for root in args.root]
+    products = (
+        _ready_product_folders(roots)
+        if args.mode == "leaf"
+        else _variant_groups(roots)
+    )
+    if args.start_after:
+        products = [
+            item for item in products if str(item[0]) > args.start_after
+        ]
+
+    if args.mode == "variants" and args.variant_limit:
+        products = [
+            (folder, variants[: args.variant_limit])
+            for folder, variants in products
+        ]
+
+    if not args.all:
+        products = products[: args.limit]
+
+    print(f"ready product folders selected: {len(products)}", flush=True)
+    if args.dry_run:
+        for folder, payload in products:
+            if args.mode == "leaf":
+                print(f"{len(payload)} refs  {folder}")
+            else:
+                print(f"{len(payload)} variants  {folder}")
+                for name, variant_folder, files in payload:
+                    print(f"  - {name}: {len(files)} refs  {variant_folder}")
+        return 0
+
+    Path(args.manifest).parent.mkdir(parents=True, exist_ok=True)
+    failures = 0
+    with Path(args.manifest).open("a", encoding="utf-8") as manifest:
+        for index, (folder, files) in enumerate(products, start=1):
+            print(
+                f"RUN {index}/{len(products)}: {folder}",
+                flush=True,
+            )
+            try:
+                summary = (
+                    await _process_one(folder, files, args)
+                    if args.mode == "leaf"
+                    else await _process_group(folder, files, args)
+                )
+            except Exception as exc:
+                failures += 1
+                summary = {"folder": str(folder), "fatal_error": str(exc)}
+            manifest.write(json.dumps(summary, ensure_ascii=True) + "\n")
+            manifest.flush()
+            print(json.dumps(summary, indent=2), flush=True)
+    return 1 if failures else 0
+
+
+def main() -> None:
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", action="append", default=list(DEFAULT_ROOTS))
+    parser.add_argument("--limit", type=int, default=1)
+    parser.add_argument("--all", action="store_true")
+    parser.add_argument("--mode", choices=["variants", "leaf"], default="variants")
+    parser.add_argument("--variant-limit", type=int)
+    parser.add_argument(
+        "--creative",
+        choices=["none", "lifestyle", "model", "both"],
+        default="none",
+    )
+    parser.add_argument("--creative-variant-limit", type=int, default=1)
+    parser.add_argument("--lifestyle-candidates", type=int, default=1)
+    parser.add_argument("--on-model-candidates", type=int, default=1)
+    parser.add_argument("--qc", action="store_true")
+    parser.add_argument("--start-after", default="")
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--manifest", default=f"outputs/batch_{stamp}.jsonl")
+    args = parser.parse_args()
+    raise SystemExit(asyncio.run(_run(args)))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,18 @@
+.DS_Store
+
+# Local credentials and virtualenvs
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Local product inputs and generated outputs. Keep the folders, not contents.
+incoming/*
+!incoming/.gitkeep
+outputs/*
+!outputs/.gitkeep

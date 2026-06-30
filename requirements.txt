@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+pydantic-settings
+anthropic
+openai
+httpx
+pillow
+rembg[cpu]
