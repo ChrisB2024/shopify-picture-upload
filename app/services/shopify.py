@@ -144,7 +144,7 @@ async def create_draft(
 async def create_draft_with_variants(
     listing: Listing,
     variant_names: list[str],
-    image_bytes: bytes | list[bytes] | None,
+    image_bytes: bytes | list[bytes] | list[tuple[bytes, str]] | None,
     *,
     option_name: str = "Color or Print",
 ) -> dict:
@@ -206,7 +206,30 @@ async def create_draft_with_variants(
 
     data = resp.json()
     product_id = str(data["product"]["id"])
-    image_errors = await upload_product_images(product_id, image_bytes, token=token)
+    variant_id_by_name = {
+        str(variant.get("option1")): str(variant["id"])
+        for variant in data["product"].get("variants", [])
+        if variant.get("id") and variant.get("option1")
+    }
+
+    upload_bytes: bytes | list[bytes] | None
+    variant_ids_by_image: list[list[str] | None] | None = None
+    if isinstance(image_bytes, list) and image_bytes and isinstance(image_bytes[0], tuple):
+        upload_bytes = []
+        variant_ids_by_image = []
+        for image, variant_name in image_bytes:
+            upload_bytes.append(image)
+            variant_id = variant_id_by_name.get(variant_name)
+            variant_ids_by_image.append([variant_id] if variant_id else None)
+    else:
+        upload_bytes = image_bytes
+
+    image_errors = await upload_product_images(
+        product_id,
+        upload_bytes,
+        token=token,
+        variant_ids_by_image=variant_ids_by_image,
+    )
     return {
         "product_id": product_id,
         "admin_url": f"https://{settings.shopify_store}/admin/products/{product_id}",
@@ -219,6 +242,7 @@ async def upload_product_images(
     image_bytes: bytes | list[bytes] | None,
     *,
     token: str | None = None,
+    variant_ids_by_image: list[list[str] | None] | None = None,
 ) -> list[str]:
     """Attach images to an existing product one request at a time."""
     if not image_bytes:
@@ -238,12 +262,15 @@ async def upload_product_images(
 
     async with httpx.AsyncClient(timeout=90) as client:
         for index, image in enumerate(image_list):
-            payload = {
-                "image": {
-                    "attachment": base64.b64encode(image).decode("ascii"),
-                    "position": index + 1,
-                }
+            image_payload = {
+                "attachment": base64.b64encode(image).decode("ascii"),
+                "position": index + 1,
             }
+            if variant_ids_by_image and index < len(variant_ids_by_image):
+                variant_ids = variant_ids_by_image[index]
+                if variant_ids:
+                    image_payload["variant_ids"] = variant_ids
+            payload = {"image": image_payload}
             last_exc: Exception | None = None
             for attempt in range(2):
                 try:

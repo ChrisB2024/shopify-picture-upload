@@ -7,8 +7,10 @@ class Settings(BaseSettings):
     anthropic_api_key: str
 
     photoroom_api_key: str = ""
+    pixelcut_api_key: str = ""
     # Background removal backend:
     # - photoroom: paid API, strongest/most consistent
+    # - pixelcut: paid API, multipart upload with product cutout output
     # - rembg: local/free after setup, cheaper but needs visual QA
     background_remover: str = "photoroom"
 

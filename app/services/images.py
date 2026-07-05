@@ -25,7 +25,7 @@ import io
 
 import httpx
 from openai import OpenAI
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 from app.config import settings
 from app.product_types.prompts import BAG_PROMPT_PACK, ProductPromptPack
@@ -51,23 +51,116 @@ def _to_png(image_bytes: bytes) -> bytes:
         return output.getvalue()
 
 
+def _encode_image(image: Image.Image, image_format: str, quality: int = 90) -> bytes:
+    output = io.BytesIO()
+    if image_format == "jpg":
+        image.convert("RGB").save(output, format="JPEG", quality=quality, optimize=True)
+    elif image_format == "png":
+        image.save(output, format="PNG", optimize=True)
+    else:
+        raise RuntimeError(f"Unsupported image format: {image_format}")
+    return output.getvalue()
+
+
+def _trim_transparent(image: Image.Image) -> Image.Image:
+    bbox = image.getchannel("A").getbbox()
+    return image.crop(bbox) if bbox else image
+
+
+def _composite_on_white(image_bytes: bytes) -> bytes:
+    """Composite a transparent cutout onto a white ecommerce background."""
+    with Image.open(io.BytesIO(image_bytes)) as cutout:
+        cutout = ImageOps.exif_transpose(cutout).convert("RGBA")
+        white = Image.new("RGBA", cutout.size, (255, 255, 255, 255))
+        white.alpha_composite(cutout)
+        return _encode_image(white.convert("RGB"), "png")
+
+
+def composite_on_white(cutout_bytes: bytes) -> bytes:
+    """Public helper for turning a transparent cutout into a white PNG."""
+    return _composite_on_white(cutout_bytes)
+
+
+def compose_on_backdrop(
+    cutout_bytes: bytes,
+    backdrop_path: str,
+    *,
+    size: int = 2000,
+    fill: float = 0.72,
+    shadow_opacity: int = 90,
+    shadow_blur: int = 40,
+    shadow_offset: float = 0.025,
+    image_format: str = "jpg",
+    quality: int = 90,
+) -> bytes:
+    """Composite a transparent product cutout onto a reusable backdrop."""
+    with Image.open(backdrop_path) as backdrop_image:
+        backdrop = ImageOps.exif_transpose(backdrop_image).convert("RGB")
+        width, height = backdrop.size
+        side = min(width, height)
+        left = (width - side) // 2
+        top = (height - side) // 2
+        backdrop = backdrop.crop((left, top, left + side, top + side)).resize(
+            (size, size), Image.LANCZOS
+        )
+
+    with Image.open(io.BytesIO(cutout_bytes)) as product_image:
+        product = ImageOps.exif_transpose(product_image).convert("RGBA")
+        product = _trim_transparent(product)
+        scale = (size * fill) / max(product.size)
+        new_size = (
+            max(1, int(product.width * scale)),
+            max(1, int(product.height * scale)),
+        )
+        product = product.resize(new_size, Image.LANCZOS)
+
+    x = (size - product.width) // 2
+    y = (size - product.height) // 2
+    output = backdrop.convert("RGBA")
+
+    if shadow_opacity > 0:
+        shadow_layer = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+        alpha = product.getchannel("A").point(
+            lambda value: int(value * (shadow_opacity / 255))
+        )
+        silhouette = Image.new("RGBA", product.size, (0, 0, 0, 255))
+        silhouette.putalpha(alpha)
+        shadow_layer.paste(
+            silhouette,
+            (x, y + int(size * shadow_offset)),
+            silhouette,
+        )
+        shadow_layer = shadow_layer.filter(ImageFilter.GaussianBlur(shadow_blur))
+        output = Image.alpha_composite(output, shadow_layer)
+
+    output.paste(product, (x, y), product)
+    return _encode_image(output.convert("RGB"), image_format, quality=quality)
+
+
 # --- White-bg shot -----------------------------------------------------------
 
 async def clean_white_bg(image_bytes: bytes, media_type: str) -> bytes:
     """Product composited onto a clean white background."""
+    return _composite_on_white(await remove_background(image_bytes, media_type))
+
+
+async def remove_background(image_bytes: bytes, media_type: str) -> bytes:
+    """Return a transparent PNG cutout from the configured remover."""
     backend = settings.background_remover.lower().strip()
     if backend == "rembg":
-        return await _clean_white_bg_rembg(image_bytes)
+        return await _remove_background_rembg(image_bytes)
     if backend == "photoroom":
-        return await _clean_white_bg_photoroom(image_bytes)
+        return await _remove_background_photoroom(image_bytes)
+    if backend == "pixelcut":
+        return await _remove_background_pixelcut(image_bytes)
     raise RuntimeError(
-        "BACKGROUND_REMOVER must be 'photoroom' or 'rembg' "
+        "BACKGROUND_REMOVER must be 'photoroom', 'pixelcut', or 'rembg' "
         f"(got {settings.background_remover!r})"
     )
 
 
-async def _clean_white_bg_rembg(image_bytes: bytes) -> bytes:
-    """Local background removal using rembg, then composite onto white."""
+async def _remove_background_rembg(image_bytes: bytes) -> bytes:
+    """Local background removal using rembg."""
     upload_bytes = _to_png(image_bytes)
 
     def _call() -> bytes:
@@ -78,20 +171,13 @@ async def _clean_white_bg_rembg(image_bytes: bytes) -> bytes:
                 "rembg is not installed. Run: pip install -r requirements.txt"
             ) from exc
 
-        cutout_bytes = remove(upload_bytes)
-        with Image.open(io.BytesIO(cutout_bytes)) as cutout:
-            cutout = ImageOps.exif_transpose(cutout).convert("RGBA")
-            white = Image.new("RGBA", cutout.size, (255, 255, 255, 255))
-            white.alpha_composite(cutout)
-            output = io.BytesIO()
-            white.convert("RGB").save(output, format="PNG")
-            return output.getvalue()
+        return remove(upload_bytes)
 
     return await asyncio.to_thread(_call)
 
 
-async def _clean_white_bg_photoroom(image_bytes: bytes) -> bytes:
-    """Product composited onto a clean white background using Photoroom Basic.
+async def _remove_background_photoroom(image_bytes: bytes) -> bytes:
+    """Transparent product cutout using Photoroom Basic.
 
     Photoroom Remove Background API:
         POST https://sdk.photoroom.com/v1/segment
@@ -99,8 +185,8 @@ async def _clean_white_bg_photoroom(image_bytes: bytes) -> bytes:
         files:   {"image_file": (filename, image_bytes, media_type)}
         -> transparent-background PNG bytes in the response body
 
-    The API only removes the background. We composite the returned transparent
-    PNG onto white locally so we do not need the Image Editing API.
+    The API only removes the background. Final catalog backgrounds are applied
+    locally by clean_white_bg() or compose_on_backdrop().
     """
     if not settings.photoroom_api_key:
         raise RuntimeError("PHOTOROOM_API_KEY is not configured")
@@ -134,13 +220,74 @@ async def _clean_white_bg_photoroom(image_bytes: bytes) -> bytes:
             f"Photoroom failed with {response.status_code}: {response.text}"
         )
 
-    with Image.open(io.BytesIO(response.content)) as cutout:
-        cutout = ImageOps.exif_transpose(cutout).convert("RGBA")
-        white = Image.new("RGBA", cutout.size, (255, 255, 255, 255))
-        white.alpha_composite(cutout)
-        output = io.BytesIO()
-        white.convert("RGB").save(output, format="PNG")
-        return output.getvalue()
+    return response.content
+
+
+async def _remove_background_pixelcut(image_bytes: bytes) -> bytes:
+    """Transparent product cutout using Pixelcut Remove Background.
+
+    Pixelcut endpoint:
+        POST https://api.developer.pixelcut.ai/v1/remove-background
+        headers: {"X-API-KEY": settings.pixelcut_api_key, "Accept": "image/*"}
+        multipart field: image
+
+    The API can also return JSON with result_url, so we support both forms.
+    """
+    if not settings.pixelcut_api_key:
+        raise RuntimeError("PIXELCUT_API_KEY is not configured")
+
+    upload_bytes = _to_png(image_bytes)
+    headers = {
+        "X-API-KEY": settings.pixelcut_api_key,
+        "Accept": "image/*",
+    }
+    data = {
+        "format": "png",
+        "crop": "false",
+    }
+    last_exc: Exception | None = None
+    async with httpx.AsyncClient(timeout=90) as client:
+        for attempt in range(3):
+            try:
+                response = await client.post(
+                    "https://api.developer.pixelcut.ai/v1/remove-background",
+                    headers=headers,
+                    data=data,
+                    files={"image": ("product.png", upload_bytes, "image/png")},
+                )
+                break
+            except (
+                httpx.ConnectError,
+                httpx.ReadError,
+                httpx.RemoteProtocolError,
+                httpx.TimeoutException,
+            ) as exc:
+                last_exc = exc
+                if attempt == 2:
+                    raise
+                await asyncio.sleep(1 + attempt)
+        else:
+            raise RuntimeError(f"Pixelcut failed before response: {last_exc}")
+
+        if response.status_code >= 400:
+            raise RuntimeError(
+                f"Pixelcut failed with {response.status_code}: {response.text}"
+            )
+
+        content_type = response.headers.get("content-type", "")
+        if content_type.startswith("image/"):
+            return response.content
+
+        result_url = response.json().get("result_url")
+        if not result_url:
+            raise RuntimeError(f"Pixelcut response missing result_url: {response.text}")
+        result = await client.get(result_url)
+        if result.status_code >= 400:
+            raise RuntimeError(
+                f"Pixelcut result download failed with {result.status_code}: "
+                f"{result.text}"
+            )
+        return result.content
 
 
 # --- Best-effort generated shots (reference-conditioned image editing) -------

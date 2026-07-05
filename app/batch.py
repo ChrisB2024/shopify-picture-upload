@@ -29,7 +29,23 @@ from app.schemas import Listing
 from app.services import images, shopify
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
-DEFAULT_ROOTS = ("incoming/bags", "incoming/perfumes")
+DEFAULT_ROOTS = ("incoming/bags", "incoming/perfumes", "incoming/glasses")
+IMAGE_ORDER = {
+    "front": 0,
+    "side": 1,
+    "angle": 2,
+    "back": 3,
+}
+
+
+def _image_sort_key(path: Path) -> tuple[int, str]:
+    stem = path.stem
+    if stem.startswith("detail-"):
+        try:
+            return 4 + int(stem.split("-", 1)[1]), stem
+        except ValueError:
+            return 99, stem
+    return IMAGE_ORDER.get(stem, 50), stem
 
 
 def _ready_product_folders(roots: list[Path]) -> list[tuple[Path, list[Path]]]:
@@ -38,11 +54,11 @@ def _ready_product_folders(roots: list[Path]) -> list[tuple[Path, list[Path]]]:
         if not root.exists():
             continue
         for folder in sorted(path for path in root.rglob("*") if path.is_dir()):
-            files = sorted(
+            files = sorted((
                 path
                 for path in folder.iterdir()
                 if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS
-            )
+            ), key=_image_sort_key)
             subdirs = [path for path in folder.iterdir() if path.is_dir()]
             if files and not subdirs:
                 products.append((folder, files))
@@ -57,21 +73,21 @@ def _variant_groups(roots: list[Path]) -> list[tuple[Path, list[tuple[str, Path,
         for product_folder in sorted(path for path in root.iterdir() if path.is_dir()):
             variants: list[tuple[str, Path, list[Path]]] = []
             for folder in sorted(path for path in product_folder.rglob("*") if path.is_dir()):
-                files = sorted(
+                files = sorted((
                     path
                     for path in folder.iterdir()
                     if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS
-                )
+                ), key=_image_sort_key)
                 subdirs = [path for path in folder.iterdir() if path.is_dir()]
                 if files and not subdirs:
                     variant_name = str(folder.relative_to(product_folder)).replace("/", " - ")
                     variants.append((variant_name, folder, files))
 
-            direct_files = sorted(
+            direct_files = sorted((
                 path
                 for path in product_folder.iterdir()
                 if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS
-            )
+            ), key=_image_sort_key)
             direct_subdirs = [path for path in product_folder.iterdir() if path.is_dir()]
             if direct_files and not direct_subdirs:
                 variants.append(("Default", product_folder, direct_files))
@@ -215,7 +231,7 @@ async def _process_group(
 ) -> dict:
     variant_names = [name for name, _, _ in variants]
     variant_summaries: list[dict] = []
-    image_bytes: list[bytes] = []
+    image_bytes: list[tuple[bytes, str]] = []
     product_type = _product_type_for_folder(product_folder)
     prompt_pack = get_prompt_pack(product_type)
     listing = _basic_listing(product_folder, variant_names)
@@ -233,14 +249,50 @@ async def _process_group(
         lifestyle_paths: list[str] = []
         on_model_paths: list[str] = []
 
-        try:
-            white_bg = await images.clean_white_bg(references[0][0], references[0][1])
-            white_bg_path = _save_output(white_bg, run_dir, "white_bg.png")
-            image_bytes.append(white_bg)
-            generation_references = [(white_bg, "image/png"), *references[1:]]
-        except Exception as exc:
-            image_errors.append(f"white_bg: {exc}")
-            generation_references = references
+        generation_references = references
+        if args.image_source == "original":
+            image_bytes.extend(
+                (reference_bytes, variant_name)
+                for reference_bytes, _ in references
+            )
+        else:
+            for image_path, (reference_bytes, media_type) in zip(files, references):
+                try:
+                    cutout = await images.remove_background(reference_bytes, media_type)
+                    _save_output(cutout, run_dir, f"{image_path.stem}_cutout.png")
+                    if args.image_source == "studio":
+                        final_image = images.compose_on_backdrop(
+                            cutout,
+                            args.backdrop,
+                            size=args.studio_size,
+                            fill=args.studio_fill,
+                            shadow_opacity=args.shadow_opacity,
+                            shadow_blur=args.shadow_blur,
+                            shadow_offset=args.shadow_offset,
+                            image_format=args.studio_format,
+                            quality=args.studio_quality,
+                        )
+                        ext = "jpg" if args.studio_format == "jpg" else "png"
+                        output_name = f"{image_path.stem}_studio.{ext}"
+                    else:
+                        final_image = images.composite_on_white(cutout)
+                        output_name = f"{image_path.stem}_white_bg.png"
+                    saved_path = _save_output(final_image, run_dir, output_name)
+                    if white_bg_path is None:
+                        white_bg_path = saved_path
+                        reference_media_type = (
+                            "image/jpeg"
+                            if args.image_source == "studio"
+                            and args.studio_format == "jpg"
+                            else "image/png"
+                        )
+                        generation_references = [
+                            (final_image, reference_media_type),
+                            *references[1:],
+                        ]
+                    image_bytes.append((final_image, variant_name))
+                except Exception as exc:
+                    image_errors.append(f"{args.image_source} {image_path.name}: {exc}")
 
         if white_bg_path and creative_mode in {"lifestyle", "both"}:
             try:
@@ -254,7 +306,7 @@ async def _process_group(
                     lifestyle_paths.append(
                         _save_output(candidate, run_dir, f"lifestyle_{i}.png")
                     )
-                    image_bytes.append(candidate)
+                    image_bytes.append((candidate, variant_name))
             except Exception as exc:
                 image_errors.append(f"lifestyle: {exc}")
 
@@ -272,7 +324,7 @@ async def _process_group(
                     on_model_paths.append(
                         _save_output(candidate, run_dir, f"on_model_{i}.png")
                     )
-                    image_bytes.append(candidate)
+                    image_bytes.append((candidate, variant_name))
             except Exception as exc:
                 image_errors.append(f"on_model: {exc}")
 
@@ -284,8 +336,8 @@ async def _process_group(
             "on_model_candidate_paths": on_model_paths,
             "image_errors": image_errors,
         }
-        if not white_bg_path:
-            summary["fatal_error"] = "No white-background image available"
+        if args.image_source in {"white-bg", "studio"} and not white_bg_path:
+            summary["fatal_error"] = f"No {args.image_source} image available"
         variant_summaries.append(summary)
 
     if not image_bytes:
@@ -308,6 +360,11 @@ async def _process_group(
 
 
 async def _run(args: argparse.Namespace) -> int:
+    if args.image_source == "studio" and not args.backdrop:
+        raise RuntimeError("--backdrop is required when --image-source studio")
+    if args.backdrop and not Path(args.backdrop).exists():
+        raise RuntimeError(f"Backdrop not found: {args.backdrop}")
+
     roots = [Path(root) for root in args.root]
     products = (
         _ready_product_folders(roots)
@@ -379,6 +436,23 @@ def main() -> None:
     parser.add_argument("--lifestyle-candidates", type=int, default=1)
     parser.add_argument("--on-model-candidates", type=int, default=1)
     parser.add_argument("--qc", action="store_true")
+    parser.add_argument(
+        "--image-source",
+        choices=["white-bg", "studio", "original"],
+        default="white-bg",
+        help=(
+            "Upload background-removed white images, deterministic studio "
+            "composites, or original source photos."
+        ),
+    )
+    parser.add_argument("--backdrop", help="Backdrop template for --image-source studio")
+    parser.add_argument("--studio-size", type=int, default=2000)
+    parser.add_argument("--studio-fill", type=float, default=0.72)
+    parser.add_argument("--shadow-opacity", type=int, default=90)
+    parser.add_argument("--shadow-blur", type=int, default=40)
+    parser.add_argument("--shadow-offset", type=float, default=0.025)
+    parser.add_argument("--studio-format", choices=["jpg", "png"], default="jpg")
+    parser.add_argument("--studio-quality", type=int, default=90)
     parser.add_argument("--start-after", default="")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--manifest", default=f"outputs/batch_{stamp}.jsonl")

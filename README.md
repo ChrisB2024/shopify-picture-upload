@@ -28,9 +28,9 @@ endpoint.
   have their own copy prompts, image prompts, fidelity rules, and QC focus in
   `app/product_types/prompts.py`. Avoid one giant universal prompt.
 - **White-bg shot is the primary image.** Real product pixels, background removed.
-  Photoroom is the strongest paid backend; `rembg` is the local low-cost backend.
-  Safe output still needs a quick visual check on reflective, clear, chain, and
-  fuzzy edges.
+  Photoroom and Pixelcut are paid API backends; `rembg` is the local low-cost
+  backend. Safe output still needs a quick visual check on reflective, clear,
+  chain, and fuzzy edges.
 - **Simple lifestyle shots are best-effort but usually easier than on-model.**
   They place the product in a clean product-commerce scene without hands or a model.
   Use these as the first creative tier after the white-bg image.
@@ -77,6 +77,32 @@ For the local/free background remover, set:
 
 ```bash
 BACKGROUND_REMOVER=rembg
+```
+
+For Pixelcut, set:
+
+```bash
+PIXELCUT_API_KEY=your_pixelcut_api_key
+BACKGROUND_REMOVER=pixelcut
+```
+
+For deterministic studio catalog images, place reusable square backdrop
+templates in `backdrops/`, then run:
+
+```bash
+python3 -m app.batch --limit 1 --image-source studio --backdrop backdrops/naifit-studio.png
+```
+
+This uses the paid remover only for the transparent cutout, then composites the
+product onto the backdrop locally with a soft shadow. Useful tuning knobs:
+
+```bash
+--studio-fill 0.72
+--shadow-opacity 90
+--shadow-blur 40
+--shadow-offset 0.025
+--studio-format jpg
+--studio-quality 90
 ```
 
 The first `rembg` run may download its local model. After that, background
