@@ -55,8 +55,11 @@ endpoint.
 ```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env   # then fill in your keys
+python -m app.init     # guided: prompts for brand + keys, writes .env
 ```
+
+Or copy `.env.example` to `.env` and fill it in by hand. `python -m app.init`
+is just a wizard around the same values (and can validate the Shopify creds).
 
 Each Shopify store/client uses its own local `.env`. Set the brand plus that
 store's Shopify app credentials — no code changes per store:
