@@ -242,16 +242,33 @@ async def _remove_background_pixelcut(image_bytes: bytes, media_type: str) -> by
         raise RuntimeError("PIXELCUT_API_KEY is not configured")
 
     upload_bytes = _to_png(image_bytes)
+    last_exc: Exception | None = None
     async with httpx.AsyncClient(timeout=90) as client:
-        response = await client.post(
-            "https://api.developer.pixelcut.ai/v1/remove-background",
-            headers={
-                "X-API-KEY": settings.pixelcut_api_key,
-                "Accept": "image/*",
-            },
-            data={"format": "png", "crop": "false"},
-            files={"image": ("product.png", upload_bytes, "image/png")},
-        )
+        for attempt in range(3):
+            try:
+                response = await client.post(
+                    "https://api.developer.pixelcut.ai/v1/remove-background",
+                    headers={
+                        "X-API-KEY": settings.pixelcut_api_key,
+                        "Accept": "image/*",
+                    },
+                    data={"format": "png", "crop": "false"},
+                    files={"image": ("product.png", upload_bytes, "image/png")},
+                )
+                break
+            except (
+                httpx.ConnectError,
+                httpx.ReadError,
+                httpx.RemoteProtocolError,
+                httpx.TimeoutException,
+            ) as exc:
+                last_exc = exc
+                if attempt == 2:
+                    raise
+                await asyncio.sleep(1 + attempt)
+        else:
+            raise RuntimeError(f"Pixelcut failed before response: {last_exc}")
+
         if response.status_code >= 400:
             raise RuntimeError(
                 f"Pixelcut failed with {response.status_code}: {response.text}"
