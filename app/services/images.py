@@ -22,10 +22,11 @@ To move to Gemini later, reimplement the edit helper only; orchestration stays.
 import asyncio
 import base64
 import io
+from pathlib import Path
 
 import httpx
 from openai import OpenAI
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 from app.config import settings
 from app.product_types.prompts import BAG_PROMPT_PACK, ProductPromptPack
@@ -39,35 +40,137 @@ _EXT_BY_MEDIA_TYPE = {
 }
 
 
+# Longest-side cap for provider uploads. Phone photos run 4000-6000px / 4-6MB,
+# which trips Pixelcut's file-size limit; 2048px is well above what any downstream
+# needs (cutouts + gpt-image outputs top out at 1536px) and keeps uploads small.
+_MAX_UPLOAD_DIM = 2048
+
+
 def _to_png(image_bytes: bytes) -> bytes:
-    """Normalize uploads for providers that reject unusual image modes."""
+    """Normalize + downscale uploads for providers that reject large/odd images."""
     with Image.open(io.BytesIO(image_bytes)) as image:
         image = ImageOps.exif_transpose(image)
         if image.mode not in ("RGB", "RGBA"):
             image = image.convert("RGBA" if "A" in image.getbands() else "RGB")
+
+        longest = max(image.size)
+        if longest > _MAX_UPLOAD_DIM:
+            scale = _MAX_UPLOAD_DIM / longest
+            new_size = (round(image.width * scale), round(image.height * scale))
+            image = image.resize(new_size, Image.LANCZOS)
 
         output = io.BytesIO()
         image.save(output, format="PNG")
         return output.getvalue()
 
 
-# --- White-bg shot -----------------------------------------------------------
+# --- Background removal + local compositing ---------------------------------
 
 async def clean_white_bg(image_bytes: bytes, media_type: str) -> bytes:
     """Product composited onto a clean white background."""
+    cutout = await remove_background(image_bytes, media_type)
+    return composite_on_white(cutout)
+
+
+async def remove_background(image_bytes: bytes, media_type: str) -> bytes:
+    """Return a transparent PNG cutout from the configured background remover."""
     backend = settings.background_remover.lower().strip()
     if backend == "rembg":
-        return await _clean_white_bg_rembg(image_bytes)
+        return await _remove_background_rembg(image_bytes)
     if backend == "photoroom":
-        return await _clean_white_bg_photoroom(image_bytes)
+        return await _remove_background_photoroom(image_bytes)
+    if backend == "pixelcut":
+        return await _remove_background_pixelcut(image_bytes, media_type)
     raise RuntimeError(
-        "BACKGROUND_REMOVER must be 'photoroom' or 'rembg' "
+        "BACKGROUND_REMOVER must be 'photoroom', 'pixelcut', or 'rembg' "
         f"(got {settings.background_remover!r})"
     )
 
 
-async def _clean_white_bg_rembg(image_bytes: bytes) -> bytes:
-    """Local background removal using rembg, then composite onto white."""
+def composite_on_white(cutout_bytes: bytes) -> bytes:
+    """Composite a transparent PNG cutout onto a white PNG background."""
+    with Image.open(io.BytesIO(cutout_bytes)) as cutout:
+        cutout = ImageOps.exif_transpose(cutout).convert("RGBA")
+        white = Image.new("RGBA", cutout.size, (255, 255, 255, 255))
+        white.alpha_composite(cutout)
+        output = io.BytesIO()
+        white.convert("RGB").save(output, format="PNG")
+        return output.getvalue()
+
+
+def _trim_transparent_padding(image: Image.Image) -> Image.Image:
+    bbox = image.getchannel("A").getbbox()
+    return image.crop(bbox) if bbox else image
+
+
+def compose_on_backdrop(
+    cutout_bytes: bytes,
+    backdrop_path: str | Path,
+    size: int = 2000,
+    fill: float = 0.72,
+    shadow_opacity: int = 90,
+    shadow_blur: int = 40,
+    shadow_offset: float = 0.025,
+    image_format: str = "jpg",
+    quality: int = 90,
+) -> bytes:
+    """Place a transparent product cutout on a square studio backdrop."""
+    if size <= 0:
+        raise ValueError("size must be greater than 0")
+    if fill <= 0:
+        raise ValueError("fill must be greater than 0")
+
+    with Image.open(backdrop_path) as backdrop:
+        canvas = ImageOps.fit(
+            ImageOps.exif_transpose(backdrop).convert("RGB"),
+            (size, size),
+            method=Image.Resampling.LANCZOS,
+            centering=(0.5, 0.5),
+        ).convert("RGBA")
+
+    with Image.open(io.BytesIO(cutout_bytes)) as cutout:
+        product = _trim_transparent_padding(
+            ImageOps.exif_transpose(cutout).convert("RGBA")
+        )
+
+    max_side = max(product.size)
+    target_side = max(1, int(size * fill))
+    scale = target_side / max_side
+    product_size = (
+        max(1, int(product.width * scale)),
+        max(1, int(product.height * scale)),
+    )
+    product = product.resize(product_size, Image.Resampling.LANCZOS)
+
+    x = (size - product.width) // 2
+    y = (size - product.height) // 2
+    alpha = product.getchannel("A")
+    shadow_y = y + int(size * shadow_offset)
+    shadow_alpha = Image.new("L", canvas.size, 0)
+    shadow_alpha.paste(alpha, (x, shadow_y))
+    opacity = max(0, min(255, shadow_opacity))
+    shadow_alpha = shadow_alpha.point(lambda pixel: pixel * opacity // 255)
+    if shadow_blur > 0:
+        shadow_alpha = shadow_alpha.filter(ImageFilter.GaussianBlur(shadow_blur))
+
+    shadow_layer = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    shadow_layer.putalpha(shadow_alpha)
+    canvas.alpha_composite(shadow_layer)
+    canvas.alpha_composite(product, (x, y))
+
+    output = io.BytesIO()
+    normalized_format = image_format.lower().strip()
+    if normalized_format in {"jpg", "jpeg"}:
+        canvas.convert("RGB").save(output, format="JPEG", quality=quality, optimize=True)
+    elif normalized_format == "png":
+        canvas.save(output, format="PNG", optimize=True)
+    else:
+        raise ValueError("image_format must be 'jpg' or 'png'")
+    return output.getvalue()
+
+
+async def _remove_background_rembg(image_bytes: bytes) -> bytes:
+    """Local background removal using rembg."""
     upload_bytes = _to_png(image_bytes)
 
     def _call() -> bytes:
@@ -81,17 +184,15 @@ async def _clean_white_bg_rembg(image_bytes: bytes) -> bytes:
         cutout_bytes = remove(upload_bytes)
         with Image.open(io.BytesIO(cutout_bytes)) as cutout:
             cutout = ImageOps.exif_transpose(cutout).convert("RGBA")
-            white = Image.new("RGBA", cutout.size, (255, 255, 255, 255))
-            white.alpha_composite(cutout)
             output = io.BytesIO()
-            white.convert("RGB").save(output, format="PNG")
+            cutout.save(output, format="PNG")
             return output.getvalue()
 
     return await asyncio.to_thread(_call)
 
 
-async def _clean_white_bg_photoroom(image_bytes: bytes) -> bytes:
-    """Product composited onto a clean white background using Photoroom Basic.
+async def _remove_background_photoroom(image_bytes: bytes) -> bytes:
+    """Return a transparent PNG cutout using Photoroom Basic.
 
     Photoroom Remove Background API:
         POST https://sdk.photoroom.com/v1/segment
@@ -99,8 +200,6 @@ async def _clean_white_bg_photoroom(image_bytes: bytes) -> bytes:
         files:   {"image_file": (filename, image_bytes, media_type)}
         -> transparent-background PNG bytes in the response body
 
-    The API only removes the background. We composite the returned transparent
-    PNG onto white locally so we do not need the Image Editing API.
     """
     if not settings.photoroom_api_key:
         raise RuntimeError("PHOTOROOM_API_KEY is not configured")
@@ -134,12 +233,51 @@ async def _clean_white_bg_photoroom(image_bytes: bytes) -> bytes:
             f"Photoroom failed with {response.status_code}: {response.text}"
         )
 
-    with Image.open(io.BytesIO(response.content)) as cutout:
+    return _normalize_cutout_png(response.content)
+
+
+async def _remove_background_pixelcut(image_bytes: bytes, media_type: str) -> bytes:
+    """Return a transparent PNG cutout using Pixelcut."""
+    if not settings.pixelcut_api_key:
+        raise RuntimeError("PIXELCUT_API_KEY is not configured")
+
+    upload_bytes = _to_png(image_bytes)
+    async with httpx.AsyncClient(timeout=90) as client:
+        response = await client.post(
+            "https://api.developer.pixelcut.ai/v1/remove-background",
+            headers={
+                "X-API-KEY": settings.pixelcut_api_key,
+                "Accept": "image/*",
+            },
+            data={"format": "png", "crop": "false"},
+            files={"image": ("product.png", upload_bytes, "image/png")},
+        )
+        if response.status_code >= 400:
+            raise RuntimeError(
+                f"Pixelcut failed with {response.status_code}: {response.text}"
+            )
+
+        content_type = response.headers.get("content-type", "").lower()
+        if "application/json" in content_type:
+            result_url = response.json().get("result_url")
+            if not result_url:
+                raise RuntimeError("Pixelcut JSON response did not include result_url")
+            result = await client.get(result_url, headers={"Accept": "image/*"})
+            if result.status_code >= 400:
+                raise RuntimeError(
+                    f"Pixelcut result download failed with "
+                    f"{result.status_code}: {result.text}"
+                )
+            return _normalize_cutout_png(result.content)
+
+        return _normalize_cutout_png(response.content)
+
+
+def _normalize_cutout_png(image_bytes: bytes) -> bytes:
+    with Image.open(io.BytesIO(image_bytes)) as cutout:
         cutout = ImageOps.exif_transpose(cutout).convert("RGBA")
-        white = Image.new("RGBA", cutout.size, (255, 255, 255, 255))
-        white.alpha_composite(cutout)
         output = io.BytesIO()
-        white.convert("RGB").save(output, format="PNG")
+        cutout.save(output, format="PNG")
         return output.getvalue()
 
 
@@ -242,22 +380,46 @@ async def _edit_with_reference(
     fidelity_rules: str,
     count: int,
     size: str,
+    style_references: list[tuple[bytes, str]] | None = None,
 ) -> list[bytes]:
-    """Return generated PNG candidates from an OpenAI image edit call."""
+    """Return generated PNG candidates from an OpenAI image edit call.
+
+    `reference_images` are THE PRODUCT (reproduce exactly). Optional
+    `style_references` are approved store images used for scene/look only. They
+    are appended after the product images and explicitly labeled STYLE-ONLY in
+    the prompt so the model matches their look without copying the exemplar's
+    product (the "product bleed" failure mode).
+    """
     if not _openai:
         raise RuntimeError("OPENAI_API_KEY is not configured")
     if count <= 0:
         return []
 
-    upload_bytes = [_to_png(image_bytes) for image_bytes, _ in reference_images]
-    full_prompt = f"{prompt}\n\n{fidelity_rules}"
+    style_references = style_references or []
+    product_pngs = [_to_png(image_bytes) for image_bytes, _ in reference_images]
+    style_pngs = [_to_png(image_bytes) for image_bytes, _ in style_references]
+
+    role_note = ""
+    if style_pngs:
+        role_note = (
+            "\n\nIMAGE ROLES:\n"
+            f"- The first {len(product_pngs)} image(s) are THE PRODUCT. Reproduce that "
+            "exact product — shape, color, hardware, logo, stitching, texture, and "
+            "proportions — with total fidelity.\n"
+            f"- The final {len(style_pngs)} image(s) are STYLE REFERENCES from our store. "
+            "Match their scene, background, lighting, composition, framing, and model "
+            "styling. DO NOT copy their product, product color, or hardware. If a style "
+            "reference shows a different product, ignore that product entirely."
+        )
+    full_prompt = f"{prompt}\n\n{fidelity_rules}{role_note}"
+    upload_bytes = product_pngs + style_pngs
 
     def _call() -> list[bytes]:
         image_payload = [
             (f"reference_{index}.png", io.BytesIO(image), "image/png")
             for index, image in enumerate(upload_bytes)
         ]
-        result = _openai.images.edit(
+        edit_kwargs = dict(
             model=settings.image_model,
             image=image_payload[0] if len(image_payload) == 1 else image_payload,
             prompt=full_prompt,
@@ -265,6 +427,11 @@ async def _edit_with_reference(
             size=size,
             quality=settings.image_quality,
         )
+        # input_fidelity is a gpt-image-1-only knob: better product/logo
+        # preservation at a token-cost premium. Off by default (see config).
+        if settings.image_input_fidelity and settings.image_model == "gpt-image-1":
+            edit_kwargs["input_fidelity"] = settings.image_input_fidelity
+        result = _openai.images.edit(**edit_kwargs)
         return [
             base64.b64decode(item.b64_json)
             for item in result.data
@@ -278,6 +445,7 @@ async def generate_lifestyle(
     reference_images: list[tuple[bytes, str]],
     prompt_pack: ProductPromptPack = BAG_PROMPT_PACK,
     count: int | None = None,
+    style_references: list[tuple[bytes, str]] | None = None,
 ) -> list[bytes]:
     """Return simple lifestyle candidates. Best-effort; review before use."""
     return await _edit_with_reference(
@@ -286,6 +454,7 @@ async def generate_lifestyle(
         fidelity_rules=prompt_pack.fidelity_rules,
         count=settings.lifestyle_candidates if count is None else count,
         size=settings.lifestyle_image_size,
+        style_references=style_references,
     )
 
 
@@ -294,6 +463,7 @@ async def generate_on_model(
     product_kind: str = "handbag",
     prompt_pack: ProductPromptPack = BAG_PROMPT_PACK,
     count: int | None = None,
+    style_references: list[tuple[bytes, str]] | None = None,
 ) -> list[bytes]:
     """Return on-model candidates. Best-effort; review before use."""
     if product_kind == "purse" and prompt_pack.purse_model_prompt:
@@ -308,4 +478,5 @@ async def generate_on_model(
         fidelity_rules=prompt_pack.fidelity_rules,
         count=settings.on_model_candidates if count is None else count,
         size=settings.on_model_image_size,
+        style_references=style_references,
     )

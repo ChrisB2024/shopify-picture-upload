@@ -8,7 +8,7 @@ phone photo(s)
   → OpenAI vision:          product route (bags / perfumes / glasses)
   → Claude vision (Haiku):  classify the product
   → Claude (Opus 4.8):      title / description / SEO / tags in OHH voice
-  → Photoroom/rembg:        white-bg ecommerce shot   [PRIMARY]
+  → Photoroom/Pixelcut/rembg: white-bg ecommerce shot [PRIMARY]
   → OpenAI image edits:     lifestyle scene candidates [BEST-EFFORT, review first]
   → OpenAI image edits:     model/lifestyle candidates [BEST-EFFORT, review first]
   → Claude vision (Haiku):  QC/rank generated images   [TRIAGE, not approval]
@@ -28,7 +28,7 @@ endpoint.
   have their own copy prompts, image prompts, fidelity rules, and QC focus in
   `app/product_types/prompts.py`. Avoid one giant universal prompt.
 - **White-bg shot is the primary image.** Real product pixels, background removed.
-  Photoroom is the strongest paid backend; `rembg` is the local low-cost backend.
+  Photoroom and Pixelcut are paid backends; `rembg` is the local low-cost backend.
   Safe output still needs a quick visual check on reflective, clear, chain, and
   fuzzy edges.
 - **Simple lifestyle shots are best-effort but usually easier than on-model.**
@@ -58,9 +58,11 @@ pip install -r requirements.txt
 cp .env.example .env   # then fill in your keys
 ```
 
-Each Shopify store/client uses its own local `.env`:
+Each Shopify store/client uses its own local `.env`. Set the brand plus that
+store's Shopify app credentials — no code changes per store:
 
 ```bash
+BRAND_NAME=Client Store Name          # drives listing voice + SEO title suffix
 SHOPIFY_STORE=client-store.myshopify.com
 SHOPIFY_CLIENT_ID=client_app_id
 SHOPIFY_CLIENT_SECRET=client_app_secret
@@ -73,6 +75,21 @@ pair that supports the client-credentials grant in the same Shopify org.
 `incoming/` and `outputs/` are local working folders. Git keeps the empty folders
 with `.gitkeep`, but ignores product photos, generated images, and batch logs.
 
+## Approved Shopify copy examples
+
+Pull the inclusive active-product range from `Luxe Voyager Set` through
+`The Rebel Muse Bag` into the local, gitignored example corpus:
+
+```bash
+python3 -m app.shopify_examples
+```
+
+The command is read-only in Shopify. It writes a privacy-minimized source
+snapshot, a manifest, and model-ready listing examples under
+`outputs/shopify_examples/`. Claude copy generation selects up to three
+same-category, relevant examples as tone and structure guidance; the prompt
+explicitly forbids copying their product facts into a new listing.
+
 For the local/free background remover, set:
 
 ```bash
@@ -81,6 +98,16 @@ BACKGROUND_REMOVER=rembg
 
 The first `rembg` run may download its local model. After that, background
 removal runs on your machine instead of calling an image API.
+
+For Pixelcut background removal, set:
+
+```bash
+BACKGROUND_REMOVER=pixelcut
+PIXELCUT_API_KEY=your_pixelcut_api_key
+```
+
+Pixelcut returns a transparent PNG cutout. The app can composite that cutout
+locally onto white or onto a studio backdrop without calling the remover again.
 
 ## Run
 
@@ -92,9 +119,13 @@ Open http://127.0.0.1:8000/docs and upload one or more photos to `POST /process`
 
 ## Batch cost controls
 
-Batch mode defaults to the cheapest product-page flow: one Shopify draft per
-product family, variants from child folders, and real white-background product
-images only. It does not upload original store-background photos.
+Batch mode creates one Shopify draft per product family, variants from child
+folders, and real white-background product images. Grouped mode uses Claude for
+listing copy (including approved examples when relevant); use
+`--listing-source basic` to skip the copy-model calls. It processes every image
+in each variant folder in stable product-photo order (`front`, `side`, `angle`,
+`back`, `detail-1`, `detail-2`, then the rest) and assigns uploaded images to
+their matching Shopify variant.
 
 ```bash
 python3 -m app.batch --dry-run --limit 3
@@ -112,11 +143,46 @@ python3 -m app.batch --limit 1 --creative both --qc
 Useful knobs:
 
 ```bash
+--image-source white-bg|studio|original
+--listing-source model|basic
 --creative none|lifestyle|model|both
 --creative-variant-limit 1
 --lifestyle-candidates 1
 --on-model-candidates 1
 --qc
+```
+
+`--image-source original` uploads the source photos directly. `white-bg`
+removes the background once per source image, saves `*_cutout.png` and
+`*_white_bg.png`, and uploads the white-background image. `studio` removes the
+background once, saves `*_cutout.png` and `*_studio.jpg` or `*_studio.png`, then
+uploads the local studio composite.
+
+Reusable studio backdrops live in `backdrops/`:
+
+```text
+backdrops/ohh-bags-studio-warm-cream-default.png
+backdrops/ohh-bags-studio-cool-light-gray.png
+backdrops/ohh-bags-studio-warm-beige-plaster.png
+backdrops/ohh-bags-studio-clean-white-gray.png
+backdrops/ohh-bags-studio-charcoal.png
+backdrops/ohh-bags-studio-terracotta-sun.png
+```
+
+When `--image-source studio` is used without `--backdrop`, batch mode routes each
+variant to a backdrop from product type, product name, and variant color. Use
+`--backdrop` only when you want to force one specific backdrop for the whole run.
+
+Example studio run:
+
+```bash
+python3 -m app.batch \
+  --limit 1 \
+  --image-source studio \
+  --studio-fill 0.76 \
+  --shadow-opacity 30 \
+  --shadow-blur 75 \
+  --shadow-offset 0.016
 ```
 
 Use `--mode leaf` only when each leaf folder should intentionally become its own

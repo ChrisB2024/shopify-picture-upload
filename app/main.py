@@ -7,9 +7,10 @@ Then open:    http://127.0.0.1:8000/docs  (Swagger UI — upload photos here)
 from fastapi import FastAPI, File, HTTPException, UploadFile
 
 from app import pipeline
+from app.config import settings
 from app.schemas import ProcessResult
 
-app = FastAPI(title="OHH — product photos to draft listing")
+app = FastAPI(title=f"{settings.brand_name} — product photos to draft listing")
 
 ALLOWED_MEDIA = {"image/jpeg", "image/png", "image/webp"}
 
