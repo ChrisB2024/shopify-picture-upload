@@ -16,3 +16,7 @@ incoming/*
 !incoming/.gitkeep
 outputs/*
 !outputs/.gitkeep
+
+# Store-specific backdrop templates. Keep the folder, not local assets.
+backdrops/*
+!backdrops/.gitkeep
