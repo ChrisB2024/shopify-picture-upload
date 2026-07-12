@@ -4,7 +4,9 @@ These Pydantic models double as the structured-output schemas for the Claude
 calls (see services/vision.py — responses are validated against them).
 """
 
-from pydantic import BaseModel, Field, field_validator
+from typing import Annotated
+
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 
 class ProductAnalysis(BaseModel):
@@ -28,7 +30,7 @@ class BagAnalysis(ProductAnalysis):
 class Listing(BaseModel):
     """Output of the Opus copy pass — the actual Shopify listing fields."""
 
-    title: str = Field(description="Product title, in OHH Bags' voice")
+    title: str = Field(description="Product title, in the store's brand voice")
     description_html: str = Field(description="Body HTML for the product page")
     seo_title: str = Field(max_length=70)
     seo_description: str = Field(max_length=160)
@@ -45,6 +47,22 @@ class Listing(BaseModel):
     def trim_seo_description(cls, value: str) -> str:
         text = str(value).strip()
         return text[:160].rstrip()
+
+
+class ListingGenerationContext(BaseModel):
+    """Validated current-product data supplied to grouped listing generation."""
+
+    product_family_name: str = Field(min_length=1, max_length=200)
+    variant_names: list[
+        Annotated[str, Field(min_length=1, max_length=100)]
+    ] = Field(min_length=1, max_length=100)
+    variant_count: int = Field(ge=1, le=2048)
+
+    @model_validator(mode="after")
+    def validate_variant_count(self) -> "ListingGenerationContext":
+        if self.variant_count < len(self.variant_names):
+            raise ValueError("variant_count cannot be smaller than variant_names")
+        return self
 
 
 class ImageCandidateReview(BaseModel):

@@ -15,6 +15,8 @@ import httpx
 from app.config import settings
 from app.schemas import Listing
 
+ImageUpload = bytes | tuple[bytes, str]
+
 # Simple in-process token cache: {"token": str, "expires_at": epoch_seconds}.
 _token: dict = {}
 
@@ -144,15 +146,14 @@ async def create_draft(
 async def create_draft_with_variants(
     listing: Listing,
     variant_names: list[str],
-    image_bytes: bytes | list[bytes] | list[tuple[bytes, str]] | None,
+    image_bytes: bytes | list[ImageUpload] | None,
     *,
     option_name: str = "Color or Print",
 ) -> dict:
     """Create one DRAFT product with Shopify variants.
 
-    The generated images are attached at product level. Variant-specific image
-    assignment can be added later after upload IDs are available, but this
-    prevents separate color/print folders from becoming separate products.
+    Images can be plain bytes for product-level upload, or (bytes, variant_name)
+    tuples to assign the uploaded image to matching Shopify variants.
     """
     if not settings.shopify_store:
         raise RuntimeError("SHOPIFY_STORE not set")
@@ -205,30 +206,18 @@ async def create_draft_with_variants(
         )
 
     data = resp.json()
-    product_id = str(data["product"]["id"])
-    variant_id_by_name = {
-        str(variant.get("option1")): str(variant["id"])
-        for variant in data["product"].get("variants", [])
-        if variant.get("id") and variant.get("option1")
+    product = data["product"]
+    product_id = str(product["id"])
+    variant_ids_by_name = {
+        variant.get("option1"): str(variant["id"])
+        for variant in product.get("variants", [])
+        if variant.get("option1") is not None and variant.get("id") is not None
     }
-
-    upload_bytes: bytes | list[bytes] | None
-    variant_ids_by_image: list[list[str] | None] | None = None
-    if isinstance(image_bytes, list) and image_bytes and isinstance(image_bytes[0], tuple):
-        upload_bytes = []
-        variant_ids_by_image = []
-        for image, variant_name in image_bytes:
-            upload_bytes.append(image)
-            variant_id = variant_id_by_name.get(variant_name)
-            variant_ids_by_image.append([variant_id] if variant_id else None)
-    else:
-        upload_bytes = image_bytes
-
     image_errors = await upload_product_images(
         product_id,
-        upload_bytes,
+        image_bytes,
         token=token,
-        variant_ids_by_image=variant_ids_by_image,
+        variant_ids_by_name=variant_ids_by_name,
     )
     return {
         "product_id": product_id,
@@ -239,17 +228,19 @@ async def create_draft_with_variants(
 
 async def upload_product_images(
     product_id: str,
-    image_bytes: bytes | list[bytes] | None,
+    image_bytes: bytes | list[ImageUpload] | None,
     *,
     token: str | None = None,
-    variant_ids_by_image: list[list[str] | None] | None = None,
+    variant_ids_by_name: dict[str, str] | None = None,
 ) -> list[str]:
     """Attach images to an existing product one request at a time."""
     if not image_bytes:
         return []
 
     token = token or await get_access_token()
-    image_list = image_bytes if isinstance(image_bytes, list) else [image_bytes]
+    image_list: list[ImageUpload] = (
+        image_bytes if isinstance(image_bytes, list) else [image_bytes]
+    )
     url = (
         f"https://{settings.shopify_store}/admin/api/"
         f"{settings.shopify_api_version}/products/{product_id}/images.json"
@@ -261,16 +252,26 @@ async def upload_product_images(
     errors: list[str] = []
 
     async with httpx.AsyncClient(timeout=90) as client:
-        for index, image in enumerate(image_list):
-            image_payload = {
-                "attachment": base64.b64encode(image).decode("ascii"),
-                "position": index + 1,
+        for index, image_upload in enumerate(image_list):
+            variant_name = None
+            image = image_upload
+            if isinstance(image_upload, tuple):
+                image, variant_name = image_upload
+            payload = {
+                "image": {
+                    "attachment": base64.b64encode(image).decode("ascii"),
+                    "position": index + 1,
+                }
             }
-            if variant_ids_by_image and index < len(variant_ids_by_image):
-                variant_ids = variant_ids_by_image[index]
-                if variant_ids:
-                    image_payload["variant_ids"] = variant_ids
-            payload = {"image": image_payload}
+            if variant_name and variant_ids_by_name:
+                variant_id = variant_ids_by_name.get(variant_name)
+                if variant_id:
+                    payload["image"]["variant_ids"] = [variant_id]
+                else:
+                    errors.append(
+                        f"image {index + 1}: no Shopify variant found for "
+                        f"{variant_name!r}"
+                    )
             last_exc: Exception | None = None
             for attempt in range(2):
                 try:
