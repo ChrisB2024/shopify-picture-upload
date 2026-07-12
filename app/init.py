@@ -17,9 +17,13 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import subprocess
+import sys
 from dataclasses import dataclass
 from getpass import getpass
 from pathlib import Path
+
+import httpx
 
 ENV_PATH = Path(".env")
 
@@ -122,9 +126,8 @@ def _write_env(path: Path, values: dict[str, str]) -> None:
 async def _validate_shopify(values: dict[str, str]) -> tuple[bool | None, str]:
     """Confirm the Shopify creds work by minting an Admin token.
 
-    TODO(chris): implement the client-credentials exchange against the values the
-    user just entered (NOT app.config.settings — that was loaded from the OLD .env
-    at import time, so it won't reflect this run).
+    Uses the values the user just entered (NOT app.config.settings — that was
+    loaded from the OLD .env at import time, so it won't reflect this run).
 
         POST https://{SHOPIFY_STORE}/admin/oauth/access_token
         form body: grant_type=client_credentials,
@@ -132,24 +135,54 @@ async def _validate_shopify(values: dict[str, str]) -> tuple[bool | None, str]:
                    client_secret=SHOPIFY_CLIENT_SECRET
         200 -> {"access_token": "shpat_...", "scope": ..., "expires_in": 86399}
 
-    Return (True, scope) on success, (False, error_text) on a 4xx/5xx or network
-    error. See app/services/shopify.py:get_access_token for the shape to mirror.
-    Use httpx.AsyncClient. Return (None, reason) if you want to signal "skipped".
+    Returns (True, scope) on success, (False, error) on a bad response/network
+    error, or (None, reason) when there's nothing to check.
     """
-    return None, "validation not implemented yet (TODO in app/init.py)"
+    store = values.get("SHOPIFY_STORE", "")
+    client_id = values.get("SHOPIFY_CLIENT_ID", "")
+    client_secret = values.get("SHOPIFY_CLIENT_SECRET", "")
+    if not (store and client_id and client_secret):
+        return None, "no Shopify credentials to check"
+
+    try:
+        async with httpx.AsyncClient(timeout=30) as client:
+            resp = await client.post(
+                f"https://{store}/admin/oauth/access_token",
+                data={
+                    "grant_type": "client_credentials",
+                    "client_id": client_id,
+                    "client_secret": client_secret,
+                },
+            )
+    except httpx.HTTPError as exc:
+        return False, f"network error: {exc}"
+
+    if resp.status_code >= 400:
+        return False, f"{resp.status_code}: {resp.text[:200]}"
+
+    scope = resp.json().get("scope", "")
+    return True, f"token minted (scope: {scope or 'n/a'})"
 
 
-def _build_corpus() -> None:
+def _build_corpus() -> bool:
     """Build this store's copy + image example corpus after setup.
 
-    TODO(chris): chain the two existing builders so a fresh store is fully seeded:
-      1. app.shopify_examples.main()          -> products.raw.jsonl + listing_examples.jsonl
-      2. app.services.image_examples.main()    -> image_examples.jsonl (downloads + tags)
-    Both read the .env we just wrote, but settings is already imported with the OLD
-    values — so run each as a subprocess (`python -m ...`) or reload settings first.
-    Decide how you want to handle that; a subprocess is the simplest correct option.
+    Chains the two existing builders so a fresh store is fully seeded:
+      1. app.shopify_examples         -> products.raw.jsonl + listing_examples.jsonl
+      2. app.services.image_examples  -> image_examples.jsonl (downloads + tags)
+
+    Each runs as a subprocess so it loads the .env we just wrote — importing them
+    in-process would reuse the settings already loaded from the OLD .env. Returns
+    True only if both steps succeed.
     """
-    print("  (corpus build not implemented yet — TODO in app/init.py)")
+    steps = ("app.shopify_examples", "app.services.image_examples")
+    for module in steps:
+        print(f"  -> {module}")
+        result = subprocess.run([sys.executable, "-m", module])
+        if result.returncode != 0:
+            print(f"  {module} failed (exit {result.returncode}) — stopping.")
+            return False
+    return True
 
 
 # --------------------------------------------------------------------------- #
@@ -195,7 +228,8 @@ def main() -> None:
 
     if args.build_corpus:
         print("Building example corpus...")
-        _build_corpus()
+        if _build_corpus():
+            print("Corpus built.")
 
     print("\nDone. Next: drop product photos in incoming/<type>/ and run "
           "`python -m app.batch --limit 1 --creative both`.")
