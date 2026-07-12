@@ -42,14 +42,22 @@ IMAGE_ORDER = {
     "detail_2": 5,
     "detail2": 5,
 }
-STUDIO_BACKDROPS = {
-    "default": Path("backdrops/ohh-bags-studio-warm-cream-default.png"),
-    "cool_gray": Path("backdrops/ohh-bags-studio-cool-light-gray.png"),
-    "beige_plaster": Path("backdrops/ohh-bags-studio-warm-beige-plaster.png"),
-    "clean_white": Path("backdrops/ohh-bags-studio-clean-white-gray.png"),
-    "charcoal": Path("backdrops/ohh-bags-studio-charcoal.png"),
-    "terracotta": Path("backdrops/ohh-bags-studio-terracotta-sun.png"),
-}
+# Semantic studio-backdrop slots the router chooses between. Each store supplies
+# its own PNG per slot as <settings.backdrops_dir>/<slot>.png (gitignored local
+# assets), so slots resolve by convention instead of hardcoded store filenames.
+BACKDROP_SLOTS = (
+    "default",
+    "cool_gray",
+    "beige_plaster",
+    "clean_white",
+    "charcoal",
+    "terracotta",
+)
+
+
+def _backdrop_path(slot: str) -> Path:
+    """Resolve a semantic backdrop slot to this store's local PNG."""
+    return Path(settings.backdrops_dir) / f"{slot}.png"
 LIGHT_OR_METALLIC_TERMS = {
     "white",
     "cream",
@@ -174,22 +182,22 @@ def _studio_backdrop_for(
     product_name = product_folder.name.lower()
 
     if product_type == "perfume":
-        return STUDIO_BACKDROPS["beige_plaster"]
+        return _backdrop_path("beige_plaster")
     if product_type == "glasses":
-        return STUDIO_BACKDROPS["cool_gray"]
+        return _backdrop_path("cool_gray")
     if terms & LIGHT_OR_METALLIC_TERMS:
-        return STUDIO_BACKDROPS["charcoal"]
+        return _backdrop_path("charcoal")
     if "gold" in terms and not {"brown", "tan", "monogram"} & terms:
-        return STUDIO_BACKDROPS["charcoal"]
+        return _backdrop_path("charcoal")
     if "novelty" in product_name:
-        return STUDIO_BACKDROPS["cool_gray"]
+        return _backdrop_path("cool_gray")
     if terms & PRINT_TERMS:
-        return STUDIO_BACKDROPS["default"]
+        return _backdrop_path("default")
     if terms & WARM_COLOR_TERMS:
-        return STUDIO_BACKDROPS["cool_gray"]
+        return _backdrop_path("cool_gray")
     if {"black", "navy", "blue", "green"} & terms:
-        return STUDIO_BACKDROPS["beige_plaster"]
-    return STUDIO_BACKDROPS["default"]
+        return _backdrop_path("beige_plaster")
+    return _backdrop_path("default")
 
 
 def _result_summary(folder: Path, result) -> dict:

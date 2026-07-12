@@ -161,16 +161,20 @@ removes the background once per source image, saves `*_cutout.png` and
 background once, saves `*_cutout.png` and `*_studio.jpg` or `*_studio.png`, then
 uploads the local studio composite.
 
-Reusable studio backdrops live in `backdrops/`:
+Studio backdrops are per-store local assets (gitignored). Each store drops one
+PNG per semantic slot into `backdrops/` (or `BACKDROPS_DIR`), named by slot:
 
 ```text
-backdrops/ohh-bags-studio-warm-cream-default.png
-backdrops/ohh-bags-studio-cool-light-gray.png
-backdrops/ohh-bags-studio-warm-beige-plaster.png
-backdrops/ohh-bags-studio-clean-white-gray.png
-backdrops/ohh-bags-studio-charcoal.png
-backdrops/ohh-bags-studio-terracotta-sun.png
+backdrops/default.png
+backdrops/cool_gray.png
+backdrops/beige_plaster.png
+backdrops/clean_white.png
+backdrops/charcoal.png
+backdrops/terracotta.png
 ```
+
+The router (`_studio_backdrop_for`) picks a slot per product/color; supply your
+own images for these slots. `default` is the fallback, so it must exist.
 
 When `--image-source studio` is used without `--backdrop`, batch mode routes each
 variant to a backdrop from product type, product name, and variant color. Use

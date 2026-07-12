@@ -50,6 +50,11 @@ class Settings(BaseSettings):
     # Where generated images land for review (single-user local tool).
     output_dir: str = "outputs"
 
+    # Per-store studio backdrops (gitignored local assets). The router picks a
+    # semantic slot; each store drops its own <slot>.png here — see batch.py
+    # BACKDROP_SLOTS. Point this elsewhere to run a different store's set.
+    backdrops_dir: str = "backdrops"
+
     # Approved Shopify copy examples used as style-only few-shot context.
     listing_examples_path: str = "outputs/shopify_examples/listing_examples.jsonl"
     listing_example_count: int = 3
