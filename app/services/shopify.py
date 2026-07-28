@@ -190,13 +190,21 @@ async def create_draft_with_variants(
                     json={"product": product},
                 )
                 break
-            except _TRANSIENT_ERRORS as exc:
+            except httpx.ConnectError as exc:
+                # Never reached Shopify — safe to retry.
                 last_exc = exc
                 if attempt == 1:
                     raise RuntimeError(
                         f"Shopify variant product create connection failed: {exc}"
                     ) from exc
                 await asyncio.sleep(1)
+            except _TRANSIENT_ERRORS as exc:
+                # Sent but no clean response — the draft may already exist.
+                # Do NOT retry, to avoid creating a duplicate product.
+                raise RuntimeError(
+                    f"Shopify variant product create sent but no response "
+                    f"(not retried to avoid duplicate): {exc}"
+                ) from exc
         else:
             raise RuntimeError(f"Shopify variant product create failed: {last_exc}")
 
@@ -272,19 +280,34 @@ async def upload_product_images(
                         f"image {index + 1}: no Shopify variant found for "
                         f"{variant_name!r}"
                     )
+            # Only ConnectError is safe to retry: the connection was never
+            # established, so Shopify never received the POST. Post-send errors
+            # (timeout / read / protocol) may mean the image WAS committed
+            # server-side; retrying them creates duplicate images.
             last_exc: Exception | None = None
             for attempt in range(2):
                 try:
                     resp = await client.post(url, headers=headers, json=payload)
                     break
-                except _TRANSIENT_ERRORS as exc:
+                except httpx.ConnectError as exc:
                     last_exc = exc
                     if attempt == 1:
                         errors.append(f"image {index + 1}: connection failed: {exc}")
                     else:
                         await asyncio.sleep(1)
+                except _TRANSIENT_ERRORS as exc:
+                    # Sent but no clean response — do NOT retry (avoid dup upload).
+                    errors.append(
+                        f"image {index + 1}: no response after send "
+                        f"(not retried to avoid duplicate): {exc}"
+                    )
+                    last_exc = exc
+                    resp = None
+                    break
             else:
                 errors.append(f"image {index + 1}: failed: {last_exc}")
+                continue
+            if resp is None:
                 continue
 
             if resp.status_code < 200 or resp.status_code >= 300:

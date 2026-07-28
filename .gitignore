@@ -20,3 +20,6 @@ outputs/*
 # Store-specific backdrop templates. Keep the folder, not local assets.
 backdrops/*
 !backdrops/.gitkeep
+
+# Local QA/review artifacts (contact sheets, blobs)
+_review/
