@@ -118,12 +118,21 @@ def _image_files(folder: Path) -> list[Path]:
     )
 
 
+# Folders whose name starts with "_" are not products — they're staging/display
+# buckets (_unsorted, _Display Boards, _Racks & Trays, ...). The grouper uses the
+# same convention; the batch honors it so those never become listings.
+def _is_product_dir(path: Path) -> bool:
+    return path.is_dir() and not path.name.startswith("_")
+
+
 def _ready_product_folders(roots: list[Path]) -> list[tuple[Path, list[Path]]]:
     products: list[tuple[Path, list[Path]]] = []
     for root in roots:
         if not root.exists():
             continue
         for folder in sorted(path for path in root.rglob("*") if path.is_dir()):
+            if any(part.startswith("_") for part in folder.relative_to(root).parts):
+                continue
             files = _image_files(folder)
             subdirs = [path for path in folder.iterdir() if path.is_dir()]
             if files and not subdirs:
@@ -136,7 +145,7 @@ def _variant_groups(roots: list[Path]) -> list[tuple[Path, list[tuple[str, Path,
     for root in roots:
         if not root.exists():
             continue
-        for product_folder in sorted(path for path in root.iterdir() if path.is_dir()):
+        for product_folder in sorted(path for path in root.iterdir() if _is_product_dir(path)):
             variants: list[tuple[str, Path, list[Path]]] = []
             for folder in sorted(path for path in product_folder.rglob("*") if path.is_dir()):
                 files = _image_files(folder)

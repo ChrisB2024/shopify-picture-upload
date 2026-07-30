@@ -62,6 +62,14 @@
   .bin .tilerow .tile{cursor:grab}
   .addvar{margin-top:8px;font-size:12px;padding:4px 10px}
   .hint{font-size:12px;color:var(--muted);margin:2px 0 0}
+  .tile{cursor:grab}
+  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;
+    align-items:center;justify-content:center;z-index:1000;cursor:zoom-out;padding:2vmin}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:96vw;max-height:96vh;object-fit:contain;border-radius:6px;
+    box-shadow:0 12px 48px rgba(0,0,0,.55)}
+  .lightbox .cap{position:fixed;top:14px;left:0;right:0;text-align:center;color:#eee;
+    font-size:13px;font-variant-numeric:tabular-nums;pointer-events:none}
 </style>
 </head>
 <body>
@@ -76,15 +84,19 @@
 </header>
 <main>
   <section class="col pile">
-    <h2>Unsorted pile — drag into product bins →</h2>
+    <h2>Unsorted / holding — drag into a product →, or drag a wrong photo here</h2>
     <div class="grid" id="pile"></div>
   </section>
   <section class="col">
-    <h2>Products</h2>
+    <h2>Products — review &amp; correct, then Save</h2>
     <div class="bins" id="bins"></div>
     <div class="empty" id="binsEmpty">No products yet. Click “+ Product”, or “Suggest groups”.</div>
   </section>
 </main>
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <div class="cap" id="lightboxCap"></div>
+  <img alt="enlarged product photo">
+</div>
 
 <script>
 "use strict";
@@ -93,11 +105,13 @@
 const api = {
   categories: () => fetch("/api/categories").then(r => r.json()),
   unsorted:  c => fetch("/api/unsorted?category=" + encodeURIComponent(c)).then(r => r.json()),
+  products:  c => fetch("/api/products?category=" + encodeURIComponent(c)).then(r => r.json()),
   suggest:   c => fetch("/api/suggest?category=" + encodeURIComponent(c)).then(r => r.json()),
   save:      body => fetch("/api/save", {method:"POST", headers:{"Content-Type":"application/json"},
                        body: JSON.stringify(body)}).then(r => r.json()),
 };
 const thumbURL = rel => "/api/thumb?rel=" + encodeURIComponent(rel);
+const fullURL  = rel => "/api/full?rel="  + encodeURIComponent(rel);
 
 // ---- state -----------------------------------------------------------------
 let CATEGORY = null;
@@ -119,11 +133,29 @@ function tileEl(info){
 
 async function loadCategory(cat){
   CATEGORY = cat;
-  PILE = await api.unsorted(cat);
+  // pile = whatever is still loose in _unsorted
   const pile = document.getElementById("pile");
   pile.innerHTML = "";
+  PILE = await api.unsorted(cat);
   PILE.forEach(info => pile.appendChild(tileEl(info)));
-  document.getElementById("pileCount").textContent = PILE.length + " unsorted";
+  // bins = existing products (review view) — correct them, then Save
+  const bins = document.getElementById("bins");
+  bins.innerHTML = "";
+  const {products} = await api.products(cat);
+  products.forEach(buildProductBin);
+  updatePileCount();
+  toggleEmpty();
+}
+
+// Build a pre-filled bin from an existing product folder (review view).
+function buildProductBin(product){
+  const bin = addBin(product.name);                 // shell + one empty color row
+  bin.querySelectorAll(".variant").forEach(v => v.remove());  // drop the empty row
+  product.variants.forEach(v => {
+    const row = addVariant(bin, v.name);
+    v.images.forEach(info => row.appendChild(tileEl(info)));
+  });
+  return bin;
 }
 
 // ---- init (implemented) ----------------------------------------------------
@@ -188,6 +220,26 @@ function setupDrag(){
   document.addEventListener("dragend", () => { DRAG = []; });
 
   makeDropZone(document.getElementById("pile"));    // drag back to un-sort
+  setupLightbox();
+}
+
+// ---- double-click to enlarge (read labels / inspect the product) -----------
+function setupLightbox(){
+  const lb = document.getElementById("lightbox");
+  const img = lb.querySelector("img");
+  const cap = document.getElementById("lightboxCap");
+  const close = () => { lb.classList.remove("open"); img.src = ""; };
+  document.addEventListener("dblclick", e => {
+    const tile = e.target.closest(".tile");
+    if (!tile) return;
+    e.preventDefault();
+    window.getSelection().removeAllRanges();        // kill the dbl-click text select
+    img.src = fullURL(tile.dataset.rel);
+    cap.textContent = tile.querySelector("img").alt; // the IMG name/number
+    lb.classList.add("open");
+  });
+  lb.addEventListener("click", close);              // click anywhere to dismiss
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
 }
 
 // Attach drop behavior to a .tilerow (or the pile grid).
@@ -284,13 +336,15 @@ function collectPayload(){
     });
     if (name && variants.length) products.push({name, variants});
   });
-  return {category: CATEGORY, products};
+  // anything left in the pile is sent as "unsorted" (stays in / returns to _unsorted)
+  const unsorted = Array.from(document.querySelectorAll("#pile .tile")).map(t => t.dataset.rel);
+  return {category: CATEGORY, products, unsorted};
 }
 
 async function doSave(){
   const payload = collectPayload();
-  if (!payload.products.length){
-    alert("Add at least one named product that has images.");
+  if (!payload.products.length && !payload.unsorted.length){
+    alert("Nothing to save.");
     return;
   }
   // Every image belongs to a color. A product with 2+ color groups must name
