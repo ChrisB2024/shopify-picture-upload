@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grouping studio</title>
+<style>
+  :root{
+    --bg:#f6f4ef; --panel:#fffdfa; --ink:#241f1a; --muted:#8a7f70;
+    --line:#e6e0d4; --accent:#b0742e; --accent-soft:#f0e5d2; --drop:#cde7d6;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#17140f; --panel:#211d16; --ink:#eee6d8; --muted:#9c8f7c;
+      --line:#332c22; --accent:#d99a4c; --accent-soft:#39301f; --drop:#22402c;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg);color:var(--ink);height:100vh;display:flex;flex-direction:column}
+  header{display:flex;gap:14px;align-items:center;padding:12px 18px;
+    border-bottom:1px solid var(--line);background:var(--panel);flex:none}
+  header h1{font-size:15px;margin:0;font-weight:700;letter-spacing:-.01em}
+  header .spacer{flex:1}
+  select,button{font:inherit;padding:7px 12px;border-radius:8px;
+    border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+  button.primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+  .count{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+  main{flex:1;display:grid;grid-template-columns:minmax(300px,1fr) minmax(340px,1.1fr);
+    gap:0;overflow:hidden}
+  .col{overflow-y:auto;padding:14px}
+  .col.pile{border-right:1px solid var(--line)}
+  .col h2{position:sticky;top:0;background:var(--bg);margin:0 0 10px;padding:4px 0;
+    font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+  .tile{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel);
+    cursor:grab;user-select:none;position:relative}
+  .tile.sel{outline:2px solid var(--accent);outline-offset:-2px}
+  .tile img{display:block;width:100%;height:88px;object-fit:contain;background:#fff}
+  .tile .n{position:absolute;left:3px;top:3px;background:rgba(0,0,0,.6);color:#fff;
+    font-size:11px;padding:0 5px;border-radius:4px;font-variant-numeric:tabular-nums}
+  .bins{display:flex;flex-direction:column;gap:12px}
+  .bin{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:10px}
+  .bin.dragover{border-color:var(--accent);background:var(--drop)}
+  .bin input.name{width:100%;font-weight:600;border:none;background:transparent;color:var(--ink);
+    font-size:14px;padding:2px 0;border-bottom:1px dashed var(--line)}
+  .variant{margin-top:8px}
+  .variant .vhead{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--muted)}
+  .empty{color:var(--muted);font-size:13px;padding:20px;text-align:center;
+    border:1px dashed var(--line);border-radius:8px}
+  .bin .binhead{display:flex;gap:8px;align-items:center}
+  .bin .rm{border:none;background:transparent;color:var(--muted);cursor:pointer;
+    font-size:16px;line-height:1;padding:2px 6px}
+  .variant{margin-top:8px}
+  .variant input.vname{font-size:12px;border:none;border-bottom:1px dashed var(--line);
+    background:transparent;color:var(--ink);width:120px;padding:1px 0}
+  .variant .vtag{font-size:11px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+  .tilerow{display:flex;flex-wrap:wrap;gap:6px;min-height:56px;margin-top:5px;padding:6px;
+    border:1px dashed var(--line);border-radius:8px;transition:background .1s,border-color .1s}
+  .tilerow:empty::before{content:"drop images here";color:var(--muted);font-size:12px;
+    align-self:center;margin:auto}
+  .tilerow.dragover{border-color:var(--accent);background:var(--drop)}
+  .bin .tilerow .tile img{height:52px}
+  .bin .tilerow .tile{cursor:grab}
+  .addvar{margin-top:8px;font-size:12px;padding:4px 10px}
+  .hint{font-size:12px;color:var(--muted);margin:2px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>Grouping studio</h1>
+  <select id="category" aria-label="category"></select>
+  <span class="count" id="pileCount"></span>
+  <div class="spacer"></div>
+  <button id="suggestBtn">Suggest groups</button>
+  <button id="addBinBtn">+ Product</button>
+  <button class="primary" id="saveBtn">Save to folders</button>
+</header>
+<main>
+  <section class="col pile">
+    <h2>Unsorted pile — drag into product bins →</h2>
+    <div class="grid" id="pile"></div>
+  </section>
+  <section class="col">
+    <h2>Products</h2>
+    <div class="bins" id="bins"></div>
+    <div class="empty" id="binsEmpty">No products yet. Click “+ Product”, or “Suggest groups”.</div>
+  </section>
+</main>
+
+<script>
+"use strict";
+
+// ---- tiny fetch helpers (implemented) --------------------------------------
+const api = {
+  categories: () => fetch("/api/categories").then(r => r.json()),
+  unsorted:  c => fetch("/api/unsorted?category=" + encodeURIComponent(c)).then(r => r.json()),
+  suggest:   c => fetch("/api/suggest?category=" + encodeURIComponent(c)).then(r => r.json()),
+  save:      body => fetch("/api/save", {method:"POST", headers:{"Content-Type":"application/json"},
+                       body: JSON.stringify(body)}).then(r => r.json()),
+};
+const thumbURL = rel => "/api/thumb?rel=" + encodeURIComponent(rel);
+
+// ---- state -----------------------------------------------------------------
+let CATEGORY = null;
+let PILE = [];            // ImageInfo[] currently unsorted (implemented loader)
+
+// ---- render the unsorted pile (implemented) --------------------------------
+function tileEl(info){
+  const el = document.createElement("div");
+  el.className = "tile";
+  el.draggable = true;
+  el.dataset.rel = info.rel;
+  el.innerHTML =
+    `<img loading="lazy" src="${thumbURL(info.rel)}" alt="${info.name}">` +
+    (info.number != null ? `<span class="n">${info.number}</span>` : "");
+  // Drag + select are handled by delegation in setupDrag(); tiles only need
+  // draggable=true and a data-rel, both set above.
+  return el;
+}
+
+async function loadCategory(cat){
+  CATEGORY = cat;
+  PILE = await api.unsorted(cat);
+  const pile = document.getElementById("pile");
+  pile.innerHTML = "";
+  PILE.forEach(info => pile.appendChild(tileEl(info)));
+  document.getElementById("pileCount").textContent = PILE.length + " unsorted";
+}
+
+// ---- init (implemented) ----------------------------------------------------
+async function init(){
+  const {categories} = await api.categories();
+  const sel = document.getElementById("category");
+  sel.innerHTML = categories
+    .map(c => `<option value="${c.category}">${c.category} (${c.unsorted})</option>`)
+    .join("");
+  sel.addEventListener("change", () => loadCategory(sel.value));
+  if (categories.length) await loadCategory(categories[0].category);
+
+  document.getElementById("addBinBtn").addEventListener("click", () => addBin());
+  document.getElementById("suggestBtn").addEventListener("click", applySuggestions);
+  document.getElementById("saveBtn").addEventListener("click", doSave);
+  setupDrag();
+}
+
+// =============================================================================
+// CORE FRONTEND LOGIC
+// An image is a single DOM .tile node; "moving" it is appendChild into a new
+// drop-zone, which removes it from wherever it was. So each image lives in
+// exactly one place with no bookkeeping. Drop-zones are the .tilerow elements
+// (the pile grid + each variant row).
+// =============================================================================
+
+let DRAG = [];  // tile elements currently being dragged
+
+const selectedTiles = () => Array.from(document.querySelectorAll(".tile.sel"));
+const tileByRel = rel => document.querySelector(`.tile[data-rel="${CSS.escape(rel)}"]`);
+const updatePileCount = () => {
+  document.getElementById("pileCount").textContent =
+    document.querySelectorAll("#pile .tile").length + " unsorted";
+};
+const toggleEmpty = () => {
+  document.getElementById("binsEmpty").style.display =
+    document.querySelectorAll("#bins .bin").length ? "none" : "";
+};
+
+// ---- drag-and-drop + selection (event delegation) --------------------------
+function setupDrag(){
+  document.addEventListener("click", e => {
+    const tile = e.target.closest(".tile");
+    if (!tile) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey){
+      tile.classList.toggle("sel");                 // additive multi-select
+    } else {
+      const wasSel = tile.classList.contains("sel");
+      selectedTiles().forEach(t => t.classList.remove("sel"));
+      if (!wasSel) tile.classList.add("sel");
+    }
+  });
+
+  document.addEventListener("dragstart", e => {
+    const tile = e.target.closest(".tile");
+    if (!tile) return;
+    // drag the whole selection if this tile is part of it, else just this one
+    DRAG = tile.classList.contains("sel") ? selectedTiles() : [tile];
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/plain", "tiles");
+  });
+  document.addEventListener("dragend", () => { DRAG = []; });
+
+  makeDropZone(document.getElementById("pile"));    // drag back to un-sort
+}
+
+// Attach drop behavior to a .tilerow (or the pile grid).
+function makeDropZone(row){
+  row.addEventListener("dragover", e => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    row.classList.add("dragover");
+  });
+  row.addEventListener("dragleave", e => {
+    if (!row.contains(e.relatedTarget)) row.classList.remove("dragover");
+  });
+  row.addEventListener("drop", e => {
+    e.preventDefault();
+    row.classList.remove("dragover");
+    DRAG.forEach(t => { t.classList.remove("sel"); row.appendChild(t); });
+    DRAG = [];
+    updatePileCount();
+  });
+}
+
+// ---- product bins ----------------------------------------------------------
+function addBin(name = "", images = []){
+  const bin = document.createElement("div");
+  bin.className = "bin";
+
+  const head = document.createElement("div");
+  head.className = "binhead";
+  const nameInput = document.createElement("input");
+  nameInput.className = "name";
+  nameInput.placeholder = "Product name";
+  nameInput.value = name;
+  const rm = document.createElement("button");
+  rm.className = "rm"; rm.title = "remove product (returns images to pile)";
+  rm.textContent = "✕";
+  rm.addEventListener("click", () => {
+    const pile = document.getElementById("pile");
+    bin.querySelectorAll(".tile").forEach(t => pile.appendChild(t));
+    bin.remove(); updatePileCount(); toggleEmpty();
+  });
+  head.append(nameInput, rm);
+
+  const addVarBtn = document.createElement("button");
+  addVarBtn.className = "addvar"; addVarBtn.textContent = "+ color";
+  addVarBtn.addEventListener("click", () => addVariant(bin));
+
+  bin.append(head, addVarBtn);
+  document.getElementById("bins").appendChild(bin);
+
+  // Every image belongs to a color. Start with one color row; the name is
+  // optional ONLY when the product is a single color. addVariant returns the
+  // drop row so suggestions can pre-fill it.
+  const firstRow = addVariant(bin);
+  images.forEach(rel => { const t = tileByRel(rel); if (t) firstRow.appendChild(t); });
+  updatePileCount(); toggleEmpty();
+  return bin;
+}
+
+// Add a color group (name input + drop row). Images here save under
+// <product>/<color>/. A single unnamed color saves flat under <product>/.
+function addVariant(bin, variantName = ""){
+  const wrap = document.createElement("div");
+  wrap.className = "variant";
+  const label = document.createElement("div");
+  label.className = "vhead";
+  const vinput = document.createElement("input");
+  vinput.className = "vname"; vinput.placeholder = "color (blank only if single color)";
+  vinput.value = variantName;
+  label.append(document.createTextNode("color: "), vinput);
+  const row = document.createElement("div");
+  row.className = "tilerow"; makeDropZone(row);
+  wrap.append(label, row);
+  bin.insertBefore(wrap, bin.querySelector(".addvar"));
+  return row;
+}
+
+// ---- suggestions -----------------------------------------------------------
+async function applySuggestions(){
+  const {groups} = await api.suggest(CATEGORY);
+  if (!groups.length){ return; }
+  groups.forEach(rels => addBin("", rels));         // each draft group -> a bin
+}
+
+// ---- collect + save --------------------------------------------------------
+function collectPayload(){
+  const products = [];
+  document.querySelectorAll("#bins .bin").forEach(bin => {
+    const name = bin.querySelector("input.name").value.trim();
+    const variants = [];
+    bin.querySelectorAll(".variant").forEach(v => {
+      const vname = v.querySelector("input.vname").value.trim();
+      const images = Array.from(v.querySelectorAll(".tile")).map(t => t.dataset.rel);
+      if (images.length) variants.push({name: vname, images});
+    });
+    if (name && variants.length) products.push({name, variants});
+  });
+  return {category: CATEGORY, products};
+}
+
+async function doSave(){
+  const payload = collectPayload();
+  if (!payload.products.length){
+    alert("Add at least one named product that has images.");
+    return;
+  }
+  // Every image belongs to a color. A product with 2+ color groups must name
+  // them all — an unnamed group next to named ones would be silently dropped
+  // by the pipeline (it can't sit at the product root beside color subfolders).
+  const bad = payload.products.find(
+    p => p.variants.length > 1 && p.variants.some(v => !v.name)
+  );
+  if (bad){
+    alert(`"${bad.name}" has multiple colors but one is unnamed.\n` +
+          `Name every color (the unnamed group would be dropped), ` +
+          `or combine them if it's really one color.`);
+    return;
+  }
+  const btn = document.getElementById("saveBtn");
+  btn.disabled = true; btn.textContent = "Saving…";
+  try {
+    const res = await api.save(payload);
+    await loadCategory(CATEGORY);                   // moved images are gone now
+    document.getElementById("bins").innerHTML = "";
+    toggleEmpty();
+    let msg = `Saved ${res.moved} images into ${res.products_created} products.`;
+    if (res.errors && res.errors.length){
+      msg += `\n\n${res.errors.length} skipped:\n` + res.errors.slice(0, 12).join("\n");
+    }
+    alert(msg);
+  } catch (err){
+    alert("Save failed: " + err);
+  } finally {
+    btn.disabled = false; btn.textContent = "Save to folders";
+  }
+}
+
+init();
+</script>
+</body>
+</html>

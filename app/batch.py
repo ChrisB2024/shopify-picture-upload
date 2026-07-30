@@ -29,7 +29,8 @@ from app.schemas import Listing, ListingGenerationContext
 from app.services import image_examples, images, shopify, vision
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
-DEFAULT_ROOTS = ("incoming/bags", "incoming/perfumes", "incoming/glasses")
+DEFAULT_ROOTS = ("incoming/bags", "incoming/perfumes", "incoming/glasses",
+                 "incoming/jewelry", "incoming/lotions", "incoming/clippers")
 IMAGE_ORDER = {
     "front": 0,
     "side": 1,
@@ -255,6 +256,9 @@ def _basic_listing(product_folder: Path, variant_names: list[str]) -> Listing:
         "bag": "bag",
         "perfume": "fragrance",
         "glasses": "eyewear",
+        "jewelry": "jewelry",
+        "lotion": "skincare",
+        "clipper": "grooming tool",
     }.get(product_type, "product")
     description = (
         f"<p>{product_name} is available in multiple variants. Choose your "
@@ -278,6 +282,12 @@ def _product_type_for_folder(folder: Path) -> str:
         return "perfume"
     if "glasses" in parts:
         return "glasses"
+    if "jewelry" in parts:
+        return "jewelry"
+    if "lotions" in parts:
+        return "lotion"
+    if "clippers" in parts:
+        return "clipper"
     return "bag"
 
 
@@ -563,6 +573,31 @@ async def _process_group(
     }
 
 
+def _created_product_names(manifest_paths: list[str]) -> set[str]:
+    """Folder names that already produced a Shopify product in prior manifest(s).
+
+    Lets a re-run skip already-created products WITHOUT moving any source folders
+    out of the tree — the move-out approach risked losing sources to /tmp cleanup.
+    """
+    done: set[str] = set()
+    for raw in manifest_paths:
+        path = Path(raw)
+        if not path.exists():
+            print(f"skip-manifest not found (ignored): {path}", flush=True)
+            continue
+        for line in path.open(encoding="utf-8"):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                entry = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if entry.get("shopify_product_id") and entry.get("folder"):
+                done.add(Path(entry["folder"]).name)
+    return done
+
+
 async def _run(args: argparse.Namespace) -> int:
     roots = [Path(root) for root in (args.root or DEFAULT_ROOTS)]
     products = (
@@ -574,6 +609,16 @@ async def _run(args: argparse.Namespace) -> int:
         products = [
             item for item in products if str(item[0]) > args.start_after
         ]
+
+    if args.skip_manifest:
+        done = _created_product_names(args.skip_manifest)
+        before = len(products)
+        products = [item for item in products if Path(item[0]).name not in done]
+        print(
+            f"skip-manifest: excluded {before - len(products)} already-created "
+            f"products ({len(done)} in manifest(s))",
+            flush=True,
+        )
 
     if args.mode == "variants" and args.variant_limit:
         products = [
@@ -671,6 +716,14 @@ def main() -> None:
     parser.add_argument("--studio-format", choices=["jpg", "png"], default="jpg")
     parser.add_argument("--studio-quality", type=int, default=90)
     parser.add_argument("--start-after", default="")
+    parser.add_argument(
+        "--skip-manifest",
+        action="append",
+        default=[],
+        help="Path to a prior run manifest; product folders that already "
+        "produced a Shopify product in it are skipped. Repeatable. Lets a "
+        "re-run avoid duplicates without moving any source folders.",
+    )
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--manifest", default=f"outputs/batch_{stamp}.jsonl")
     args = parser.parse_args()

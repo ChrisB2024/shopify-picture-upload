@@ -123,7 +123,7 @@ IMPORTANT:
 - Preserve exact bottle shape, cap, label, liquid color, packaging, proportions, and visible text from the reference.
 - Do not invent brand names, labels, watermarks, or extra text.
 
-Scene: A confident adult model holds the perfume bottle naturally near chest height or on a vanity-style surface, with the bottle fully visible and label facing camera.
+Scene: A confident Black woman in her late 20s holds the perfume bottle naturally near chest height or on a vanity-style surface, with the bottle fully visible and label facing camera.
 
 Composition: Vertical framing. Product is the focal point; hands must not cover the label, cap, or bottle shape.
 
@@ -176,6 +176,144 @@ Background: Minimal premium backdrop in neutral tones. No clutter.
 Lighting: Soft diffused daylight with controlled lens reflections and true-to-life tint.
 
 Style: High-end commercial eyewear photography, photorealistic, sharp focus on glasses, natural skin texture.
+
+Aspect ratio: 4:5 (vertical, for product grid and listing pages)."""
+
+JEWELRY_FIDELITY_RULES = """Product fidelity rules:
+- If multiple reference photos are provided, they are different angles of the same exact jewelry piece. Use all of them to understand the metal tone, stone layout, chain link, pendant shape, clasp, and proportions.
+- Preserve the exact metal color and finish (yellow gold, rose gold, silver, gunmetal), stone color, cut, count and arrangement, chain link type and thickness, pendant/charm shape, bezel/prong settings, and clasp.
+- Do not change the link pattern, stone layout, pendant proportions, or metal tone. Do not add fake hallmarks, engravings, brand names, or logos.
+- Reflections and sparkle may improve, but the design may not change."""
+
+JEWELRY_LIFESTYLE_PROMPT = """Product picture with no model
+Using the uploaded product photo as reference, create a clean, high-end ecommerce product photograph of the same jewelry piece.
+
+IMPORTANT:
+- Preserve the exact metal tone and finish, stone color/cut/arrangement, chain link, pendant shape, setting, and proportions from the reference. Replicate it faithfully.
+- Do not add brand names, store names, text, watermarks, hallmarks, or logos anywhere in the image.
+
+Scene: The jewelry presented on its own as the sole subject, elegantly arranged - a necklace gently curved or coiled, a bracelet or bangle in a soft loop, earrings shown as a clean pair, a ring standing upright. No model, no hands, no clutter.
+
+Composition: Piece centered and filling the frame with breathing room. Angle chosen so links, stones, and clasp read clearly.
+
+Background: Seamless premium surface such as soft velvet, matte marble, satin, or warm stone. Tone complements the metal. No clutter, no text, no logos.
+
+Lighting: Soft diffused studio light with controlled sparkle and clean reflections on metal and stones. True-to-life metal tone and gem color.
+
+Style: High-end commercial jewelry photography, photorealistic, macro-sharp on stones and links, shallow depth of field.
+
+Aspect ratio: 1:1 (square, for product grid)."""
+
+JEWELRY_MODEL_PROMPT = """Product picture with model
+Using the uploaded product photo as reference, create a high-end ecommerce lifestyle photograph featuring the same jewelry piece worn by a model.
+
+IMPORTANT:
+- Preserve the exact metal tone, stone color/cut/arrangement, chain link, pendant shape, setting, and proportions from the reference. Do not alter the piece.
+- Do not add brand names, store names, text, watermarks, hallmarks, or logos anywhere in the image.
+
+Scene: A confident Black woman in her late 20s wearing the piece the way it is meant to be worn - a necklace or chain on the neckline/décolletage, a bracelet, bangle, or cuff on the wrist, earrings on the ear in a soft side profile, a ring on the finger. Crop to the relevant area so the jewelry is the clear focus and correctly worn.
+
+Wardrobe: Elegant, modern, neutral or complementary tones with clean skin. Subtle African print accent allowed, but nothing that competes with the piece.
+
+Composition: Vertical framing. The jewelry sits at the visual focal point, in sharp focus, fully visible and not obscured by hair or fabric.
+
+Background: Minimal premium backdrop in warm neutral tones. No clutter, no text, no logos.
+
+Lighting: Soft diffused daylight with controlled sparkle, natural skin texture, true-to-life metal and gem color.
+
+Style: High-end commercial jewelry/beauty photography, photorealistic, sharp focus on the piece.
+
+Aspect ratio: 4:5 (vertical, for product grid and listing pages)."""
+
+LOTION_FIDELITY_RULES = """Product fidelity rules:
+- If multiple reference photos are provided, they are different angles of the same exact product. Use all of them to understand the container shape (bottle, tube, jar, pump), cap, label placement, color, and proportions.
+- Preserve the exact container silhouette, cap/pump shape, label shape and placement, color, material finish, and visible text from the reference. Do not invent brand text, claims, or redesign the label.
+- Do not change container height, shoulder, cap size, pump geometry, or label typography.
+- Reflections and lighting may improve, but the product design may not change."""
+
+LOTION_LIFESTYLE_PROMPT = """Product picture with no model
+Using the uploaded product photo as reference, create a clean, high-end ecommerce product photograph of the same skincare/haircare product.
+
+IMPORTANT:
+- Preserve the exact container shape, cap/pump, label, color, packaging, proportions, and visible text from the reference.
+- Do not invent brand names, labels, claims, watermarks, or extra text.
+
+Scene: The product presented as the sole subject on a clean spa or vanity surface. At most one subtle prop that complements the product (a folded towel, a sprig of greenery, a smooth stone). No clutter, no hands, no model.
+
+Composition: Centered, upright, three-quarter front angle showing the container shape, cap, and label clearly.
+
+Background: Seamless minimal surface such as matte stone, plaster, or warm neutral tile. Tone complements the packaging.
+
+Lighting: Soft diffused studio daylight, clean highlights, gentle shadow, true-to-life color.
+
+Style: High-end commercial skincare photography, photorealistic, sharp focus on the label and cap.
+
+Aspect ratio: 1:1 (square, for product grid)."""
+
+LOTION_MODEL_PROMPT = """Product picture with model
+Using the uploaded product photo as reference, create a high-end ecommerce lifestyle photograph featuring the same product held by a model.
+
+IMPORTANT:
+- Preserve the exact container shape, cap/pump, label, color, packaging, proportions, and visible text from the reference.
+- Do not invent brand names, labels, watermarks, or extra text.
+
+Scene: A confident Black woman in her late 20s holds the product naturally near chest height, or presents it against smooth, healthy-looking skin, with the label facing camera and fully visible. Hands must not cover the label or container shape.
+
+Wardrobe: Clean, modern, neutral tones. Subtle African print accent allowed, but nothing that competes with the product.
+
+Composition: Vertical framing. Product is the focal point and in sharp focus.
+
+Background: Minimal premium backdrop in warm neutral tones. No clutter, no text, no logos.
+
+Lighting: Soft diffused daylight, natural skin texture, true-to-life color.
+
+Style: High-end commercial beauty photography, photorealistic, realistic hands, sharp focus on the product.
+
+Aspect ratio: 4:5 (vertical, for product grid and listing pages)."""
+
+CLIPPER_FIDELITY_RULES = """Product fidelity rules:
+- If multiple reference photos are provided, they are different angles of the same exact grooming tool. Use all of them to understand the body shape, blade/head, guards and attachments, buttons, cord or cordless design, color, and proportions.
+- Preserve the exact device silhouette, blade/head shape, attachment guards, button and dial placement, color, material finish, and any visible branding exactly as shown. Do not invent brand text or redesign the device.
+- Do not change the body proportions, blade geometry, guard shapes, or control placement.
+- Reflections and lighting may improve, but the product design may not change."""
+
+CLIPPER_LIFESTYLE_PROMPT = """Product picture with no model
+Using the uploaded product photo as reference, create a clean, high-end ecommerce product photograph of the same grooming tool.
+
+IMPORTANT:
+- Preserve the exact device shape, blade/head, guards and attachments, controls, color, and any visible branding from the reference.
+- Do not invent brand names, labels, watermarks, or extra text.
+
+Scene: The device presented as the main subject on a clean barber/grooming surface. Its guard combs or attachments may be neatly arranged beside it if they appear in the reference. No hands, no model, no clutter.
+
+Composition: Centered, three-quarter angle showing the body, blade/head, and controls clearly.
+
+Background: Seamless minimal surface such as matte stone, brushed metal, or warm neutral. No clutter, no text.
+
+Lighting: Soft diffused studio light with controlled highlights on the housing and blade, true-to-life color.
+
+Style: High-end commercial product photography, photorealistic, sharp focus on the device.
+
+Aspect ratio: 1:1 (square, for product grid)."""
+
+CLIPPER_MODEL_PROMPT = """Product picture with model
+Using the uploaded product photo as reference, create a high-end ecommerce lifestyle photograph featuring the same grooming tool in use.
+
+IMPORTANT:
+- Preserve the exact device shape, blade/head, guards, controls, color, and any visible branding from the reference. Do not alter the device.
+- Do not invent brand names, labels, watermarks, or extra text.
+
+Scene: A well-groomed Black man in his late 20s or 30s holding and using the grooming tool naturally (trimming his beard or hairline), with the device clearly visible in hand and correctly oriented. The device is the primary subject.
+
+Wardrobe: Clean, modern, neutral tones in a tidy barbershop-style setting.
+
+Composition: Vertical framing. The device is the focal point and in sharp focus; the hand grips it realistically.
+
+Background: Minimal premium backdrop in neutral tones. No clutter, no text, no logos.
+
+Lighting: Soft diffused daylight, natural skin texture, true-to-life color on the device.
+
+Style: High-end commercial grooming photography, photorealistic, realistic hands, sharp focus on the device.
 
 Aspect ratio: 4:5 (vertical, for product grid and listing pages)."""
 
@@ -232,10 +370,69 @@ GLASSES_PROMPT_PACK = ProductPromptPack(
     ),
 )
 
+JEWELRY_PROMPT_PACK = ProductPromptPack(
+    product_type="jewelry",
+    classify_prompt=(
+        "Analyze this jewelry photo and extract ecommerce attributes. Identify the "
+        "piece type (necklace, chain, bracelet, bangle, cuff, earrings, ring, "
+        "pendant), metal tone, stone color/cut/count, chain link, pendant/charm, "
+        "clasp/setting, and style tags. Do not invent hallmarks or materials that "
+        "are not visible."
+    ),
+    listing_prompt="Write a Shopify product listing for this jewelry piece.",
+    fidelity_rules=JEWELRY_FIDELITY_RULES,
+    lifestyle_prompt=JEWELRY_LIFESTYLE_PROMPT,
+    model_prompt=JEWELRY_MODEL_PROMPT,
+    review_focus=(
+        "exact metal tone and finish, stone color/cut/arrangement, chain link "
+        "type, pendant shape, setting, clasp, and proportions"
+    ),
+)
+
+LOTION_PROMPT_PACK = ProductPromptPack(
+    product_type="lotion",
+    classify_prompt=(
+        "Analyze this skincare/haircare product photo and extract ecommerce "
+        "attributes. Identify the container type (bottle, tube, jar, pump), cap, "
+        "label, color, size cues, product type if visible (lotion, cream, oil, "
+        "butter), and style tags. Do not invent ingredients or claims that are "
+        "not visible."
+    ),
+    listing_prompt="Write a Shopify product listing for this skincare or haircare product.",
+    fidelity_rules=LOTION_FIDELITY_RULES,
+    lifestyle_prompt=LOTION_LIFESTYLE_PROMPT,
+    model_prompt=LOTION_MODEL_PROMPT,
+    review_focus=(
+        "exact container silhouette, cap/pump geometry, label placement, visible "
+        "text, color, packaging, and proportions"
+    ),
+)
+
+CLIPPER_PROMPT_PACK = ProductPromptPack(
+    product_type="clipper",
+    classify_prompt=(
+        "Analyze this grooming-tool photo and extract ecommerce attributes. "
+        "Identify the tool type (hair clipper, beard trimmer, nose trimmer, "
+        "shaver), body shape, blade/head, guards and attachments, controls, "
+        "cord/cordless, color, visible branding, and style tags."
+    ),
+    listing_prompt="Write a Shopify product listing for this grooming tool.",
+    fidelity_rules=CLIPPER_FIDELITY_RULES,
+    lifestyle_prompt=CLIPPER_LIFESTYLE_PROMPT,
+    model_prompt=CLIPPER_MODEL_PROMPT,
+    review_focus=(
+        "exact device silhouette, blade/head shape, guard attachments, control "
+        "placement, color, visible branding, and proportions"
+    ),
+)
+
 PROMPT_PACKS = {
     "bag": BAG_PROMPT_PACK,
     "perfume": PERFUME_PROMPT_PACK,
     "glasses": GLASSES_PROMPT_PACK,
+    "jewelry": JEWELRY_PROMPT_PACK,
+    "lotion": LOTION_PROMPT_PACK,
+    "clipper": CLIPPER_PROMPT_PACK,
 }
 
 
