@@ -264,6 +264,19 @@ def save(req: SaveRequest) -> SaveResult:
     products_created = 0
 
     for product in req.products:
+        # Every image belongs to a color. A product may be a single unnamed
+        # color (flat) OR several named colors (subfolders) — never both: an
+        # unnamed group beside named ones would land at the product root, which
+        # app.batch drops when color subfolders exist. Skip rather than lose it.
+        is_root = lambda v: v.name.strip().lower() in ("", "default") and v.images
+        has_named = any(not is_root(v) and v.images for v in product.variants)
+        if has_named and any(is_root(v) for v in product.variants):
+            errors.append(
+                f"{product.name}: has an unnamed color group alongside named "
+                f"colors; name every color (skipped to avoid dropped images)"
+            )
+            continue
+
         dest_base = _safe(f"{req.category}/{_safe_folder_name(product.name)}")
         product_moved = 0
 

@@ -230,37 +230,36 @@ function addBin(name = "", images = []){
   });
   head.append(nameInput, rm);
 
-  // default (product-level, no variant) drop row
-  const defRow = document.createElement("div");
-  defRow.className = "tilerow"; defRow.dataset.variant = "";
-  makeDropZone(defRow);
-
   const addVarBtn = document.createElement("button");
-  addVarBtn.className = "addvar"; addVarBtn.textContent = "+ color variant";
+  addVarBtn.className = "addvar"; addVarBtn.textContent = "+ color";
   addVarBtn.addEventListener("click", () => addVariant(bin));
 
-  bin.append(head, defRow, addVarBtn);
+  bin.append(head, addVarBtn);
   document.getElementById("bins").appendChild(bin);
 
-  images.forEach(rel => { const t = tileByRel(rel); if (t) defRow.appendChild(t); });
+  // Every image belongs to a color. Start with one color row; the name is
+  // optional ONLY when the product is a single color. addVariant returns the
+  // drop row so suggestions can pre-fill it.
+  const firstRow = addVariant(bin);
+  images.forEach(rel => { const t = tileByRel(rel); if (t) firstRow.appendChild(t); });
   updatePileCount(); toggleEmpty();
   return bin;
 }
 
-// Add a named color-variant sub-zone; images here save under <product>/<variant>/.
+// Add a color group (name input + drop row). Images here save under
+// <product>/<color>/. A single unnamed color saves flat under <product>/.
 function addVariant(bin, variantName = ""){
   const wrap = document.createElement("div");
   wrap.className = "variant";
   const label = document.createElement("div");
   label.className = "vhead";
   const vinput = document.createElement("input");
-  vinput.className = "vname"; vinput.placeholder = "color / variant";
+  vinput.className = "vname"; vinput.placeholder = "color (blank only if single color)";
   vinput.value = variantName;
-  label.append(document.createTextNode("↳ "), vinput);
+  label.append(document.createTextNode("color: "), vinput);
   const row = document.createElement("div");
   row.className = "tilerow"; makeDropZone(row);
   wrap.append(label, row);
-  // insert before the "+ color variant" button
   bin.insertBefore(wrap, bin.querySelector(".addvar"));
   return row;
 }
@@ -278,12 +277,6 @@ function collectPayload(){
   document.querySelectorAll("#bins .bin").forEach(bin => {
     const name = bin.querySelector("input.name").value.trim();
     const variants = [];
-    // default row (variant "")
-    bin.querySelectorAll(":scope > .tilerow").forEach(row => {
-      const images = Array.from(row.querySelectorAll(".tile")).map(t => t.dataset.rel);
-      if (images.length) variants.push({name: "", images});
-    });
-    // named variant rows
     bin.querySelectorAll(".variant").forEach(v => {
       const vname = v.querySelector("input.vname").value.trim();
       const images = Array.from(v.querySelectorAll(".tile")).map(t => t.dataset.rel);
@@ -298,6 +291,18 @@ async function doSave(){
   const payload = collectPayload();
   if (!payload.products.length){
     alert("Add at least one named product that has images.");
+    return;
+  }
+  // Every image belongs to a color. A product with 2+ color groups must name
+  // them all — an unnamed group next to named ones would be silently dropped
+  // by the pipeline (it can't sit at the product root beside color subfolders).
+  const bad = payload.products.find(
+    p => p.variants.length > 1 && p.variants.some(v => !v.name)
+  );
+  if (bad){
+    alert(`"${bad.name}" has multiple colors but one is unnamed.\n` +
+          `Name every color (the unnamed group would be dropped), ` +
+          `or combine them if it's really one color.`);
     return;
   }
   const btn = document.getElementById("saveBtn");
