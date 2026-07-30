@@ -28,7 +28,7 @@ from fastapi.responses import FileResponse, HTMLResponse, Response
 from PIL import Image, ImageOps
 from pydantic import BaseModel
 
-from app.batch import IMAGE_EXTENSIONS
+from app.batch import IMAGE_EXTENSIONS, _is_product_dir
 from app.config import settings
 
 app = FastAPI(title="Grouping studio")
@@ -96,8 +96,14 @@ class ProductSpec(BaseModel):
 
 
 class SaveRequest(BaseModel):
-    category: str        # e.g. "perfumes"
+    category: str            # e.g. "perfumes"
     products: list[ProductSpec]
+    unsorted: list[str] = []  # rels that should sit loose in <category>/_unsorted
+
+
+class ProductGroup(BaseModel):
+    name: str
+    variants: list[dict]     # [{"name": str, "images": [ImageInfo-as-dict]}]
 
 
 class SaveResult(BaseModel):
@@ -136,25 +142,52 @@ def categories() -> dict:
     return {"categories": out}
 
 
+def _image_infos(folder: Path) -> list[ImageInfo]:
+    """Number-sorted ImageInfo for the images directly inside a folder."""
+    infos = [
+        ImageInfo(
+            rel=str(p.relative_to(INCOMING.resolve())),
+            name=p.stem,
+            number=_img_number(p),
+        )
+        for p in folder.iterdir()
+        if _is_image(p)
+    ]
+    infos.sort(key=lambda i: (i.number is None, i.number or 0, i.name))
+    return infos
+
+
 @app.get("/api/unsorted", response_model=list[ImageInfo])
 def unsorted(category: str = Query(...)) -> list[ImageInfo]:
     """Every loose image in incoming/<category>/_unsorted, number-sorted."""
     pile = _safe(f"{category}/{UNSORTED_DIRNAME}")
-    if not pile.exists():
-        return []
-    infos: list[ImageInfo] = []
-    for p in pile.iterdir():
-        if not _is_image(p):
-            continue
-        infos.append(
-            ImageInfo(
-                rel=str(p.relative_to(INCOMING.resolve())),
-                name=p.stem,
-                number=_img_number(p),
-            )
-        )
-    infos.sort(key=lambda i: (i.number is None, i.number or 0, i.name))
-    return infos
+    return _image_infos(pile) if pile.exists() else []
+
+
+@app.get("/api/products")
+def products(category: str = Query(...)) -> dict:
+    """Existing product folders in a category with their color variants.
+
+    Feeds the review view: each product folder -> a bin; each color subfolder ->
+    a named color row; images sitting directly in the product folder -> one
+    unnamed color row. Skips _-prefixed buckets (display boards, trays, ...).
+    """
+    base = _safe(category)
+    if not base.exists():
+        return {"products": []}
+    out: list[dict] = []
+    for prod in sorted(p for p in base.iterdir() if _is_product_dir(p)):
+        variants: list[dict] = []
+        flat = _image_infos(prod)
+        if flat:  # flat images = an unnamed color (shown first)
+            variants.append({"name": "", "images": [i.model_dump() for i in flat]})
+        for sub in sorted(d for d in prod.iterdir() if _is_product_dir(d)):
+            imgs = _image_infos(sub)
+            if imgs:
+                variants.append({"name": sub.name, "images": [i.model_dump() for i in imgs]})
+        if variants:
+            out.append({"name": prod.name, "variants": variants})
+    return {"products": out}
 
 
 @app.get("/api/thumb")
@@ -249,19 +282,67 @@ def suggest(
 # enough to re-run, and reversible (write an undo log to outputs/, NOT /tmp —
 # a reboot wiped /tmp on us before).
 # --------------------------------------------------------------------------- #
+def _cleanup_empty(cat_dir: Path, pile: Path) -> None:
+    """Remove product/color folders emptied by a save; keep root + _unsorted."""
+    for root, _dirs, _files in os.walk(cat_dir, topdown=False):
+        p = Path(root)
+        if p == cat_dir or p == pile:
+            continue
+        remaining = [x for x in p.iterdir() if x.name != ".DS_Store"]
+        if not remaining:
+            for junk in p.iterdir():
+                junk.unlink()          # clear a lone .DS_Store
+            try:
+                p.rmdir()
+            except OSError:
+                pass
+
+
 @app.post("/api/save", response_model=SaveResult)
 def save(req: SaveRequest) -> SaveResult:
-    """Move pile images into incoming/<category>/<product>[/<variant>]/ .
+    """Reconcile a category to the layout in the request.
 
-    Confines every path to INCOMING, only moves files that are actually in this
-    category's _unsorted pile, never overwrites, and writes a reversible undo
-    log to outputs/ (never /tmp — a reboot wiped that on us). One bad file is
-    collected into `errors`, not raised, so the rest of the save still lands.
+    Works for both flows: sorting the _unsorted pile AND reviewing/correcting an
+    already-grouped category (moving photos between products/colors, spinning
+    off new products, or dropping some back to _unsorted). Every source must be
+    inside this category; images already in the right place are left untouched;
+    nothing is overwritten; emptied folders are cleaned; and a reversible undo
+    log is written to outputs/ (never /tmp). Per-file problems collect into
+    `errors` rather than aborting the whole save.
     """
+    cat_dir = _safe(req.category)
     pile = _safe(f"{req.category}/{UNSORTED_DIRNAME}")
     undo: list[dict] = []
     errors: list[str] = []
     products_created = 0
+
+    def place(rel: str, dest_dir: Path) -> bool:
+        """Move rel into dest_dir (or leave it if already there). True if placed."""
+        try:
+            src = _safe(rel)
+        except HTTPException as exc:
+            errors.append(f"{rel}: {exc.detail}")
+            return False
+        if not _is_image(src):
+            errors.append(f"{rel}: not an existing image")
+            return False
+        if cat_dir != src and cat_dir not in src.parents:
+            errors.append(f"{rel}: outside category {req.category}")
+            return False
+        dest_file = dest_dir / src.name
+        if src == dest_file:
+            return True                       # already in the right place
+        if dest_file.exists():
+            errors.append(f"{rel}: {dest_file.name} already exists in target")
+            return False
+        try:
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            os.rename(src, dest_file)
+        except OSError as exc:
+            errors.append(f"{rel}: move failed: {exc}")
+            return False
+        undo.append({"from": str(dest_file), "to": str(src)})
+        return True
 
     for product in req.products:
         # Every image belongs to a color. A product may be a single unnamed
@@ -278,42 +359,23 @@ def save(req: SaveRequest) -> SaveResult:
             continue
 
         dest_base = _safe(f"{req.category}/{_safe_folder_name(product.name)}")
-        product_moved = 0
-
+        placed = 0
         for variant in product.variants:
             if variant.name.strip().lower() in ("", "default"):
                 dest_dir = dest_base
             else:
                 dest_dir = dest_base / _safe_folder_name(variant.name)
-
             for rel in variant.images:
-                try:
-                    src = _safe(rel)
-                except HTTPException as exc:
-                    errors.append(f"{rel}: {exc.detail}")
-                    continue
-                if not _is_image(src):
-                    errors.append(f"{rel}: not an existing image")
-                    continue
-                if src.parent != pile:
-                    # guard against moving already-sorted files or cross-category
-                    errors.append(f"{rel}: not in {req.category}/{UNSORTED_DIRNAME}")
-                    continue
-                dest_file = dest_dir / src.name
-                if dest_file.exists():
-                    errors.append(f"{rel}: {dest_file.name} already exists in target")
-                    continue
-                try:
-                    dest_dir.mkdir(parents=True, exist_ok=True)
-                    os.rename(src, dest_file)
-                except OSError as exc:
-                    errors.append(f"{rel}: move failed: {exc}")
-                    continue
-                undo.append({"from": str(dest_file), "to": str(src)})
-                product_moved += 1
-
-        if product_moved:
+                if place(rel, dest_dir):
+                    placed += 1
+        if placed:
             products_created += 1
+
+    # images dragged back to the pile
+    for rel in req.unsorted:
+        place(rel, pile)
+
+    _cleanup_empty(cat_dir, pile)
 
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     undo_path = Path(settings.output_dir) / f"grouper_undo_{stamp}.jsonl"
