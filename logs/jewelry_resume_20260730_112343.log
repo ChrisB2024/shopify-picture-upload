@@ -1,0 +1,2905 @@
+skip-manifest: excluded 4 already-created products (4 in manifest(s))
+ready product folders selected: 49
+RUN 1/49: incoming/jewelry/Bangles
+{
+  "folder": "incoming/jewelry/Bangles",
+  "variant_names": [
+    "gold",
+    "silver"
+  ],
+  "variant_count": 2,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Bangles/gold",
+      "variant_name": "gold",
+      "white_bg_path": "outputs/cc01b738/01_IMG_5383_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bangles/gold/IMG_5383.jpeg",
+          "upload_path": "outputs/cc01b738/01_IMG_5383_white_bg.png",
+          "cutout_path": "outputs/cc01b738/01_IMG_5383_cutout.png",
+          "white_bg_path": "outputs/cc01b738/01_IMG_5383_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bangles/gold/IMG_5384.jpeg",
+          "upload_path": "outputs/cc01b738/02_IMG_5384_white_bg.png",
+          "cutout_path": "outputs/cc01b738/02_IMG_5384_cutout.png",
+          "white_bg_path": "outputs/cc01b738/02_IMG_5384_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bangles/gold/IMG_5385.jpeg",
+          "upload_path": "outputs/cc01b738/03_IMG_5385_white_bg.png",
+          "cutout_path": "outputs/cc01b738/03_IMG_5385_cutout.png",
+          "white_bg_path": "outputs/cc01b738/03_IMG_5385_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bangles/gold/IMG_5386.jpeg",
+          "upload_path": "outputs/cc01b738/04_IMG_5386_white_bg.png",
+          "cutout_path": "outputs/cc01b738/04_IMG_5386_cutout.png",
+          "white_bg_path": "outputs/cc01b738/04_IMG_5386_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/cc01b738/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/cc01b738/on_model_0.png"
+      ],
+      "image_errors": []
+    },
+    {
+      "folder": "incoming/jewelry/Bangles/silver",
+      "variant_name": "silver",
+      "white_bg_path": "outputs/1ed8a7c5/01_IMG_5388_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bangles/silver/IMG_5388.jpeg",
+          "upload_path": "outputs/1ed8a7c5/01_IMG_5388_white_bg.png",
+          "cutout_path": "outputs/1ed8a7c5/01_IMG_5388_cutout.png",
+          "white_bg_path": "outputs/1ed8a7c5/01_IMG_5388_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bangles/silver/IMG_5389.jpeg",
+          "upload_path": "outputs/1ed8a7c5/02_IMG_5389_white_bg.png",
+          "cutout_path": "outputs/1ed8a7c5/02_IMG_5389_cutout.png",
+          "white_bg_path": "outputs/1ed8a7c5/02_IMG_5389_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bangles/silver/IMG_5392.jpeg",
+          "upload_path": "outputs/1ed8a7c5/03_IMG_5392_white_bg.png",
+          "cutout_path": "outputs/1ed8a7c5/03_IMG_5392_cutout.png",
+          "white_bg_path": "outputs/1ed8a7c5/03_IMG_5392_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bangles/silver/IMG_5393.jpeg",
+          "upload_path": "outputs/1ed8a7c5/04_IMG_5393_white_bg.png",
+          "cutout_path": "outputs/1ed8a7c5/04_IMG_5393_cutout.png",
+          "white_bg_path": "outputs/1ed8a7c5/04_IMG_5393_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/1ed8a7c5/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575030161640",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575030161640",
+  "image_errors": []
+}
+RUN 2/49: incoming/jewelry/Bead Bracelets
+{
+  "folder": "incoming/jewelry/Bead Bracelets",
+  "fatal_error": "[SSL: SSLV3_ALERT_BAD_RECORD_MAC] sslv3 alert bad record mac (_ssl.c:2657)"
+}
+RUN 3/49: incoming/jewelry/Black Iced Cuban Chain & Bracelet
+{
+  "folder": "incoming/jewelry/Black Iced Cuban Chain & Bracelet",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Black Iced Cuban Chain & Bracelet",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/9d1f4ffa/01_IMG_4787_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Black Iced Cuban Chain & Bracelet/IMG_4787.jpeg",
+          "upload_path": "outputs/9d1f4ffa/01_IMG_4787_white_bg.png",
+          "cutout_path": "outputs/9d1f4ffa/01_IMG_4787_cutout.png",
+          "white_bg_path": "outputs/9d1f4ffa/01_IMG_4787_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Black Iced Cuban Chain & Bracelet/IMG_4788.jpeg",
+          "upload_path": "outputs/9d1f4ffa/02_IMG_4788_white_bg.png",
+          "cutout_path": "outputs/9d1f4ffa/02_IMG_4788_cutout.png",
+          "white_bg_path": "outputs/9d1f4ffa/02_IMG_4788_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Black Iced Cuban Chain & Bracelet/IMG_4791.jpeg",
+          "upload_path": "outputs/9d1f4ffa/03_IMG_4791_white_bg.png",
+          "cutout_path": "outputs/9d1f4ffa/03_IMG_4791_cutout.png",
+          "white_bg_path": "outputs/9d1f4ffa/03_IMG_4791_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Black Iced Cuban Chain & Bracelet/IMG_4792.jpeg",
+          "upload_path": "outputs/9d1f4ffa/04_IMG_4792_white_bg.png",
+          "cutout_path": "outputs/9d1f4ffa/04_IMG_4792_cutout.png",
+          "white_bg_path": "outputs/9d1f4ffa/04_IMG_4792_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/9d1f4ffa/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/9d1f4ffa/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575084916968",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575084916968",
+  "image_errors": []
+}
+RUN 4/49: incoming/jewelry/Black Jade Dragon Pendant Chain
+{
+  "folder": "incoming/jewelry/Black Jade Dragon Pendant Chain",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Black Jade Dragon Pendant Chain",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/ee90cc2c/01_IMG_4816_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Black Jade Dragon Pendant Chain/IMG_4816.jpeg",
+          "upload_path": "outputs/ee90cc2c/01_IMG_4816_white_bg.png",
+          "cutout_path": "outputs/ee90cc2c/01_IMG_4816_cutout.png",
+          "white_bg_path": "outputs/ee90cc2c/01_IMG_4816_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Black Jade Dragon Pendant Chain/IMG_4817.jpeg",
+          "upload_path": "outputs/ee90cc2c/02_IMG_4817_white_bg.png",
+          "cutout_path": "outputs/ee90cc2c/02_IMG_4817_cutout.png",
+          "white_bg_path": "outputs/ee90cc2c/02_IMG_4817_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/ee90cc2c/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/ee90cc2c/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575089209576",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575089209576",
+  "image_errors": []
+}
+RUN 5/49: incoming/jewelry/Black Multi-Strand Cuban Chains
+{
+  "folder": "incoming/jewelry/Black Multi-Strand Cuban Chains",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Black Multi-Strand Cuban Chains",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/d5d4513d/01_IMG_4798_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Black Multi-Strand Cuban Chains/IMG_4798.jpeg",
+          "upload_path": "outputs/d5d4513d/01_IMG_4798_white_bg.png",
+          "cutout_path": "outputs/d5d4513d/01_IMG_4798_cutout.png",
+          "white_bg_path": "outputs/d5d4513d/01_IMG_4798_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Black Multi-Strand Cuban Chains/IMG_4799.jpeg",
+          "upload_path": "outputs/d5d4513d/02_IMG_4799_white_bg.png",
+          "cutout_path": "outputs/d5d4513d/02_IMG_4799_cutout.png",
+          "white_bg_path": "outputs/d5d4513d/02_IMG_4799_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Black Multi-Strand Cuban Chains/IMG_4801.jpeg",
+          "upload_path": "outputs/d5d4513d/03_IMG_4801_white_bg.png",
+          "cutout_path": "outputs/d5d4513d/03_IMG_4801_cutout.png",
+          "white_bg_path": "outputs/d5d4513d/03_IMG_4801_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Black Multi-Strand Cuban Chains/IMG_4802.jpeg",
+          "upload_path": "outputs/d5d4513d/04_IMG_4802_white_bg.png",
+          "cutout_path": "outputs/d5d4513d/04_IMG_4802_cutout.png",
+          "white_bg_path": "outputs/d5d4513d/04_IMG_4802_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/d5d4513d/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/d5d4513d/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575090618600",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575090618600",
+  "image_errors": []
+}
+RUN 6/49: incoming/jewelry/Black-Gold Two-Tone Cuban Chains
+{
+  "folder": "incoming/jewelry/Black-Gold Two-Tone Cuban Chains",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Black-Gold Two-Tone Cuban Chains",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/2fb7d819/01_IMG_4803_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Black-Gold Two-Tone Cuban Chains/IMG_4803.jpeg",
+          "upload_path": "outputs/2fb7d819/01_IMG_4803_white_bg.png",
+          "cutout_path": "outputs/2fb7d819/01_IMG_4803_cutout.png",
+          "white_bg_path": "outputs/2fb7d819/01_IMG_4803_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Black-Gold Two-Tone Cuban Chains/IMG_4804.jpeg",
+          "upload_path": "outputs/2fb7d819/02_IMG_4804_white_bg.png",
+          "cutout_path": "outputs/2fb7d819/02_IMG_4804_cutout.png",
+          "white_bg_path": "outputs/2fb7d819/02_IMG_4804_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Black-Gold Two-Tone Cuban Chains/IMG_4805.jpeg",
+          "upload_path": "outputs/2fb7d819/03_IMG_4805_white_bg.png",
+          "cutout_path": "outputs/2fb7d819/03_IMG_4805_cutout.png",
+          "white_bg_path": "outputs/2fb7d819/03_IMG_4805_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/2fb7d819/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/2fb7d819/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575092715752",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575092715752",
+  "image_errors": []
+}
+RUN 7/49: incoming/jewelry/Bracelet
+{
+  "folder": "incoming/jewelry/Bracelet",
+  "variant_names": [
+    "gold",
+    "silver",
+    "steal silver"
+  ],
+  "variant_count": 3,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Bracelet/gold",
+      "variant_name": "gold",
+      "white_bg_path": "outputs/9ca9767c/01_IMG_4797_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bracelet/gold/IMG_4797.jpeg",
+          "upload_path": "outputs/9ca9767c/01_IMG_4797_white_bg.png",
+          "cutout_path": "outputs/9ca9767c/01_IMG_4797_cutout.png",
+          "white_bg_path": "outputs/9ca9767c/01_IMG_4797_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/9ca9767c/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/9ca9767c/on_model_0.png"
+      ],
+      "image_errors": []
+    },
+    {
+      "folder": "incoming/jewelry/Bracelet/silver",
+      "variant_name": "silver",
+      "white_bg_path": "outputs/809f0ddf/01_IMG_4785_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bracelet/silver/IMG_4785.jpeg",
+          "upload_path": "outputs/809f0ddf/01_IMG_4785_white_bg.png",
+          "cutout_path": "outputs/809f0ddf/01_IMG_4785_cutout.png",
+          "white_bg_path": "outputs/809f0ddf/01_IMG_4785_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bracelet/silver/IMG_4845.jpeg",
+          "upload_path": "outputs/809f0ddf/02_IMG_4845_white_bg.png",
+          "cutout_path": "outputs/809f0ddf/02_IMG_4845_cutout.png",
+          "white_bg_path": "outputs/809f0ddf/02_IMG_4845_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/809f0ddf/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [],
+      "image_errors": []
+    },
+    {
+      "folder": "incoming/jewelry/Bracelet/steal silver",
+      "variant_name": "steal silver",
+      "white_bg_path": "outputs/5db6ae3c/01_IMG_4786_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bracelet/steal silver/IMG_4786.jpeg",
+          "upload_path": "outputs/5db6ae3c/01_IMG_4786_white_bg.png",
+          "cutout_path": "outputs/5db6ae3c/01_IMG_4786_cutout.png",
+          "white_bg_path": "outputs/5db6ae3c/01_IMG_4786_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/5db6ae3c/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575095369960",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575095369960",
+  "image_errors": []
+}
+RUN 8/49: incoming/jewelry/Cable Cuffs
+{
+  "folder": "incoming/jewelry/Cable Cuffs",
+  "variant_names": [
+    "gold",
+    "silver"
+  ],
+  "variant_count": 2,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Cable Cuffs/gold",
+      "variant_name": "gold",
+      "white_bg_path": "outputs/696712c9/01_IMG_5369_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Cable Cuffs/gold/IMG_5369.jpeg",
+          "upload_path": "outputs/696712c9/01_IMG_5369_white_bg.png",
+          "cutout_path": "outputs/696712c9/01_IMG_5369_cutout.png",
+          "white_bg_path": "outputs/696712c9/01_IMG_5369_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cable Cuffs/gold/IMG_5370.jpeg",
+          "upload_path": "outputs/696712c9/02_IMG_5370_white_bg.png",
+          "cutout_path": "outputs/696712c9/02_IMG_5370_cutout.png",
+          "white_bg_path": "outputs/696712c9/02_IMG_5370_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/696712c9/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/696712c9/on_model_0.png"
+      ],
+      "image_errors": []
+    },
+    {
+      "folder": "incoming/jewelry/Cable Cuffs/silver",
+      "variant_name": "silver",
+      "white_bg_path": "outputs/e76d291e/01_IMG_5371_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Cable Cuffs/silver/IMG_5371.jpeg",
+          "upload_path": "outputs/e76d291e/01_IMG_5371_white_bg.png",
+          "cutout_path": "outputs/e76d291e/01_IMG_5371_cutout.png",
+          "white_bg_path": "outputs/e76d291e/01_IMG_5371_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cable Cuffs/silver/IMG_5381.jpeg",
+          "upload_path": "outputs/e76d291e/02_IMG_5381_white_bg.png",
+          "cutout_path": "outputs/e76d291e/02_IMG_5381_cutout.png",
+          "white_bg_path": "outputs/e76d291e/02_IMG_5381_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cable Cuffs/silver/IMG_5382.jpeg",
+          "upload_path": "outputs/e76d291e/03_IMG_5382_white_bg.png",
+          "cutout_path": "outputs/e76d291e/03_IMG_5382_cutout.png",
+          "white_bg_path": "outputs/e76d291e/03_IMG_5382_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/e76d291e/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575100514536",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575100514536",
+  "image_errors": []
+}
+RUN 9/49: incoming/jewelry/Chunky Cuban Bracelets
+{
+  "folder": "incoming/jewelry/Chunky Cuban Bracelets",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Chunky Cuban Bracelets",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/1bdf1b78/01_IMG_4828_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Chunky Cuban Bracelets/IMG_4828.jpeg",
+          "upload_path": "outputs/1bdf1b78/01_IMG_4828_white_bg.png",
+          "cutout_path": "outputs/1bdf1b78/01_IMG_4828_cutout.png",
+          "white_bg_path": "outputs/1bdf1b78/01_IMG_4828_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Chunky Cuban Bracelets/IMG_4829.jpeg",
+          "upload_path": "outputs/1bdf1b78/02_IMG_4829_white_bg.png",
+          "cutout_path": "outputs/1bdf1b78/02_IMG_4829_cutout.png",
+          "white_bg_path": "outputs/1bdf1b78/02_IMG_4829_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Chunky Cuban Bracelets/IMG_4830.jpeg",
+          "upload_path": "outputs/1bdf1b78/03_IMG_4830_white_bg.png",
+          "cutout_path": "outputs/1bdf1b78/03_IMG_4830_cutout.png",
+          "white_bg_path": "outputs/1bdf1b78/03_IMG_4830_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Chunky Cuban Bracelets/IMG_4831.jpeg",
+          "upload_path": "outputs/1bdf1b78/04_IMG_4831_white_bg.png",
+          "cutout_path": "outputs/1bdf1b78/04_IMG_4831_cutout.png",
+          "white_bg_path": "outputs/1bdf1b78/04_IMG_4831_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/1bdf1b78/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/1bdf1b78/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575101956328",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575101956328",
+  "image_errors": []
+}
+RUN 10/49: incoming/jewelry/Cluster Bracelets
+{
+  "folder": "incoming/jewelry/Cluster Bracelets",
+  "variant_names": [
+    "gold",
+    "silver"
+  ],
+  "variant_count": 2,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Cluster Bracelets/gold",
+      "variant_name": "gold",
+      "white_bg_path": "outputs/728ad08a/01_IMG_4836_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Cluster Bracelets/gold/IMG_4836.jpeg",
+          "upload_path": "outputs/728ad08a/01_IMG_4836_white_bg.png",
+          "cutout_path": "outputs/728ad08a/01_IMG_4836_cutout.png",
+          "white_bg_path": "outputs/728ad08a/01_IMG_4836_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cluster Bracelets/gold/IMG_4837.jpeg",
+          "upload_path": "outputs/728ad08a/02_IMG_4837_white_bg.png",
+          "cutout_path": "outputs/728ad08a/02_IMG_4837_cutout.png",
+          "white_bg_path": "outputs/728ad08a/02_IMG_4837_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cluster Bracelets/gold/IMG_4838.jpeg",
+          "upload_path": "outputs/728ad08a/03_IMG_4838_white_bg.png",
+          "cutout_path": "outputs/728ad08a/03_IMG_4838_cutout.png",
+          "white_bg_path": "outputs/728ad08a/03_IMG_4838_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/728ad08a/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/728ad08a/on_model_0.png"
+      ],
+      "image_errors": []
+    },
+    {
+      "folder": "incoming/jewelry/Cluster Bracelets/silver",
+      "variant_name": "silver",
+      "white_bg_path": "outputs/9ac5df9e/01_IMG_4839_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Cluster Bracelets/silver/IMG_4839.jpeg",
+          "upload_path": "outputs/9ac5df9e/01_IMG_4839_white_bg.png",
+          "cutout_path": "outputs/9ac5df9e/01_IMG_4839_cutout.png",
+          "white_bg_path": "outputs/9ac5df9e/01_IMG_4839_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cluster Bracelets/silver/IMG_4840.jpeg",
+          "upload_path": "outputs/9ac5df9e/02_IMG_4840_white_bg.png",
+          "cutout_path": "outputs/9ac5df9e/02_IMG_4840_cutout.png",
+          "white_bg_path": "outputs/9ac5df9e/02_IMG_4840_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cluster Bracelets/silver/IMG_4841.jpeg",
+          "upload_path": "outputs/9ac5df9e/03_IMG_4841_white_bg.png",
+          "cutout_path": "outputs/9ac5df9e/03_IMG_4841_cutout.png",
+          "white_bg_path": "outputs/9ac5df9e/03_IMG_4841_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/9ac5df9e/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575103725800",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575103725800",
+  "image_errors": []
+}
+RUN 11/49: incoming/jewelry/Cluster Tennis Necklaces
+{
+  "folder": "incoming/jewelry/Cluster Tennis Necklaces",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Cluster Tennis Necklaces",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/16701794/01_IMG_4832_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Cluster Tennis Necklaces/IMG_4832.jpeg",
+          "upload_path": "outputs/16701794/01_IMG_4832_white_bg.png",
+          "cutout_path": "outputs/16701794/01_IMG_4832_cutout.png",
+          "white_bg_path": "outputs/16701794/01_IMG_4832_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cluster Tennis Necklaces/IMG_4833.jpeg",
+          "upload_path": "outputs/16701794/02_IMG_4833_white_bg.png",
+          "cutout_path": "outputs/16701794/02_IMG_4833_cutout.png",
+          "white_bg_path": "outputs/16701794/02_IMG_4833_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cluster Tennis Necklaces/IMG_4834.jpeg",
+          "upload_path": "outputs/16701794/03_IMG_4834_white_bg.png",
+          "cutout_path": "outputs/16701794/03_IMG_4834_cutout.png",
+          "white_bg_path": "outputs/16701794/03_IMG_4834_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cluster Tennis Necklaces/IMG_4835.jpeg",
+          "upload_path": "outputs/16701794/04_IMG_4835_white_bg.png",
+          "cutout_path": "outputs/16701794/04_IMG_4835_cutout.png",
+          "white_bg_path": "outputs/16701794/04_IMG_4835_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/16701794/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/16701794/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575105167592",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575105167592",
+  "image_errors": []
+}
+RUN 12/49: incoming/jewelry/Cross Bracelet
+{
+  "folder": "incoming/jewelry/Cross Bracelet",
+  "variant_names": [
+    "gold",
+    "silver"
+  ],
+  "variant_count": 2,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Cross Bracelet/gold",
+      "variant_name": "gold",
+      "white_bg_path": "outputs/fadae9dc/01_IMG_4732_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Cross Bracelet/gold/IMG_4732.jpeg",
+          "upload_path": "outputs/fadae9dc/01_IMG_4732_white_bg.png",
+          "cutout_path": "outputs/fadae9dc/01_IMG_4732_cutout.png",
+          "white_bg_path": "outputs/fadae9dc/01_IMG_4732_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cross Bracelet/gold/IMG_4733.jpeg",
+          "upload_path": "outputs/fadae9dc/02_IMG_4733_white_bg.png",
+          "cutout_path": "outputs/fadae9dc/02_IMG_4733_cutout.png",
+          "white_bg_path": "outputs/fadae9dc/02_IMG_4733_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/fadae9dc/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/fadae9dc/on_model_0.png"
+      ],
+      "image_errors": []
+    },
+    {
+      "folder": "incoming/jewelry/Cross Bracelet/silver",
+      "variant_name": "silver",
+      "white_bg_path": "outputs/a2dc475d/01_IMG_4734_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Cross Bracelet/silver/IMG_4734.jpeg",
+          "upload_path": "outputs/a2dc475d/01_IMG_4734_white_bg.png",
+          "cutout_path": "outputs/a2dc475d/01_IMG_4734_cutout.png",
+          "white_bg_path": "outputs/a2dc475d/01_IMG_4734_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Cross Bracelet/silver/IMG_4735.jpeg",
+          "upload_path": "outputs/a2dc475d/02_IMG_4735_white_bg.png",
+          "cutout_path": "outputs/a2dc475d/02_IMG_4735_cutout.png",
+          "white_bg_path": "outputs/a2dc475d/02_IMG_4735_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/a2dc475d/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575110279400",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575110279400",
+  "image_errors": []
+}
+RUN 13/49: incoming/jewelry/Curb Chain
+{
+  "folder": "incoming/jewelry/Curb Chain",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Curb Chain",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/b220afab/01_IMG_5039_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Curb Chain/IMG_5039.jpeg",
+          "upload_path": "outputs/b220afab/01_IMG_5039_white_bg.png",
+          "cutout_path": "outputs/b220afab/01_IMG_5039_cutout.png",
+          "white_bg_path": "outputs/b220afab/01_IMG_5039_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Curb Chain/IMG_5040.jpeg",
+          "upload_path": "outputs/b220afab/02_IMG_5040_white_bg.png",
+          "cutout_path": "outputs/b220afab/02_IMG_5040_cutout.png",
+          "white_bg_path": "outputs/b220afab/02_IMG_5040_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/b220afab/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/b220afab/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575112081640",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575112081640",
+  "image_errors": []
+}
+RUN 14/49: incoming/jewelry/Gold Baguette Mariner Chain & Bracelets
+{
+  "folder": "incoming/jewelry/Gold Baguette Mariner Chain & Bracelets",
+  "variant_names": [
+    "gold",
+    "gold and silver",
+    "silver"
+  ],
+  "variant_count": 3,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Baguette Mariner Chain & Bracelets/gold",
+      "variant_name": "gold",
+      "white_bg_path": "outputs/515f14a4/01_IMG_4822_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Baguette Mariner Chain & Bracelets/gold/IMG_4822.jpeg",
+          "upload_path": "outputs/515f14a4/01_IMG_4822_white_bg.png",
+          "cutout_path": "outputs/515f14a4/01_IMG_4822_cutout.png",
+          "white_bg_path": "outputs/515f14a4/01_IMG_4822_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/515f14a4/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/515f14a4/on_model_0.png"
+      ],
+      "image_errors": []
+    },
+    {
+      "folder": "incoming/jewelry/Gold Baguette Mariner Chain & Bracelets/gold and silver",
+      "variant_name": "gold and silver",
+      "white_bg_path": "outputs/5b8271ac/01_IMG_4820_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Baguette Mariner Chain & Bracelets/gold and silver/IMG_4820.jpeg",
+          "upload_path": "outputs/5b8271ac/01_IMG_4820_white_bg.png",
+          "cutout_path": "outputs/5b8271ac/01_IMG_4820_cutout.png",
+          "white_bg_path": "outputs/5b8271ac/01_IMG_4820_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Baguette Mariner Chain & Bracelets/gold and silver/IMG_4821.jpeg",
+          "upload_path": "outputs/5b8271ac/02_IMG_4821_white_bg.png",
+          "cutout_path": "outputs/5b8271ac/02_IMG_4821_cutout.png",
+          "white_bg_path": "outputs/5b8271ac/02_IMG_4821_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Baguette Mariner Chain & Bracelets/gold and silver/IMG_4823.jpeg",
+          "upload_path": "outputs/5b8271ac/03_IMG_4823_white_bg.png",
+          "cutout_path": "outputs/5b8271ac/03_IMG_4823_cutout.png",
+          "white_bg_path": "outputs/5b8271ac/03_IMG_4823_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/5b8271ac/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [],
+      "image_errors": []
+    },
+    {
+      "folder": "incoming/jewelry/Gold Baguette Mariner Chain & Bracelets/silver",
+      "variant_name": "silver",
+      "white_bg_path": "outputs/fd4b4567/01_IMG_4824_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Baguette Mariner Chain & Bracelets/silver/IMG_4824.jpeg",
+          "upload_path": "outputs/fd4b4567/01_IMG_4824_white_bg.png",
+          "cutout_path": "outputs/fd4b4567/01_IMG_4824_cutout.png",
+          "white_bg_path": "outputs/fd4b4567/01_IMG_4824_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/fd4b4567/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575118995688",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575118995688",
+  "image_errors": []
+}
+RUN 15/49: incoming/jewelry/Gold Bangles
+{
+  "folder": "incoming/jewelry/Gold Bangles",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Bangles",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/0e1dbea1/01_IMG_5378_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Bangles/IMG_5378.jpeg",
+          "upload_path": "outputs/0e1dbea1/01_IMG_5378_white_bg.png",
+          "cutout_path": "outputs/0e1dbea1/01_IMG_5378_cutout.png",
+          "white_bg_path": "outputs/0e1dbea1/01_IMG_5378_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Bangles/IMG_5379.jpeg",
+          "upload_path": "outputs/0e1dbea1/02_IMG_5379_white_bg.png",
+          "cutout_path": "outputs/0e1dbea1/02_IMG_5379_cutout.png",
+          "white_bg_path": "outputs/0e1dbea1/02_IMG_5379_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Bangles/IMG_5380.jpeg",
+          "upload_path": "outputs/0e1dbea1/03_IMG_5380_white_bg.png",
+          "cutout_path": "outputs/0e1dbea1/03_IMG_5380_cutout.png",
+          "white_bg_path": "outputs/0e1dbea1/03_IMG_5380_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/0e1dbea1/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/0e1dbea1/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575122010344",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575122010344",
+  "image_errors": []
+}
+RUN 16/49: incoming/jewelry/Gold Cable Chain - RICH OR NOTHING Pendant & Bracelet
+{
+  "folder": "incoming/jewelry/Gold Cable Chain - RICH OR NOTHING Pendant & Bracelet",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Cable Chain - RICH OR NOTHING Pendant & Bracelet",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/4bd9b9e1/01_IMG_4793_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Cable Chain - RICH OR NOTHING Pendant & Bracelet/IMG_4793.jpeg",
+          "upload_path": "outputs/4bd9b9e1/01_IMG_4793_white_bg.png",
+          "cutout_path": "outputs/4bd9b9e1/01_IMG_4793_cutout.png",
+          "white_bg_path": "outputs/4bd9b9e1/01_IMG_4793_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Cable Chain - RICH OR NOTHING Pendant & Bracelet/IMG_4794.jpeg",
+          "upload_path": "outputs/4bd9b9e1/02_IMG_4794_white_bg.png",
+          "cutout_path": "outputs/4bd9b9e1/02_IMG_4794_cutout.png",
+          "white_bg_path": "outputs/4bd9b9e1/02_IMG_4794_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Cable Chain - RICH OR NOTHING Pendant & Bracelet/IMG_4795.jpeg",
+          "upload_path": "outputs/4bd9b9e1/03_IMG_4795_white_bg.png",
+          "cutout_path": "outputs/4bd9b9e1/03_IMG_4795_cutout.png",
+          "white_bg_path": "outputs/4bd9b9e1/03_IMG_4795_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Cable Chain - RICH OR NOTHING Pendant & Bracelet/IMG_4796.jpeg",
+          "upload_path": "outputs/4bd9b9e1/04_IMG_4796_white_bg.png",
+          "cutout_path": "outputs/4bd9b9e1/04_IMG_4796_cutout.png",
+          "white_bg_path": "outputs/4bd9b9e1/04_IMG_4796_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/4bd9b9e1/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/4bd9b9e1/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575127744744",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575127744744",
+  "image_errors": []
+}
+RUN 17/49: incoming/jewelry/Gold Clover-Motif Necklaces
+{
+  "folder": "incoming/jewelry/Gold Clover-Motif Necklaces",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Clover-Motif Necklaces",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/aa3c0713/01_IMG_4743_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Clover-Motif Necklaces/IMG_4743.jpeg",
+          "upload_path": "outputs/aa3c0713/01_IMG_4743_white_bg.png",
+          "cutout_path": "outputs/aa3c0713/01_IMG_4743_cutout.png",
+          "white_bg_path": "outputs/aa3c0713/01_IMG_4743_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Clover-Motif Necklaces/IMG_4744.jpeg",
+          "upload_path": "outputs/aa3c0713/02_IMG_4744_white_bg.png",
+          "cutout_path": "outputs/aa3c0713/02_IMG_4744_cutout.png",
+          "white_bg_path": "outputs/aa3c0713/02_IMG_4744_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Clover-Motif Necklaces/IMG_4745.jpeg",
+          "upload_path": "outputs/aa3c0713/03_IMG_4745_white_bg.png",
+          "cutout_path": "outputs/aa3c0713/03_IMG_4745_cutout.png",
+          "white_bg_path": "outputs/aa3c0713/03_IMG_4745_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/aa3c0713/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/aa3c0713/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575129317608",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575129317608",
+  "image_errors": []
+}
+RUN 18/49: incoming/jewelry/Gold Iced Cuban & Bracelet
+{
+  "folder": "incoming/jewelry/Gold Iced Cuban & Bracelet",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Iced Cuban & Bracelet",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/cd5d222f/01_IMG_4809_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban & Bracelet/IMG_4809.jpeg",
+          "upload_path": "outputs/cd5d222f/01_IMG_4809_white_bg.png",
+          "cutout_path": "outputs/cd5d222f/01_IMG_4809_cutout.png",
+          "white_bg_path": "outputs/cd5d222f/01_IMG_4809_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban & Bracelet/IMG_4810.jpeg",
+          "upload_path": "outputs/cd5d222f/02_IMG_4810_white_bg.png",
+          "cutout_path": "outputs/cd5d222f/02_IMG_4810_cutout.png",
+          "white_bg_path": "outputs/cd5d222f/02_IMG_4810_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban & Bracelet/IMG_4811.jpeg",
+          "upload_path": "outputs/cd5d222f/03_IMG_4811_white_bg.png",
+          "cutout_path": "outputs/cd5d222f/03_IMG_4811_cutout.png",
+          "white_bg_path": "outputs/cd5d222f/03_IMG_4811_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/cd5d222f/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/cd5d222f/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575131807976",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575131807976",
+  "image_errors": []
+}
+RUN 19/49: incoming/jewelry/Gold Iced Cuban & Bracelet (2)
+{
+  "folder": "incoming/jewelry/Gold Iced Cuban & Bracelet (2)",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Iced Cuban & Bracelet (2)",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/63ea6e82/01_IMG_4842_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban & Bracelet (2)/IMG_4842.jpeg",
+          "upload_path": "outputs/63ea6e82/01_IMG_4842_white_bg.png",
+          "cutout_path": "outputs/63ea6e82/01_IMG_4842_cutout.png",
+          "white_bg_path": "outputs/63ea6e82/01_IMG_4842_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban & Bracelet (2)/IMG_4843.jpeg",
+          "upload_path": "outputs/63ea6e82/02_IMG_4843_white_bg.png",
+          "cutout_path": "outputs/63ea6e82/02_IMG_4843_cutout.png",
+          "white_bg_path": "outputs/63ea6e82/02_IMG_4843_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban & Bracelet (2)/IMG_4844.jpeg",
+          "upload_path": "outputs/63ea6e82/03_IMG_4844_white_bg.png",
+          "cutout_path": "outputs/63ea6e82/03_IMG_4844_cutout.png",
+          "white_bg_path": "outputs/63ea6e82/03_IMG_4844_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/63ea6e82/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/63ea6e82/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575135019240",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575135019240",
+  "image_errors": []
+}
+RUN 20/49: incoming/jewelry/Gold Iced Cuban Chain (chunky)
+{
+  "folder": "incoming/jewelry/Gold Iced Cuban Chain (chunky)",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Iced Cuban Chain (chunky)",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/d7f62822/01_IMG_4724_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban Chain (chunky)/IMG_4724.jpeg",
+          "upload_path": "outputs/d7f62822/01_IMG_4724_white_bg.png",
+          "cutout_path": "outputs/d7f62822/01_IMG_4724_cutout.png",
+          "white_bg_path": "outputs/d7f62822/01_IMG_4724_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban Chain (chunky)/IMG_4725.jpeg",
+          "upload_path": "outputs/d7f62822/02_IMG_4725_white_bg.png",
+          "cutout_path": "outputs/d7f62822/02_IMG_4725_cutout.png",
+          "white_bg_path": "outputs/d7f62822/02_IMG_4725_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban Chain (chunky)/IMG_4726.jpeg",
+          "upload_path": "outputs/d7f62822/03_IMG_4726_white_bg.png",
+          "cutout_path": "outputs/d7f62822/03_IMG_4726_cutout.png",
+          "white_bg_path": "outputs/d7f62822/03_IMG_4726_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban Chain (chunky)/IMG_4727.jpeg",
+          "upload_path": "outputs/d7f62822/04_IMG_4727_white_bg.png",
+          "cutout_path": "outputs/d7f62822/04_IMG_4727_cutout.png",
+          "white_bg_path": "outputs/d7f62822/04_IMG_4727_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/d7f62822/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/d7f62822/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575140720872",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575140720872",
+  "image_errors": []
+}
+RUN 21/49: incoming/jewelry/Gold Iced Cuban Chain (thinner)
+{
+  "folder": "incoming/jewelry/Gold Iced Cuban Chain (thinner)",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Iced Cuban Chain (thinner)",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/0da2a72c/01_IMG_4736_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban Chain (thinner)/IMG_4736.jpeg",
+          "upload_path": "outputs/0da2a72c/01_IMG_4736_white_bg.png",
+          "cutout_path": "outputs/0da2a72c/01_IMG_4736_cutout.png",
+          "white_bg_path": "outputs/0da2a72c/01_IMG_4736_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban Chain (thinner)/IMG_4737.jpeg",
+          "upload_path": "outputs/0da2a72c/02_IMG_4737_white_bg.png",
+          "cutout_path": "outputs/0da2a72c/02_IMG_4737_cutout.png",
+          "white_bg_path": "outputs/0da2a72c/02_IMG_4737_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Iced Cuban Chain (thinner)/IMG_4738.jpeg",
+          "upload_path": "outputs/0da2a72c/03_IMG_4738_white_bg.png",
+          "cutout_path": "outputs/0da2a72c/03_IMG_4738_cutout.png",
+          "white_bg_path": "outputs/0da2a72c/03_IMG_4738_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/0da2a72c/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/0da2a72c/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575150190824",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575150190824",
+  "image_errors": []
+}
+RUN 22/49: incoming/jewelry/Gold Pave Lock Bangles
+{
+  "folder": "incoming/jewelry/Gold Pave Lock Bangles",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Pave Lock Bangles",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/c76d42bb/01_IMG_5390_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Pave Lock Bangles/IMG_5390.jpeg",
+          "upload_path": "outputs/c76d42bb/01_IMG_5390_white_bg.png",
+          "cutout_path": "outputs/c76d42bb/01_IMG_5390_cutout.png",
+          "white_bg_path": "outputs/c76d42bb/01_IMG_5390_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Pave Lock Bangles/IMG_5391.jpeg",
+          "upload_path": "outputs/c76d42bb/02_IMG_5391_white_bg.png",
+          "cutout_path": "outputs/c76d42bb/02_IMG_5391_cutout.png",
+          "white_bg_path": "outputs/c76d42bb/02_IMG_5391_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/c76d42bb/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/c76d42bb/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575152484584",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575152484584",
+  "image_errors": []
+}
+RUN 23/49: incoming/jewelry/Gold Tennis Bracelet
+{
+  "folder": "incoming/jewelry/Gold Tennis Bracelet",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Tennis Bracelet",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/a6330af3/01_IMG_4761_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Tennis Bracelet/IMG_4761.jpeg",
+          "upload_path": "outputs/a6330af3/01_IMG_4761_white_bg.png",
+          "cutout_path": "outputs/a6330af3/01_IMG_4761_cutout.png",
+          "white_bg_path": "outputs/a6330af3/01_IMG_4761_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Tennis Bracelet/IMG_4762.jpeg",
+          "upload_path": "outputs/a6330af3/02_IMG_4762_white_bg.png",
+          "cutout_path": "outputs/a6330af3/02_IMG_4762_cutout.png",
+          "white_bg_path": "outputs/a6330af3/02_IMG_4762_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/a6330af3/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/a6330af3/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575154417896",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575154417896",
+  "image_errors": []
+}
+RUN 24/49: incoming/jewelry/Gold Tennis Chain with Pendant
+{
+  "folder": "incoming/jewelry/Gold Tennis Chain with Pendant",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Tennis Chain with Pendant",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/35d7e887/01_IMG_4758_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Tennis Chain with Pendant/IMG_4758.jpeg",
+          "upload_path": "outputs/35d7e887/01_IMG_4758_white_bg.png",
+          "cutout_path": "outputs/35d7e887/01_IMG_4758_cutout.png",
+          "white_bg_path": "outputs/35d7e887/01_IMG_4758_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Tennis Chain with Pendant/IMG_4759.jpeg",
+          "upload_path": "outputs/35d7e887/02_IMG_4759_white_bg.png",
+          "cutout_path": "outputs/35d7e887/02_IMG_4759_cutout.png",
+          "white_bg_path": "outputs/35d7e887/02_IMG_4759_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Tennis Chain with Pendant/IMG_4760.jpeg",
+          "upload_path": "outputs/35d7e887/03_IMG_4760_white_bg.png",
+          "cutout_path": "outputs/35d7e887/03_IMG_4760_cutout.png",
+          "white_bg_path": "outputs/35d7e887/03_IMG_4760_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/35d7e887/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/35d7e887/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575156351208",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575156351208",
+  "image_errors": []
+}
+RUN 25/49: incoming/jewelry/Gold Tennis Necklace
+{
+  "folder": "incoming/jewelry/Gold Tennis Necklace",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gold Tennis Necklace",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/a7513ec4/01_IMG_4746_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gold Tennis Necklace/IMG_4746.jpeg",
+          "upload_path": "outputs/a7513ec4/01_IMG_4746_white_bg.png",
+          "cutout_path": "outputs/a7513ec4/01_IMG_4746_cutout.png",
+          "white_bg_path": "outputs/a7513ec4/01_IMG_4746_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Tennis Necklace/IMG_4747.jpeg",
+          "upload_path": "outputs/a7513ec4/02_IMG_4747_white_bg.png",
+          "cutout_path": "outputs/a7513ec4/02_IMG_4747_cutout.png",
+          "white_bg_path": "outputs/a7513ec4/02_IMG_4747_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gold Tennis Necklace/IMG_4748.jpeg",
+          "upload_path": "outputs/a7513ec4/03_IMG_4748_white_bg.png",
+          "cutout_path": "outputs/a7513ec4/03_IMG_4748_cutout.png",
+          "white_bg_path": "outputs/a7513ec4/03_IMG_4748_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/a7513ec4/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/a7513ec4/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575158415592",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575158415592",
+  "image_errors": []
+}
+RUN 26/49: incoming/jewelry/Green Gem Pendant
+{
+  "folder": "incoming/jewelry/Green Gem Pendant",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Green Gem Pendant",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/c6ec5167/01_IMG_4865_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Green Gem Pendant/IMG_4865.jpeg",
+          "upload_path": "outputs/c6ec5167/01_IMG_4865_white_bg.png",
+          "cutout_path": "outputs/c6ec5167/01_IMG_4865_cutout.png",
+          "white_bg_path": "outputs/c6ec5167/01_IMG_4865_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Green Gem Pendant/IMG_4866.jpeg",
+          "upload_path": "outputs/c6ec5167/02_IMG_4866_white_bg.png",
+          "cutout_path": "outputs/c6ec5167/02_IMG_4866_cutout.png",
+          "white_bg_path": "outputs/c6ec5167/02_IMG_4866_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/c6ec5167/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/c6ec5167/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575159922920",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575159922920",
+  "image_errors": []
+}
+RUN 27/49: incoming/jewelry/Gunmetal Franco Chains
+{
+  "folder": "incoming/jewelry/Gunmetal Franco Chains",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Gunmetal Franco Chains",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/c7054855/01_IMG_4806_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Gunmetal Franco Chains/IMG_4806.jpeg",
+          "upload_path": "outputs/c7054855/01_IMG_4806_white_bg.png",
+          "cutout_path": "outputs/c7054855/01_IMG_4806_cutout.png",
+          "white_bg_path": "outputs/c7054855/01_IMG_4806_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gunmetal Franco Chains/IMG_4807.jpeg",
+          "upload_path": "outputs/c7054855/02_IMG_4807_white_bg.png",
+          "cutout_path": "outputs/c7054855/02_IMG_4807_cutout.png",
+          "white_bg_path": "outputs/c7054855/02_IMG_4807_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Gunmetal Franco Chains/IMG_4808.jpeg",
+          "upload_path": "outputs/c7054855/03_IMG_4808_white_bg.png",
+          "cutout_path": "outputs/c7054855/03_IMG_4808_cutout.png",
+          "white_bg_path": "outputs/c7054855/03_IMG_4808_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/c7054855/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/c7054855/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575162577128",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575162577128",
+  "image_errors": []
+}
+RUN 28/49: incoming/jewelry/Herringbone Chain
+{
+  "folder": "incoming/jewelry/Herringbone Chain",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Herringbone Chain",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/b2e83758/01_IMG_5042_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Herringbone Chain/IMG_5042.jpeg",
+          "upload_path": "outputs/b2e83758/01_IMG_5042_white_bg.png",
+          "cutout_path": "outputs/b2e83758/01_IMG_5042_cutout.png",
+          "white_bg_path": "outputs/b2e83758/01_IMG_5042_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/b2e83758/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/b2e83758/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575165034728",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575165034728",
+  "image_errors": []
+}
+RUN 29/49: incoming/jewelry/Iced Key Pendant
+{
+  "folder": "incoming/jewelry/Iced Key Pendant",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Iced Key Pendant",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/20304b92/01_IMG_4856_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Iced Key Pendant/IMG_4856.jpeg",
+          "upload_path": "outputs/20304b92/01_IMG_4856_white_bg.png",
+          "cutout_path": "outputs/20304b92/01_IMG_4856_cutout.png",
+          "white_bg_path": "outputs/20304b92/01_IMG_4856_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Iced Key Pendant/IMG_4857.jpeg",
+          "upload_path": "outputs/20304b92/02_IMG_4857_white_bg.png",
+          "cutout_path": "outputs/20304b92/02_IMG_4857_cutout.png",
+          "white_bg_path": "outputs/20304b92/02_IMG_4857_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Iced Key Pendant/IMG_4858.jpeg",
+          "upload_path": "outputs/20304b92/03_IMG_4858_white_bg.png",
+          "cutout_path": "outputs/20304b92/03_IMG_4858_cutout.png",
+          "white_bg_path": "outputs/20304b92/03_IMG_4858_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/20304b92/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/20304b92/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575167262952",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575167262952",
+  "image_errors": []
+}
+RUN 30/49: incoming/jewelry/Layered Tennis-Spike Chains
+{
+  "folder": "incoming/jewelry/Layered Tennis-Spike Chains",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Layered Tennis-Spike Chains",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/bde7cb19/01_IMG_4812_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Layered Tennis-Spike Chains/IMG_4812.jpeg",
+          "upload_path": "outputs/bde7cb19/01_IMG_4812_white_bg.png",
+          "cutout_path": "outputs/bde7cb19/01_IMG_4812_cutout.png",
+          "white_bg_path": "outputs/bde7cb19/01_IMG_4812_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Layered Tennis-Spike Chains/IMG_4813.jpeg",
+          "upload_path": "outputs/bde7cb19/02_IMG_4813_white_bg.png",
+          "cutout_path": "outputs/bde7cb19/02_IMG_4813_cutout.png",
+          "white_bg_path": "outputs/bde7cb19/02_IMG_4813_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Layered Tennis-Spike Chains/IMG_4814.jpeg",
+          "upload_path": "outputs/bde7cb19/03_IMG_4814_white_bg.png",
+          "cutout_path": "outputs/bde7cb19/03_IMG_4814_cutout.png",
+          "white_bg_path": "outputs/bde7cb19/03_IMG_4814_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Layered Tennis-Spike Chains/IMG_4815.jpeg",
+          "upload_path": "outputs/bde7cb19/04_IMG_4815_white_bg.png",
+          "cutout_path": "outputs/bde7cb19/04_IMG_4815_cutout.png",
+          "white_bg_path": "outputs/bde7cb19/04_IMG_4815_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/bde7cb19/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/bde7cb19/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575170277608",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575170277608",
+  "image_errors": []
+}
+RUN 31/49: incoming/jewelry/Leather Bracelets
+{
+  "folder": "incoming/jewelry/Leather Bracelets",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Leather Bracelets",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/30680963/01_IMG_5372_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Leather Bracelets/IMG_5372.jpeg",
+          "upload_path": "outputs/30680963/01_IMG_5372_white_bg.png",
+          "cutout_path": "outputs/30680963/01_IMG_5372_cutout.png",
+          "white_bg_path": "outputs/30680963/01_IMG_5372_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Leather Bracelets/IMG_5373.jpeg",
+          "upload_path": "outputs/30680963/02_IMG_5373_white_bg.png",
+          "cutout_path": "outputs/30680963/02_IMG_5373_cutout.png",
+          "white_bg_path": "outputs/30680963/02_IMG_5373_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Leather Bracelets/IMG_5374.jpeg",
+          "upload_path": "outputs/30680963/03_IMG_5374_white_bg.png",
+          "cutout_path": "outputs/30680963/03_IMG_5374_cutout.png",
+          "white_bg_path": "outputs/30680963/03_IMG_5374_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Leather Bracelets/IMG_5375.jpeg",
+          "upload_path": "outputs/30680963/04_IMG_5375_white_bg.png",
+          "cutout_path": "outputs/30680963/04_IMG_5375_cutout.png",
+          "white_bg_path": "outputs/30680963/04_IMG_5375_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Leather Bracelets/IMG_5376.jpeg",
+          "upload_path": "outputs/30680963/05_IMG_5376_white_bg.png",
+          "cutout_path": "outputs/30680963/05_IMG_5376_cutout.png",
+          "white_bg_path": "outputs/30680963/05_IMG_5376_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/30680963/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "on_model: Error code: 400 - {'error': {'message': 'Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID req_8faa7785dfa34a5aa642eba972617722. safety_violations=[sexual].', 'type': 'image_generation_user_error', 'param': None, 'code': 'moderation_blocked', 'moderation_details': {'moderation_stage': 'output', 'categories': ['sexual']}}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575171752168",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575171752168",
+  "image_errors": []
+}
+RUN 32/49: incoming/jewelry/Medallion Pendants
+{
+  "folder": "incoming/jewelry/Medallion Pendants",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Medallion Pendants",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/422126c6/01_IMG_4871_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Medallion Pendants/IMG_4871.jpeg",
+          "upload_path": "outputs/422126c6/01_IMG_4871_white_bg.png",
+          "cutout_path": "outputs/422126c6/01_IMG_4871_cutout.png",
+          "white_bg_path": "outputs/422126c6/01_IMG_4871_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Medallion Pendants/IMG_4872.jpeg",
+          "upload_path": "outputs/422126c6/02_IMG_4872_white_bg.png",
+          "cutout_path": "outputs/422126c6/02_IMG_4872_cutout.png",
+          "white_bg_path": "outputs/422126c6/02_IMG_4872_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Medallion Pendants/IMG_4873.jpeg",
+          "upload_path": "outputs/422126c6/03_IMG_4873_white_bg.png",
+          "cutout_path": "outputs/422126c6/03_IMG_4873_cutout.png",
+          "white_bg_path": "outputs/422126c6/03_IMG_4873_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/422126c6/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/422126c6/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575173816552",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575173816552",
+  "image_errors": []
+}
+RUN 33/49: incoming/jewelry/Oval Medallion Pendant
+{
+  "folder": "incoming/jewelry/Oval Medallion Pendant",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Oval Medallion Pendant",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/fa0d622f/01_IMG_4880_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Oval Medallion Pendant/IMG_4880.jpeg",
+          "upload_path": "outputs/fa0d622f/01_IMG_4880_white_bg.png",
+          "cutout_path": "outputs/fa0d622f/01_IMG_4880_cutout.png",
+          "white_bg_path": "outputs/fa0d622f/01_IMG_4880_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Oval Medallion Pendant/IMG_4881.jpeg",
+          "upload_path": "outputs/fa0d622f/02_IMG_4881_white_bg.png",
+          "cutout_path": "outputs/fa0d622f/02_IMG_4881_cutout.png",
+          "white_bg_path": "outputs/fa0d622f/02_IMG_4881_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Oval Medallion Pendant/IMG_4882.jpeg",
+          "upload_path": "outputs/fa0d622f/03_IMG_4882_white_bg.png",
+          "cutout_path": "outputs/fa0d622f/03_IMG_4882_cutout.png",
+          "white_bg_path": "outputs/fa0d622f/03_IMG_4882_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/fa0d622f/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/fa0d622f/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575177748712",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575177748712",
+  "image_errors": []
+}
+RUN 34/49: incoming/jewelry/Red Gem Pendant
+{
+  "folder": "incoming/jewelry/Red Gem Pendant",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Red Gem Pendant",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/e12cf319/01_IMG_4876_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Red Gem Pendant/IMG_4876.jpeg",
+          "upload_path": "outputs/e12cf319/01_IMG_4876_white_bg.png",
+          "cutout_path": "outputs/e12cf319/01_IMG_4876_cutout.png",
+          "white_bg_path": "outputs/e12cf319/01_IMG_4876_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Red Gem Pendant/IMG_4877.jpeg",
+          "upload_path": "outputs/e12cf319/02_IMG_4877_white_bg.png",
+          "cutout_path": "outputs/e12cf319/02_IMG_4877_cutout.png",
+          "white_bg_path": "outputs/e12cf319/02_IMG_4877_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Red Gem Pendant/IMG_4878.jpeg",
+          "upload_path": "outputs/e12cf319/03_IMG_4878_white_bg.png",
+          "cutout_path": "outputs/e12cf319/03_IMG_4878_cutout.png",
+          "white_bg_path": "outputs/e12cf319/03_IMG_4878_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Red Gem Pendant/IMG_4879.jpeg",
+          "upload_path": "outputs/e12cf319/04_IMG_4879_white_bg.png",
+          "cutout_path": "outputs/e12cf319/04_IMG_4879_cutout.png",
+          "white_bg_path": "outputs/e12cf319/04_IMG_4879_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/e12cf319/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/e12cf319/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575179944168",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575179944168",
+  "image_errors": []
+}
+RUN 35/49: incoming/jewelry/Rope Chain
+{
+  "folder": "incoming/jewelry/Rope Chain",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Rope Chain",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/baa84134/01_IMG_5043_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Rope Chain/IMG_5043.jpeg",
+          "upload_path": "outputs/baa84134/01_IMG_5043_white_bg.png",
+          "cutout_path": "outputs/baa84134/01_IMG_5043_cutout.png",
+          "white_bg_path": "outputs/baa84134/01_IMG_5043_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Rope Chain/IMG_5044.jpeg",
+          "upload_path": "outputs/baa84134/02_IMG_5044_white_bg.png",
+          "cutout_path": "outputs/baa84134/02_IMG_5044_cutout.png",
+          "white_bg_path": "outputs/baa84134/02_IMG_5044_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/baa84134/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/baa84134/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575183352040",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575183352040",
+  "image_errors": []
+}
+RUN 36/49: incoming/jewelry/Silver Cluster Bracelets
+{
+  "folder": "incoming/jewelry/Silver Cluster Bracelets",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Silver Cluster Bracelets",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/a165a290/01_IMG_4766_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Silver Cluster Bracelets/IMG_4766.jpeg",
+          "upload_path": "outputs/a165a290/01_IMG_4766_white_bg.png",
+          "cutout_path": "outputs/a165a290/01_IMG_4766_cutout.png",
+          "white_bg_path": "outputs/a165a290/01_IMG_4766_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Cluster Bracelets/IMG_4767.jpeg",
+          "upload_path": "outputs/a165a290/02_IMG_4767_white_bg.png",
+          "cutout_path": "outputs/a165a290/02_IMG_4767_cutout.png",
+          "white_bg_path": "outputs/a165a290/02_IMG_4767_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Cluster Bracelets/IMG_4768.jpeg",
+          "upload_path": "outputs/a165a290/03_IMG_4768_white_bg.png",
+          "cutout_path": "outputs/a165a290/03_IMG_4768_cutout.png",
+          "white_bg_path": "outputs/a165a290/03_IMG_4768_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/a165a290/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/a165a290/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575185514728",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575185514728",
+  "image_errors": []
+}
+RUN 37/49: incoming/jewelry/Silver Cluster Necklace
+{
+  "folder": "incoming/jewelry/Silver Cluster Necklace",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Silver Cluster Necklace",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/cd9f1270/01_IMG_4763_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Silver Cluster Necklace/IMG_4763.jpeg",
+          "upload_path": "outputs/cd9f1270/01_IMG_4763_white_bg.png",
+          "cutout_path": "outputs/cd9f1270/01_IMG_4763_cutout.png",
+          "white_bg_path": "outputs/cd9f1270/01_IMG_4763_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Cluster Necklace/IMG_4764.jpeg",
+          "upload_path": "outputs/cd9f1270/02_IMG_4764_white_bg.png",
+          "cutout_path": "outputs/cd9f1270/02_IMG_4764_cutout.png",
+          "white_bg_path": "outputs/cd9f1270/02_IMG_4764_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/cd9f1270/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/cd9f1270/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575187775720",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575187775720",
+  "image_errors": []
+}
+RUN 38/49: incoming/jewelry/Silver Double Tennis Necklace
+{
+  "folder": "incoming/jewelry/Silver Double Tennis Necklace",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Silver Double Tennis Necklace",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/4458967d/01_IMG_4769_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Silver Double Tennis Necklace/IMG_4769.jpeg",
+          "upload_path": "outputs/4458967d/01_IMG_4769_white_bg.png",
+          "cutout_path": "outputs/4458967d/01_IMG_4769_cutout.png",
+          "white_bg_path": "outputs/4458967d/01_IMG_4769_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Double Tennis Necklace/IMG_4770.jpeg",
+          "upload_path": "outputs/4458967d/02_IMG_4770_white_bg.png",
+          "cutout_path": "outputs/4458967d/02_IMG_4770_cutout.png",
+          "white_bg_path": "outputs/4458967d/02_IMG_4770_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/4458967d/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/4458967d/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575189610728",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575189610728",
+  "image_errors": []
+}
+RUN 39/49: incoming/jewelry/Silver Iced Cuban & Bracelet
+{
+  "folder": "incoming/jewelry/Silver Iced Cuban & Bracelet",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Silver Iced Cuban & Bracelet",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/c0e8a431/01_IMG_4825_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Silver Iced Cuban & Bracelet/IMG_4825.jpeg",
+          "upload_path": "outputs/c0e8a431/01_IMG_4825_white_bg.png",
+          "cutout_path": "outputs/c0e8a431/01_IMG_4825_cutout.png",
+          "white_bg_path": "outputs/c0e8a431/01_IMG_4825_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Iced Cuban & Bracelet/IMG_4826.jpeg",
+          "upload_path": "outputs/c0e8a431/02_IMG_4826_white_bg.png",
+          "cutout_path": "outputs/c0e8a431/02_IMG_4826_cutout.png",
+          "white_bg_path": "outputs/c0e8a431/02_IMG_4826_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Iced Cuban & Bracelet/IMG_4827.jpeg",
+          "upload_path": "outputs/c0e8a431/03_IMG_4827_white_bg.png",
+          "cutout_path": "outputs/c0e8a431/03_IMG_4827_cutout.png",
+          "white_bg_path": "outputs/c0e8a431/03_IMG_4827_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/c0e8a431/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/c0e8a431/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575194657000",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575194657000",
+  "image_errors": []
+}
+RUN 40/49: incoming/jewelry/Silver Iced Cuban Chain
+{
+  "folder": "incoming/jewelry/Silver Iced Cuban Chain",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Silver Iced Cuban Chain",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/2acb6962/01_IMG_4775_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Silver Iced Cuban Chain/IMG_4775.jpeg",
+          "upload_path": "outputs/2acb6962/01_IMG_4775_white_bg.png",
+          "cutout_path": "outputs/2acb6962/01_IMG_4775_cutout.png",
+          "white_bg_path": "outputs/2acb6962/01_IMG_4775_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Iced Cuban Chain/IMG_4776.jpeg",
+          "upload_path": "outputs/2acb6962/02_IMG_4776_white_bg.png",
+          "cutout_path": "outputs/2acb6962/02_IMG_4776_cutout.png",
+          "white_bg_path": "outputs/2acb6962/02_IMG_4776_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Iced Cuban Chain/IMG_4777.jpeg",
+          "upload_path": "outputs/2acb6962/03_IMG_4777_white_bg.png",
+          "cutout_path": "outputs/2acb6962/03_IMG_4777_cutout.png",
+          "white_bg_path": "outputs/2acb6962/03_IMG_4777_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/2acb6962/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/2acb6962/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575198294248",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575198294248",
+  "image_errors": []
+}
+RUN 41/49: incoming/jewelry/Silver Iced Cuban Set
+{
+  "folder": "incoming/jewelry/Silver Iced Cuban Set",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Silver Iced Cuban Set",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/c1ade674/01_IMG_4846_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Silver Iced Cuban Set/IMG_4846.jpeg",
+          "upload_path": "outputs/c1ade674/01_IMG_4846_white_bg.png",
+          "cutout_path": "outputs/c1ade674/01_IMG_4846_cutout.png",
+          "white_bg_path": "outputs/c1ade674/01_IMG_4846_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Iced Cuban Set/IMG_4847.jpeg",
+          "upload_path": "outputs/c1ade674/02_IMG_4847_white_bg.png",
+          "cutout_path": "outputs/c1ade674/02_IMG_4847_cutout.png",
+          "white_bg_path": "outputs/c1ade674/02_IMG_4847_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Iced Cuban Set/IMG_4848.jpeg",
+          "upload_path": "outputs/c1ade674/03_IMG_4848_white_bg.png",
+          "cutout_path": "outputs/c1ade674/03_IMG_4848_cutout.png",
+          "white_bg_path": "outputs/c1ade674/03_IMG_4848_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/c1ade674/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/c1ade674/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575199113448",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575199113448",
+  "image_errors": []
+}
+RUN 42/49: incoming/jewelry/Silver Mariner Chain
+{
+  "folder": "incoming/jewelry/Silver Mariner Chain",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Silver Mariner Chain",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/5b488d69/01_IMG_4782_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Silver Mariner Chain/IMG_4782.jpeg",
+          "upload_path": "outputs/5b488d69/01_IMG_4782_white_bg.png",
+          "cutout_path": "outputs/5b488d69/01_IMG_4782_cutout.png",
+          "white_bg_path": "outputs/5b488d69/01_IMG_4782_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Mariner Chain/IMG_4783.jpeg",
+          "upload_path": "outputs/5b488d69/02_IMG_4783_white_bg.png",
+          "cutout_path": "outputs/5b488d69/02_IMG_4783_cutout.png",
+          "white_bg_path": "outputs/5b488d69/02_IMG_4783_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Mariner Chain/IMG_4784.jpeg",
+          "upload_path": "outputs/5b488d69/03_IMG_4784_white_bg.png",
+          "cutout_path": "outputs/5b488d69/03_IMG_4784_cutout.png",
+          "white_bg_path": "outputs/5b488d69/03_IMG_4784_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/5b488d69/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/5b488d69/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9575200588008",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575200588008",
+  "image_errors": []
+}
+RUN 43/49: incoming/jewelry/Silver Stone-Drop Necklace & Choker
+{
+  "folder": "incoming/jewelry/Silver Stone-Drop Necklace & Choker",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Silver Stone-Drop Necklace & Choker",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/2c6e375e/01_IMG_4739_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Silver Stone-Drop Necklace & Choker/IMG_4739.jpeg",
+          "upload_path": "outputs/2c6e375e/01_IMG_4739_white_bg.png",
+          "cutout_path": "outputs/2c6e375e/01_IMG_4739_cutout.png",
+          "white_bg_path": "outputs/2c6e375e/01_IMG_4739_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Stone-Drop Necklace & Choker/IMG_4740.jpeg",
+          "upload_path": "outputs/2c6e375e/02_IMG_4740_white_bg.png",
+          "cutout_path": "outputs/2c6e375e/02_IMG_4740_cutout.png",
+          "white_bg_path": "outputs/2c6e375e/02_IMG_4740_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/2c6e375e/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575203832040",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575203832040",
+  "image_errors": []
+}
+RUN 44/49: incoming/jewelry/Silver Tennis Chain with Pendant
+{
+  "folder": "incoming/jewelry/Silver Tennis Chain with Pendant",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Silver Tennis Chain with Pendant",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/07c7f887/01_IMG_4755_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Silver Tennis Chain with Pendant/IMG_4755.jpeg",
+          "upload_path": "outputs/07c7f887/01_IMG_4755_white_bg.png",
+          "cutout_path": "outputs/07c7f887/01_IMG_4755_cutout.png",
+          "white_bg_path": "outputs/07c7f887/01_IMG_4755_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Tennis Chain with Pendant/IMG_4756.jpeg",
+          "upload_path": "outputs/07c7f887/02_IMG_4756_white_bg.png",
+          "cutout_path": "outputs/07c7f887/02_IMG_4756_cutout.png",
+          "white_bg_path": "outputs/07c7f887/02_IMG_4756_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Tennis Chain with Pendant/IMG_4757.jpeg",
+          "upload_path": "outputs/07c7f887/03_IMG_4757_white_bg.png",
+          "cutout_path": "outputs/07c7f887/03_IMG_4757_cutout.png",
+          "white_bg_path": "outputs/07c7f887/03_IMG_4757_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575204847848",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575204847848",
+  "image_errors": []
+}
+RUN 45/49: incoming/jewelry/Silver Tennis Necklace
+{
+  "folder": "incoming/jewelry/Silver Tennis Necklace",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Silver Tennis Necklace",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/c74a5dd4/01_IMG_4749_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Silver Tennis Necklace/IMG_4749.jpeg",
+          "upload_path": "outputs/c74a5dd4/01_IMG_4749_white_bg.png",
+          "cutout_path": "outputs/c74a5dd4/01_IMG_4749_cutout.png",
+          "white_bg_path": "outputs/c74a5dd4/01_IMG_4749_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Tennis Necklace/IMG_4750.jpeg",
+          "upload_path": "outputs/c74a5dd4/02_IMG_4750_white_bg.png",
+          "cutout_path": "outputs/c74a5dd4/02_IMG_4750_cutout.png",
+          "white_bg_path": "outputs/c74a5dd4/02_IMG_4750_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Silver Tennis Necklace/IMG_4751.jpeg",
+          "upload_path": "outputs/c74a5dd4/03_IMG_4751_white_bg.png",
+          "cutout_path": "outputs/c74a5dd4/03_IMG_4751_cutout.png",
+          "white_bg_path": "outputs/c74a5dd4/03_IMG_4751_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575206060264",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575206060264",
+  "image_errors": []
+}
+RUN 46/49: incoming/jewelry/Simple Gold chain
+{
+  "folder": "incoming/jewelry/Simple Gold chain",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Simple Gold chain",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/dee9db80/01_IMG_4883_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Simple Gold chain/IMG_4883.jpeg",
+          "upload_path": "outputs/dee9db80/01_IMG_4883_white_bg.png",
+          "cutout_path": "outputs/dee9db80/01_IMG_4883_cutout.png",
+          "white_bg_path": "outputs/dee9db80/01_IMG_4883_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575206355176",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575206355176",
+  "image_errors": []
+}
+RUN 47/49: incoming/jewelry/Tennis Bracelets
+{
+  "folder": "incoming/jewelry/Tennis Bracelets",
+  "variant_names": [
+    "gold",
+    "silver"
+  ],
+  "variant_count": 2,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Tennis Bracelets/gold",
+      "variant_name": "gold",
+      "white_bg_path": "outputs/ba9f830d/01_IMG_4741_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Tennis Bracelets/gold/IMG_4741.jpeg",
+          "upload_path": "outputs/ba9f830d/01_IMG_4741_white_bg.png",
+          "cutout_path": "outputs/ba9f830d/01_IMG_4741_cutout.png",
+          "white_bg_path": "outputs/ba9f830d/01_IMG_4741_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Tennis Bracelets/silver",
+      "variant_name": "silver",
+      "white_bg_path": "outputs/82fb8ff9/01_IMG_4742_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Tennis Bracelets/silver/IMG_4742.jpeg",
+          "upload_path": "outputs/82fb8ff9/01_IMG_4742_white_bg.png",
+          "cutout_path": "outputs/82fb8ff9/01_IMG_4742_cutout.png",
+          "white_bg_path": "outputs/82fb8ff9/01_IMG_4742_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575206551784",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575206551784",
+  "image_errors": []
+}
+RUN 48/49: incoming/jewelry/Two-Tone Cross-Station Necklace
+{
+  "folder": "incoming/jewelry/Two-Tone Cross-Station Necklace",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Two-Tone Cross-Station Necklace",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/637c3e08/01_IMG_4728_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Two-Tone Cross-Station Necklace/IMG_4728.jpeg",
+          "upload_path": "outputs/637c3e08/01_IMG_4728_white_bg.png",
+          "cutout_path": "outputs/637c3e08/01_IMG_4728_cutout.png",
+          "white_bg_path": "outputs/637c3e08/01_IMG_4728_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Two-Tone Cross-Station Necklace/IMG_4729.jpeg",
+          "upload_path": "outputs/637c3e08/02_IMG_4729_white_bg.png",
+          "cutout_path": "outputs/637c3e08/02_IMG_4729_cutout.png",
+          "white_bg_path": "outputs/637c3e08/02_IMG_4729_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Two-Tone Cross-Station Necklace/IMG_4730.jpeg",
+          "upload_path": "outputs/637c3e08/03_IMG_4730_white_bg.png",
+          "cutout_path": "outputs/637c3e08/03_IMG_4730_cutout.png",
+          "white_bg_path": "outputs/637c3e08/03_IMG_4730_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Two-Tone Cross-Station Necklace/IMG_4731.jpeg",
+          "upload_path": "outputs/637c3e08/04_IMG_4731_white_bg.png",
+          "cutout_path": "outputs/637c3e08/04_IMG_4731_cutout.png",
+          "white_bg_path": "outputs/637c3e08/04_IMG_4731_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575206682856",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575206682856",
+  "image_errors": []
+}
+RUN 49/49: incoming/jewelry/Wolf Pendant
+{
+  "folder": "incoming/jewelry/Wolf Pendant",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Wolf Pendant",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/9c733f9d/01_IMG_4850_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Wolf Pendant/IMG_4850.jpeg",
+          "upload_path": "outputs/9c733f9d/01_IMG_4850_white_bg.png",
+          "cutout_path": "outputs/9c733f9d/01_IMG_4850_cutout.png",
+          "white_bg_path": "outputs/9c733f9d/01_IMG_4850_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Wolf Pendant/IMG_4851.jpeg",
+          "upload_path": "outputs/9c733f9d/02_IMG_4851_white_bg.png",
+          "cutout_path": "outputs/9c733f9d/02_IMG_4851_cutout.png",
+          "white_bg_path": "outputs/9c733f9d/02_IMG_4851_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Wolf Pendant/IMG_4852.jpeg",
+          "upload_path": "outputs/9c733f9d/03_IMG_4852_white_bg.png",
+          "cutout_path": "outputs/9c733f9d/03_IMG_4852_cutout.png",
+          "white_bg_path": "outputs/9c733f9d/03_IMG_4852_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575206846696",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575206846696",
+  "image_errors": []
+}
