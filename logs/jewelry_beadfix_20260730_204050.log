@@ -1,0 +1,514 @@
+skip-manifest: excluded 52 already-created products (52 in manifest(s))
+ready product folders selected: 1
+RUN 1/1: incoming/jewelry/Bead Bracelets
+{
+  "folder": "incoming/jewelry/Bead Bracelets",
+  "variant_names": [
+    "black and gold",
+    "black and gold tiger",
+    "black and silver",
+    "black and silver tiger",
+    "black bead",
+    "brown agate",
+    "gray",
+    "green",
+    "grey-white marble",
+    "hematite",
+    "lapis",
+    "red goldstone",
+    "tiger eye",
+    "white"
+  ],
+  "variant_count": 14,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/black and gold",
+      "variant_name": "black and gold",
+      "white_bg_path": "outputs/3e9da1ed/01_IMG_5076_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black and gold/IMG_5076.jpeg",
+          "upload_path": "outputs/3e9da1ed/01_IMG_5076_white_bg.png",
+          "cutout_path": "outputs/3e9da1ed/01_IMG_5076_cutout.png",
+          "white_bg_path": "outputs/3e9da1ed/01_IMG_5076_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black and gold/IMG_5077.jpeg",
+          "upload_path": "outputs/3e9da1ed/02_IMG_5077_white_bg.png",
+          "cutout_path": "outputs/3e9da1ed/02_IMG_5077_cutout.png",
+          "white_bg_path": "outputs/3e9da1ed/02_IMG_5077_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/black and gold tiger",
+      "variant_name": "black and gold tiger",
+      "white_bg_path": "outputs/3cb4ed97/01_IMG_5085_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black and gold tiger/IMG_5085.jpeg",
+          "upload_path": "outputs/3cb4ed97/01_IMG_5085_white_bg.png",
+          "cutout_path": "outputs/3cb4ed97/01_IMG_5085_cutout.png",
+          "white_bg_path": "outputs/3cb4ed97/01_IMG_5085_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black and gold tiger/IMG_5086.jpeg",
+          "upload_path": "outputs/3cb4ed97/02_IMG_5086_white_bg.png",
+          "cutout_path": "outputs/3cb4ed97/02_IMG_5086_cutout.png",
+          "white_bg_path": "outputs/3cb4ed97/02_IMG_5086_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/black and silver",
+      "variant_name": "black and silver",
+      "white_bg_path": "outputs/56cc8a27/01_IMG_5069_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black and silver/IMG_5069.jpeg",
+          "upload_path": "outputs/56cc8a27/01_IMG_5069_white_bg.png",
+          "cutout_path": "outputs/56cc8a27/01_IMG_5069_cutout.png",
+          "white_bg_path": "outputs/56cc8a27/01_IMG_5069_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black and silver/IMG_5070.jpeg",
+          "upload_path": "outputs/56cc8a27/02_IMG_5070_white_bg.png",
+          "cutout_path": "outputs/56cc8a27/02_IMG_5070_cutout.png",
+          "white_bg_path": "outputs/56cc8a27/02_IMG_5070_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/black and silver tiger",
+      "variant_name": "black and silver tiger",
+      "white_bg_path": "outputs/84b70f5d/01_IMG_5065_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black and silver tiger/IMG_5065.jpeg",
+          "upload_path": "outputs/84b70f5d/01_IMG_5065_white_bg.png",
+          "cutout_path": "outputs/84b70f5d/01_IMG_5065_cutout.png",
+          "white_bg_path": "outputs/84b70f5d/01_IMG_5065_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black and silver tiger/IMG_5066.jpeg",
+          "upload_path": "outputs/84b70f5d/02_IMG_5066_white_bg.png",
+          "cutout_path": "outputs/84b70f5d/02_IMG_5066_cutout.png",
+          "white_bg_path": "outputs/84b70f5d/02_IMG_5066_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black and silver tiger/IMG_5074.jpeg",
+          "upload_path": "outputs/84b70f5d/03_IMG_5074_white_bg.png",
+          "cutout_path": "outputs/84b70f5d/03_IMG_5074_cutout.png",
+          "white_bg_path": "outputs/84b70f5d/03_IMG_5074_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black and silver tiger/IMG_5075.jpeg",
+          "upload_path": "outputs/84b70f5d/04_IMG_5075_white_bg.png",
+          "cutout_path": "outputs/84b70f5d/04_IMG_5075_cutout.png",
+          "white_bg_path": "outputs/84b70f5d/04_IMG_5075_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/black bead",
+      "variant_name": "black bead",
+      "white_bg_path": "outputs/5ffa2fa1/01_IMG_5071_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black bead/IMG_5071.jpeg",
+          "upload_path": "outputs/5ffa2fa1/01_IMG_5071_white_bg.png",
+          "cutout_path": "outputs/5ffa2fa1/01_IMG_5071_cutout.png",
+          "white_bg_path": "outputs/5ffa2fa1/01_IMG_5071_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black bead/IMG_5072.jpeg",
+          "upload_path": "outputs/5ffa2fa1/02_IMG_5072_white_bg.png",
+          "cutout_path": "outputs/5ffa2fa1/02_IMG_5072_cutout.png",
+          "white_bg_path": "outputs/5ffa2fa1/02_IMG_5072_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/black bead/IMG_5098.jpeg",
+          "upload_path": "outputs/5ffa2fa1/03_IMG_5098_white_bg.png",
+          "cutout_path": "outputs/5ffa2fa1/03_IMG_5098_cutout.png",
+          "white_bg_path": "outputs/5ffa2fa1/03_IMG_5098_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/brown agate",
+      "variant_name": "brown agate",
+      "white_bg_path": "outputs/f4342cb7/01_IMG_5078_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/brown agate/IMG_5078.jpeg",
+          "upload_path": "outputs/f4342cb7/01_IMG_5078_white_bg.png",
+          "cutout_path": "outputs/f4342cb7/01_IMG_5078_cutout.png",
+          "white_bg_path": "outputs/f4342cb7/01_IMG_5078_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/brown agate/IMG_5079.jpeg",
+          "upload_path": "outputs/f4342cb7/02_IMG_5079_white_bg.png",
+          "cutout_path": "outputs/f4342cb7/02_IMG_5079_cutout.png",
+          "white_bg_path": "outputs/f4342cb7/02_IMG_5079_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/brown agate/IMG_5096.jpeg",
+          "upload_path": "outputs/f4342cb7/03_IMG_5096_white_bg.png",
+          "cutout_path": "outputs/f4342cb7/03_IMG_5096_cutout.png",
+          "white_bg_path": "outputs/f4342cb7/03_IMG_5096_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/brown agate/IMG_5097.jpeg",
+          "upload_path": "outputs/f4342cb7/04_IMG_5097_white_bg.png",
+          "cutout_path": "outputs/f4342cb7/04_IMG_5097_cutout.png",
+          "white_bg_path": "outputs/f4342cb7/04_IMG_5097_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/gray",
+      "variant_name": "gray",
+      "white_bg_path": "outputs/a9d40766/01_IMG_5073_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/gray/IMG_5073.jpeg",
+          "upload_path": "outputs/a9d40766/01_IMG_5073_white_bg.png",
+          "cutout_path": "outputs/a9d40766/01_IMG_5073_cutout.png",
+          "white_bg_path": "outputs/a9d40766/01_IMG_5073_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/green",
+      "variant_name": "green",
+      "white_bg_path": "outputs/4b42114b/01_IMG_5101_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/green/IMG_5101.jpeg",
+          "upload_path": "outputs/4b42114b/01_IMG_5101_white_bg.png",
+          "cutout_path": "outputs/4b42114b/01_IMG_5101_cutout.png",
+          "white_bg_path": "outputs/4b42114b/01_IMG_5101_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/grey-white marble",
+      "variant_name": "grey-white marble",
+      "white_bg_path": "outputs/f072318a/01_IMG_5080_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/grey-white marble/IMG_5080.jpeg",
+          "upload_path": "outputs/f072318a/01_IMG_5080_white_bg.png",
+          "cutout_path": "outputs/f072318a/01_IMG_5080_cutout.png",
+          "white_bg_path": "outputs/f072318a/01_IMG_5080_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/grey-white marble/IMG_5082.jpeg",
+          "upload_path": "outputs/f072318a/02_IMG_5082_white_bg.png",
+          "cutout_path": "outputs/f072318a/02_IMG_5082_cutout.png",
+          "white_bg_path": "outputs/f072318a/02_IMG_5082_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/grey-white marble/IMG_5083.jpeg",
+          "upload_path": "outputs/f072318a/03_IMG_5083_white_bg.png",
+          "cutout_path": "outputs/f072318a/03_IMG_5083_cutout.png",
+          "white_bg_path": "outputs/f072318a/03_IMG_5083_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/grey-white marble/IMG_5084.jpeg",
+          "upload_path": "outputs/f072318a/04_IMG_5084_white_bg.png",
+          "cutout_path": "outputs/f072318a/04_IMG_5084_cutout.png",
+          "white_bg_path": "outputs/f072318a/04_IMG_5084_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/hematite",
+      "variant_name": "hematite",
+      "white_bg_path": "outputs/82aeb4ab/01_IMG_5087_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/hematite/IMG_5087.jpeg",
+          "upload_path": "outputs/82aeb4ab/01_IMG_5087_white_bg.png",
+          "cutout_path": "outputs/82aeb4ab/01_IMG_5087_cutout.png",
+          "white_bg_path": "outputs/82aeb4ab/01_IMG_5087_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/hematite/IMG_5088.jpeg",
+          "upload_path": "outputs/82aeb4ab/02_IMG_5088_white_bg.png",
+          "cutout_path": "outputs/82aeb4ab/02_IMG_5088_cutout.png",
+          "white_bg_path": "outputs/82aeb4ab/02_IMG_5088_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/lapis",
+      "variant_name": "lapis",
+      "white_bg_path": "outputs/cfef9df3/01_IMG_5094_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/lapis/IMG_5094.jpeg",
+          "upload_path": "outputs/cfef9df3/01_IMG_5094_white_bg.png",
+          "cutout_path": "outputs/cfef9df3/01_IMG_5094_cutout.png",
+          "white_bg_path": "outputs/cfef9df3/01_IMG_5094_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/lapis/IMG_5095.jpeg",
+          "upload_path": "outputs/cfef9df3/02_IMG_5095_white_bg.png",
+          "cutout_path": "outputs/cfef9df3/02_IMG_5095_cutout.png",
+          "white_bg_path": "outputs/cfef9df3/02_IMG_5095_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/red goldstone",
+      "variant_name": "red goldstone",
+      "white_bg_path": "outputs/0383a042/01_IMG_5089_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/red goldstone/IMG_5089.jpeg",
+          "upload_path": "outputs/0383a042/01_IMG_5089_white_bg.png",
+          "cutout_path": "outputs/0383a042/01_IMG_5089_cutout.png",
+          "white_bg_path": "outputs/0383a042/01_IMG_5089_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/red goldstone/IMG_5090.jpeg",
+          "upload_path": "outputs/0383a042/02_IMG_5090_white_bg.png",
+          "cutout_path": "outputs/0383a042/02_IMG_5090_cutout.png",
+          "white_bg_path": "outputs/0383a042/02_IMG_5090_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/red goldstone/IMG_5091.jpeg",
+          "upload_path": "outputs/0383a042/03_IMG_5091_white_bg.png",
+          "cutout_path": "outputs/0383a042/03_IMG_5091_cutout.png",
+          "white_bg_path": "outputs/0383a042/03_IMG_5091_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/red goldstone/IMG_5092.jpeg",
+          "upload_path": "outputs/0383a042/04_IMG_5092_white_bg.png",
+          "cutout_path": "outputs/0383a042/04_IMG_5092_cutout.png",
+          "white_bg_path": "outputs/0383a042/04_IMG_5092_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/tiger eye",
+      "variant_name": "tiger eye",
+      "white_bg_path": "outputs/61055074/01_IMG_5063_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/tiger eye/IMG_5063.jpeg",
+          "upload_path": "outputs/61055074/01_IMG_5063_white_bg.png",
+          "cutout_path": "outputs/61055074/01_IMG_5063_cutout.png",
+          "white_bg_path": "outputs/61055074/01_IMG_5063_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/tiger eye/IMG_5099.jpeg",
+          "upload_path": "outputs/61055074/02_IMG_5099_white_bg.png",
+          "cutout_path": "outputs/61055074/02_IMG_5099_cutout.png",
+          "white_bg_path": "outputs/61055074/02_IMG_5099_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/tiger eye/IMG_5100.jpeg",
+          "upload_path": "outputs/61055074/03_IMG_5100_white_bg.png",
+          "cutout_path": "outputs/61055074/03_IMG_5100_cutout.png",
+          "white_bg_path": "outputs/61055074/03_IMG_5100_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/jewelry/Bead Bracelets/white",
+      "variant_name": "white",
+      "white_bg_path": "outputs/31c835a5/01_IMG_5093_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Bead Bracelets/white/IMG_5093.jpeg",
+          "upload_path": "outputs/31c835a5/01_IMG_5093_white_bg.png",
+          "cutout_path": "outputs/31c835a5/01_IMG_5093_cutout.png",
+          "white_bg_path": "outputs/31c835a5/01_IMG_5093_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575325991144",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575325991144",
+  "image_errors": []
+}

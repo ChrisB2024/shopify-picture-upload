@@ -1,0 +1,422 @@
+ready product folders selected: 6
+RUN 1/6: incoming/lotions/AVOVITA - Chambreine
+{
+  "folder": "incoming/lotions/AVOVITA - Chambreine",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/lotions/AVOVITA - Chambreine",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/2b47c6bd/01_IMG_4142_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/lotions/AVOVITA - Chambreine/IMG_4142.jpeg",
+          "upload_path": "outputs/2b47c6bd/01_IMG_4142_white_bg.png",
+          "cutout_path": "outputs/2b47c6bd/01_IMG_4142_cutout.png",
+          "white_bg_path": "outputs/2b47c6bd/01_IMG_4142_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/AVOVITA - Chambreine/IMG_4143.jpeg",
+          "upload_path": "outputs/2b47c6bd/02_IMG_4143_white_bg.png",
+          "cutout_path": "outputs/2b47c6bd/02_IMG_4143_cutout.png",
+          "white_bg_path": "outputs/2b47c6bd/02_IMG_4143_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/AVOVITA - Chambreine/IMG_4144.jpeg",
+          "upload_path": "outputs/2b47c6bd/03_IMG_4144_white_bg.png",
+          "cutout_path": "outputs/2b47c6bd/03_IMG_4144_cutout.png",
+          "white_bg_path": "outputs/2b47c6bd/03_IMG_4144_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/AVOVITA - Chambreine/IMG_4145.jpeg",
+          "upload_path": "outputs/2b47c6bd/04_IMG_4145_white_bg.png",
+          "cutout_path": "outputs/2b47c6bd/04_IMG_4145_cutout.png",
+          "white_bg_path": "outputs/2b47c6bd/04_IMG_4145_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575208845544",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575208845544",
+  "image_errors": []
+}
+RUN 2/6: incoming/lotions/Beard Butter - Mino Botanicals
+{
+  "folder": "incoming/lotions/Beard Butter - Mino Botanicals",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/lotions/Beard Butter - Mino Botanicals",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/ca8fccd0/01_IMG_4113_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/lotions/Beard Butter - Mino Botanicals/IMG_4113.jpeg",
+          "upload_path": "outputs/ca8fccd0/01_IMG_4113_white_bg.png",
+          "cutout_path": "outputs/ca8fccd0/01_IMG_4113_cutout.png",
+          "white_bg_path": "outputs/ca8fccd0/01_IMG_4113_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Beard Butter - Mino Botanicals/IMG_4114.jpeg",
+          "upload_path": "outputs/ca8fccd0/02_IMG_4114_white_bg.png",
+          "cutout_path": "outputs/ca8fccd0/02_IMG_4114_cutout.png",
+          "white_bg_path": "outputs/ca8fccd0/02_IMG_4114_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Beard Butter - Mino Botanicals/IMG_4115.jpeg",
+          "upload_path": "outputs/ca8fccd0/03_IMG_4115_white_bg.png",
+          "cutout_path": "outputs/ca8fccd0/03_IMG_4115_cutout.png",
+          "white_bg_path": "outputs/ca8fccd0/03_IMG_4115_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575209631976",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575209631976",
+  "image_errors": []
+}
+RUN 3/6: incoming/lotions/Black Seed Oil - The Botanicals
+{
+  "folder": "incoming/lotions/Black Seed Oil - The Botanicals",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/lotions/Black Seed Oil - The Botanicals",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/c024bb96/01_IMG_4126_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/lotions/Black Seed Oil - The Botanicals/IMG_4126.jpeg",
+          "upload_path": "outputs/c024bb96/01_IMG_4126_white_bg.png",
+          "cutout_path": "outputs/c024bb96/01_IMG_4126_cutout.png",
+          "white_bg_path": "outputs/c024bb96/01_IMG_4126_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Black Seed Oil - The Botanicals/IMG_4127.jpeg",
+          "upload_path": "outputs/c024bb96/02_IMG_4127_white_bg.png",
+          "cutout_path": "outputs/c024bb96/02_IMG_4127_cutout.png",
+          "white_bg_path": "outputs/c024bb96/02_IMG_4127_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Black Seed Oil - The Botanicals/IMG_4131.jpeg",
+          "upload_path": "outputs/c024bb96/03_IMG_4131_white_bg.png",
+          "cutout_path": "outputs/c024bb96/03_IMG_4131_cutout.png",
+          "white_bg_path": "outputs/c024bb96/03_IMG_4131_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575210254568",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575210254568",
+  "image_errors": []
+}
+RUN 4/6: incoming/lotions/Dream Body Olive Oil
+{
+  "folder": "incoming/lotions/Dream Body Olive Oil",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/lotions/Dream Body Olive Oil",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/e7f2679f/01_IMG_4121_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/lotions/Dream Body Olive Oil/IMG_4121.jpeg",
+          "upload_path": "outputs/e7f2679f/01_IMG_4121_white_bg.png",
+          "cutout_path": "outputs/e7f2679f/01_IMG_4121_cutout.png",
+          "white_bg_path": "outputs/e7f2679f/01_IMG_4121_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Dream Body Olive Oil/IMG_4122.jpeg",
+          "upload_path": "outputs/e7f2679f/02_IMG_4122_white_bg.png",
+          "cutout_path": "outputs/e7f2679f/02_IMG_4122_cutout.png",
+          "white_bg_path": "outputs/e7f2679f/02_IMG_4122_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Dream Body Olive Oil/IMG_4123.jpeg",
+          "upload_path": "outputs/e7f2679f/03_IMG_4123_white_bg.png",
+          "cutout_path": "outputs/e7f2679f/03_IMG_4123_cutout.png",
+          "white_bg_path": "outputs/e7f2679f/03_IMG_4123_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575210877160",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575210877160",
+  "image_errors": [
+    "shopify: image 2: no response after send (not retried to avoid duplicate): Server disconnected without sending a response."
+  ]
+}
+RUN 5/6: incoming/lotions/Hand & Body Lotion - Coco
+{
+  "folder": "incoming/lotions/Hand & Body Lotion - Coco",
+  "variant_names": [
+    "cucumber",
+    "lavender",
+    "olive oil"
+  ],
+  "variant_count": 3,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/lotions/Hand & Body Lotion - Coco/cucumber",
+      "variant_name": "cucumber",
+      "white_bg_path": "outputs/911d07d6/01_IMG_4138_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/lotions/Hand & Body Lotion - Coco/cucumber/IMG_4138.jpeg",
+          "upload_path": "outputs/911d07d6/01_IMG_4138_white_bg.png",
+          "cutout_path": "outputs/911d07d6/01_IMG_4138_cutout.png",
+          "white_bg_path": "outputs/911d07d6/01_IMG_4138_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Hand & Body Lotion - Coco/cucumber/IMG_4139.jpeg",
+          "upload_path": "outputs/911d07d6/02_IMG_4139_white_bg.png",
+          "cutout_path": "outputs/911d07d6/02_IMG_4139_cutout.png",
+          "white_bg_path": "outputs/911d07d6/02_IMG_4139_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Hand & Body Lotion - Coco/cucumber/IMG_4140.jpeg",
+          "upload_path": "outputs/911d07d6/03_IMG_4140_white_bg.png",
+          "cutout_path": "outputs/911d07d6/03_IMG_4140_cutout.png",
+          "white_bg_path": "outputs/911d07d6/03_IMG_4140_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Hand & Body Lotion - Coco/cucumber/IMG_4141.jpeg",
+          "upload_path": "outputs/911d07d6/04_IMG_4141_white_bg.png",
+          "cutout_path": "outputs/911d07d6/04_IMG_4141_cutout.png",
+          "white_bg_path": "outputs/911d07d6/04_IMG_4141_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/lotions/Hand & Body Lotion - Coco/lavender",
+      "variant_name": "lavender",
+      "white_bg_path": "outputs/85e98f86/01_IMG_4134_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/lotions/Hand & Body Lotion - Coco/lavender/IMG_4134.jpeg",
+          "upload_path": "outputs/85e98f86/01_IMG_4134_white_bg.png",
+          "cutout_path": "outputs/85e98f86/01_IMG_4134_cutout.png",
+          "white_bg_path": "outputs/85e98f86/01_IMG_4134_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Hand & Body Lotion - Coco/lavender/IMG_4135.jpeg",
+          "upload_path": "outputs/85e98f86/02_IMG_4135_white_bg.png",
+          "cutout_path": "outputs/85e98f86/02_IMG_4135_cutout.png",
+          "white_bg_path": "outputs/85e98f86/02_IMG_4135_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Hand & Body Lotion - Coco/lavender/IMG_4136.jpeg",
+          "upload_path": "outputs/85e98f86/03_IMG_4136_white_bg.png",
+          "cutout_path": "outputs/85e98f86/03_IMG_4136_cutout.png",
+          "white_bg_path": "outputs/85e98f86/03_IMG_4136_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Hand & Body Lotion - Coco/lavender/IMG_4137.jpeg",
+          "upload_path": "outputs/85e98f86/04_IMG_4137_white_bg.png",
+          "cutout_path": "outputs/85e98f86/04_IMG_4137_cutout.png",
+          "white_bg_path": "outputs/85e98f86/04_IMG_4137_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    },
+    {
+      "folder": "incoming/lotions/Hand & Body Lotion - Coco/olive oil",
+      "variant_name": "olive oil",
+      "white_bg_path": "outputs/7cdf0d73/01_IMG_4116_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/lotions/Hand & Body Lotion - Coco/olive oil/IMG_4116.jpeg",
+          "upload_path": "outputs/7cdf0d73/01_IMG_4116_white_bg.png",
+          "cutout_path": "outputs/7cdf0d73/01_IMG_4116_cutout.png",
+          "white_bg_path": "outputs/7cdf0d73/01_IMG_4116_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Hand & Body Lotion - Coco/olive oil/IMG_4117.jpeg",
+          "upload_path": "outputs/7cdf0d73/02_IMG_4117_white_bg.png",
+          "cutout_path": "outputs/7cdf0d73/02_IMG_4117_cutout.png",
+          "white_bg_path": "outputs/7cdf0d73/02_IMG_4117_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575211532520",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575211532520",
+  "image_errors": []
+}
+RUN 6/6: incoming/lotions/Mino botanicals
+{
+  "folder": "incoming/lotions/Mino botanicals",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/lotions/Mino botanicals",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/60e6c551/01_IMG_4124_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/lotions/Mino botanicals/IMG_4124.jpeg",
+          "upload_path": "outputs/60e6c551/01_IMG_4124_white_bg.png",
+          "cutout_path": "outputs/60e6c551/01_IMG_4124_cutout.png",
+          "white_bg_path": "outputs/60e6c551/01_IMG_4124_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/lotions/Mino botanicals/IMG_4129.jpeg",
+          "upload_path": "outputs/60e6c551/02_IMG_4129_white_bg.png",
+          "cutout_path": "outputs/60e6c551/02_IMG_4129_cutout.png",
+          "white_bg_path": "outputs/60e6c551/02_IMG_4129_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575211696360",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575211696360",
+  "image_errors": []
+}

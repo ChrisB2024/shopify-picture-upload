@@ -1,0 +1,7 @@
+[queue] waiting for jewelry run to finish...
+[queue] jewelry finished at Thu Jul 30 16:17:29 EDT 2026
+[queue] starting clippers -> logs/clippers_20260730_161729.log
+[queue] clippers done at Thu Jul 30 16:22:11 EDT 2026 (exit 0)
+[queue] starting lotions -> logs/lotions_20260730_162211.log
+[queue] lotions done at Thu Jul 30 16:25:46 EDT 2026 (exit 0)
+[queue] all done at Thu Jul 30 16:25:46 EDT 2026

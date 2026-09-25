@@ -1,0 +1,488 @@
+ready product folders selected: 10
+RUN 1/10: incoming/clippers/BE THE MAN
+{
+  "folder": "incoming/clippers/BE THE MAN",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/clippers/BE THE MAN",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/099e75ea/01_IMG_4094_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/clippers/BE THE MAN/IMG_4094.jpeg",
+          "upload_path": "outputs/099e75ea/01_IMG_4094_white_bg.png",
+          "cutout_path": "outputs/099e75ea/01_IMG_4094_cutout.png",
+          "white_bg_path": "outputs/099e75ea/01_IMG_4094_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575207043304",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575207043304",
+  "image_errors": []
+}
+RUN 2/10: incoming/clippers/Barbasol
+{
+  "folder": "incoming/clippers/Barbasol",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/clippers/Barbasol",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/6e5e9215/01_IMG_4095_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/clippers/Barbasol/IMG_4095.jpeg",
+          "upload_path": "outputs/6e5e9215/01_IMG_4095_white_bg.png",
+          "cutout_path": "outputs/6e5e9215/01_IMG_4095_cutout.png",
+          "white_bg_path": "outputs/6e5e9215/01_IMG_4095_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/Barbasol/IMG_4097.jpeg",
+          "upload_path": "outputs/6e5e9215/02_IMG_4097_white_bg.png",
+          "cutout_path": "outputs/6e5e9215/02_IMG_4097_cutout.png",
+          "white_bg_path": "outputs/6e5e9215/02_IMG_4097_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575207174376",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575207174376",
+  "image_errors": []
+}
+RUN 3/10: incoming/clippers/CONAIR MAN
+{
+  "folder": "incoming/clippers/CONAIR MAN",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/clippers/CONAIR MAN",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/f0b8ffb4/01_IMG_4093_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/clippers/CONAIR MAN/IMG_4093.jpeg",
+          "upload_path": "outputs/f0b8ffb4/01_IMG_4093_white_bg.png",
+          "cutout_path": "outputs/f0b8ffb4/01_IMG_4093_cutout.png",
+          "white_bg_path": "outputs/f0b8ffb4/01_IMG_4093_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575207305448",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575207305448",
+  "image_errors": []
+}
+RUN 4/10: incoming/clippers/EASY CUT CLIPPER - andis
+{
+  "folder": "incoming/clippers/EASY CUT CLIPPER - andis",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/clippers/EASY CUT CLIPPER - andis",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/aa3dc973/01_IMG_4083_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/clippers/EASY CUT CLIPPER - andis/IMG_4083.jpeg",
+          "upload_path": "outputs/aa3dc973/01_IMG_4083_white_bg.png",
+          "cutout_path": "outputs/aa3dc973/01_IMG_4083_cutout.png",
+          "white_bg_path": "outputs/aa3dc973/01_IMG_4083_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/EASY CUT CLIPPER - andis/IMG_4085.jpeg",
+          "upload_path": "outputs/aa3dc973/02_IMG_4085_white_bg.png",
+          "cutout_path": "outputs/aa3dc973/02_IMG_4085_cutout.png",
+          "white_bg_path": "outputs/aa3dc973/02_IMG_4085_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/EASY CUT CLIPPER - andis/IMG_4087.jpeg",
+          "upload_path": "outputs/aa3dc973/03_IMG_4087_white_bg.png",
+          "cutout_path": "outputs/aa3dc973/03_IMG_4087_cutout.png",
+          "white_bg_path": "outputs/aa3dc973/03_IMG_4087_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575207436520",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575207436520",
+  "image_errors": []
+}
+RUN 5/10: incoming/clippers/QUICK CUT by Wahl
+{
+  "folder": "incoming/clippers/QUICK CUT by Wahl",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/clippers/QUICK CUT by Wahl",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/52431262/01_IMG_4098_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/clippers/QUICK CUT by Wahl/IMG_4098.jpeg",
+          "upload_path": "outputs/52431262/01_IMG_4098_white_bg.png",
+          "cutout_path": "outputs/52431262/01_IMG_4098_cutout.png",
+          "white_bg_path": "outputs/52431262/01_IMG_4098_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/QUICK CUT by Wahl/IMG_4100.jpeg",
+          "upload_path": "outputs/52431262/02_IMG_4100_white_bg.png",
+          "cutout_path": "outputs/52431262/02_IMG_4100_cutout.png",
+          "white_bg_path": "outputs/52431262/02_IMG_4100_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/QUICK CUT by Wahl/IMG_4101.jpeg",
+          "upload_path": "outputs/52431262/03_IMG_4101_white_bg.png",
+          "cutout_path": "outputs/52431262/03_IMG_4101_cutout.png",
+          "white_bg_path": "outputs/52431262/03_IMG_4101_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/QUICK CUT by Wahl/IMG_4102.jpeg",
+          "upload_path": "outputs/52431262/04_IMG_4102_white_bg.png",
+          "cutout_path": "outputs/52431262/04_IMG_4102_cutout.png",
+          "white_bg_path": "outputs/52431262/04_IMG_4102_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575207567592",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575207567592",
+  "image_errors": []
+}
+RUN 6/10: incoming/clippers/REMINGTON
+{
+  "folder": "incoming/clippers/REMINGTON",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/clippers/REMINGTON",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/d3244fe0/01_IMG_4088_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/clippers/REMINGTON/IMG_4088.jpeg",
+          "upload_path": "outputs/d3244fe0/01_IMG_4088_white_bg.png",
+          "cutout_path": "outputs/d3244fe0/01_IMG_4088_cutout.png",
+          "white_bg_path": "outputs/d3244fe0/01_IMG_4088_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/REMINGTON/IMG_4091.jpeg",
+          "upload_path": "outputs/d3244fe0/02_IMG_4091_white_bg.png",
+          "cutout_path": "outputs/d3244fe0/02_IMG_4091_cutout.png",
+          "white_bg_path": "outputs/d3244fe0/02_IMG_4091_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575207731432",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575207731432",
+  "image_errors": []
+}
+RUN 7/10: incoming/clippers/SIMPLE CUT - CONAIR
+{
+  "folder": "incoming/clippers/SIMPLE CUT - CONAIR",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/clippers/SIMPLE CUT - CONAIR",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/cb511c38/01_IMG_4079_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/clippers/SIMPLE CUT - CONAIR/IMG_4079.jpeg",
+          "upload_path": "outputs/cb511c38/01_IMG_4079_white_bg.png",
+          "cutout_path": "outputs/cb511c38/01_IMG_4079_cutout.png",
+          "white_bg_path": "outputs/cb511c38/01_IMG_4079_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/SIMPLE CUT - CONAIR/IMG_4080.jpeg",
+          "upload_path": "outputs/cb511c38/02_IMG_4080_white_bg.png",
+          "cutout_path": "outputs/cb511c38/02_IMG_4080_cutout.png",
+          "white_bg_path": "outputs/cb511c38/02_IMG_4080_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/SIMPLE CUT - CONAIR/IMG_4081.jpeg",
+          "upload_path": "outputs/cb511c38/03_IMG_4081_white_bg.png",
+          "cutout_path": "outputs/cb511c38/03_IMG_4081_cutout.png",
+          "white_bg_path": "outputs/cb511c38/03_IMG_4081_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575207796968",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575207796968",
+  "image_errors": []
+}
+RUN 8/10: incoming/clippers/VIVITAR
+{
+  "folder": "incoming/clippers/VIVITAR",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/clippers/VIVITAR",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/3c93665d/01_IMG_4103_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/clippers/VIVITAR/IMG_4103.jpeg",
+          "upload_path": "outputs/3c93665d/01_IMG_4103_white_bg.png",
+          "cutout_path": "outputs/3c93665d/01_IMG_4103_cutout.png",
+          "white_bg_path": "outputs/3c93665d/01_IMG_4103_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/VIVITAR/IMG_4105.jpeg",
+          "upload_path": "outputs/3c93665d/02_IMG_4105_white_bg.png",
+          "cutout_path": "outputs/3c93665d/02_IMG_4105_cutout.png",
+          "white_bg_path": "outputs/3c93665d/02_IMG_4105_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/VIVITAR/IMG_4106.jpeg",
+          "upload_path": "outputs/3c93665d/03_IMG_4106_white_bg.png",
+          "cutout_path": "outputs/3c93665d/03_IMG_4106_cutout.png",
+          "white_bg_path": "outputs/3c93665d/03_IMG_4106_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575207960808",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575207960808",
+  "image_errors": []
+}
+RUN 9/10: incoming/clippers/WAHL Mustache & Beard
+{
+  "folder": "incoming/clippers/WAHL Mustache & Beard",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/clippers/WAHL Mustache & Beard",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/8066f9a6/01_IMG_4107_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/clippers/WAHL Mustache & Beard/IMG_4107.jpeg",
+          "upload_path": "outputs/8066f9a6/01_IMG_4107_white_bg.png",
+          "cutout_path": "outputs/8066f9a6/01_IMG_4107_cutout.png",
+          "white_bg_path": "outputs/8066f9a6/01_IMG_4107_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/WAHL Mustache & Beard/IMG_4109.jpeg",
+          "upload_path": "outputs/8066f9a6/02_IMG_4109_white_bg.png",
+          "cutout_path": "outputs/8066f9a6/02_IMG_4109_cutout.png",
+          "white_bg_path": "outputs/8066f9a6/02_IMG_4109_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575208124648",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575208124648",
+  "image_errors": []
+}
+RUN 10/10: incoming/clippers/protrim
+{
+  "folder": "incoming/clippers/protrim",
+  "variant_names": [
+    "silver"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/clippers/protrim/silver",
+      "variant_name": "silver",
+      "white_bg_path": "outputs/5b12b71f/01_IMG_4110_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/clippers/protrim/silver/IMG_4110.jpeg",
+          "upload_path": "outputs/5b12b71f/01_IMG_4110_white_bg.png",
+          "cutout_path": "outputs/5b12b71f/01_IMG_4110_cutout.png",
+          "white_bg_path": "outputs/5b12b71f/01_IMG_4110_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/clippers/protrim/silver/IMG_4112.jpeg",
+          "upload_path": "outputs/5b12b71f/02_IMG_4112_white_bg.png",
+          "cutout_path": "outputs/5b12b71f/02_IMG_4112_cutout.png",
+          "white_bg_path": "outputs/5b12b71f/02_IMG_4112_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [],
+      "on_model_candidate_paths": [],
+      "image_errors": [
+        "lifestyle: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}",
+        "on_model: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached.', 'type': 'billing_limit_user_error', 'param': None, 'code': 'billing_hard_limit_reached'}}"
+      ]
+    }
+  ],
+  "shopify_product_id": "9575208222952",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9575208222952",
+  "image_errors": []
+}

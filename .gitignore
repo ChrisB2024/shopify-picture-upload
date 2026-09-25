@@ -23,3 +23,6 @@ backdrops/*
 
 # Local QA/review artifacts (contact sheets, blobs)
 _review/
+
+# Local Claude Code settings
+.claude/settings.local.json

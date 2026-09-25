@@ -1,0 +1,217 @@
+ready product folders selected: 53
+RUN 1/53: incoming/jewelry/Africa Map Pendants
+{
+  "folder": "incoming/jewelry/Africa Map Pendants",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Africa Map Pendants",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/1ce1df6e/01_IMG_4859_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Africa Map Pendants/IMG_4859.jpeg",
+          "upload_path": "outputs/1ce1df6e/01_IMG_4859_white_bg.png",
+          "cutout_path": "outputs/1ce1df6e/01_IMG_4859_cutout.png",
+          "white_bg_path": "outputs/1ce1df6e/01_IMG_4859_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Africa Map Pendants/IMG_4860.jpeg",
+          "upload_path": "outputs/1ce1df6e/02_IMG_4860_white_bg.png",
+          "cutout_path": "outputs/1ce1df6e/02_IMG_4860_cutout.png",
+          "white_bg_path": "outputs/1ce1df6e/02_IMG_4860_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Africa Map Pendants/IMG_4861.jpeg",
+          "upload_path": "outputs/1ce1df6e/03_IMG_4861_white_bg.png",
+          "cutout_path": "outputs/1ce1df6e/03_IMG_4861_cutout.png",
+          "white_bg_path": "outputs/1ce1df6e/03_IMG_4861_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Africa Map Pendants/IMG_4862.jpeg",
+          "upload_path": "outputs/1ce1df6e/04_IMG_4862_white_bg.png",
+          "cutout_path": "outputs/1ce1df6e/04_IMG_4862_cutout.png",
+          "white_bg_path": "outputs/1ce1df6e/04_IMG_4862_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Africa Map Pendants/IMG_4863.jpeg",
+          "upload_path": "outputs/1ce1df6e/05_IMG_4863_white_bg.png",
+          "cutout_path": "outputs/1ce1df6e/05_IMG_4863_cutout.png",
+          "white_bg_path": "outputs/1ce1df6e/05_IMG_4863_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/1ce1df6e/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/1ce1df6e/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9574943621352",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9574943621352",
+  "image_errors": []
+}
+RUN 2/53: incoming/jewelry/Africa Pendant Chain
+{
+  "folder": "incoming/jewelry/Africa Pendant Chain",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Africa Pendant Chain",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/8adcb7d7/01_IMG_4774_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Africa Pendant Chain/IMG_4774.jpeg",
+          "upload_path": "outputs/8adcb7d7/01_IMG_4774_white_bg.png",
+          "cutout_path": "outputs/8adcb7d7/01_IMG_4774_cutout.png",
+          "white_bg_path": "outputs/8adcb7d7/01_IMG_4774_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Africa Pendant Chain/IMG_4849.jpeg",
+          "upload_path": "outputs/8adcb7d7/02_IMG_4849_white_bg.png",
+          "cutout_path": "outputs/8adcb7d7/02_IMG_4849_cutout.png",
+          "white_bg_path": "outputs/8adcb7d7/02_IMG_4849_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/8adcb7d7/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/8adcb7d7/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9574954762472",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9574954762472",
+  "image_errors": []
+}
+RUN 3/53: incoming/jewelry/Angel Pendant
+{
+  "folder": "incoming/jewelry/Angel Pendant",
+  "variant_names": [
+    "Default"
+  ],
+  "variant_count": 1,
+  "listing_source": "model",
+  "listing_error": null,
+  "variant_results": [
+    {
+      "folder": "incoming/jewelry/Angel Pendant",
+      "variant_name": "Default",
+      "white_bg_path": "outputs/20ada351/01_IMG_4867_white_bg.png",
+      "processed_images": [
+        {
+          "source_path": "incoming/jewelry/Angel Pendant/IMG_4867.jpeg",
+          "upload_path": "outputs/20ada351/01_IMG_4867_white_bg.png",
+          "cutout_path": "outputs/20ada351/01_IMG_4867_cutout.png",
+          "white_bg_path": "outputs/20ada351/01_IMG_4867_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Angel Pendant/IMG_4868.jpeg",
+          "upload_path": "outputs/20ada351/02_IMG_4868_white_bg.png",
+          "cutout_path": "outputs/20ada351/02_IMG_4868_cutout.png",
+          "white_bg_path": "outputs/20ada351/02_IMG_4868_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Angel Pendant/IMG_4869.jpeg",
+          "upload_path": "outputs/20ada351/03_IMG_4869_white_bg.png",
+          "cutout_path": "outputs/20ada351/03_IMG_4869_cutout.png",
+          "white_bg_path": "outputs/20ada351/03_IMG_4869_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Angel Pendant/IMG_4870.jpeg",
+          "upload_path": "outputs/20ada351/04_IMG_4870_white_bg.png",
+          "cutout_path": "outputs/20ada351/04_IMG_4870_cutout.png",
+          "white_bg_path": "outputs/20ada351/04_IMG_4870_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        },
+        {
+          "source_path": "incoming/jewelry/Angel Pendant/IMG_4874.jpeg",
+          "upload_path": "outputs/20ada351/05_IMG_4874_white_bg.png",
+          "cutout_path": "outputs/20ada351/05_IMG_4874_cutout.png",
+          "white_bg_path": "outputs/20ada351/05_IMG_4874_white_bg.png",
+          "studio_path": null,
+          "backdrop_path": null,
+          "image_errors": []
+        }
+      ],
+      "lifestyle_candidate_paths": [
+        "outputs/20ada351/lifestyle_0.png"
+      ],
+      "on_model_candidate_paths": [
+        "outputs/20ada351/on_model_0.png"
+      ],
+      "image_errors": []
+    }
+  ],
+  "shopify_product_id": "9574963839208",
+  "shopify_admin_url": "https://oh-bags-2.myshopify.com/admin/products/9574963839208",
+  "image_errors": []
+}
+RUN 4/53: incoming/jewelry/Baguette Cluster Chokers
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/chrisilias/HICLONE/picture-upload/app/batch.py", line 743, in <module>
+    main()
+    ~~~~^^
+  File "/Users/chrisilias/HICLONE/picture-upload/app/batch.py", line 739, in main
+    raise SystemExit(asyncio.run(_run(args)))
+                     ~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+object address  : 0x1142e25c0
+object refcount : 4
+object type     : 0x1035b8e88
+object type name: OSError
+
